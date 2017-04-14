@@ -1,7 +1,64 @@
-<html>
-	<head>Developer site for Isaac Dettman</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Developer site for I.D.</title>
+	<style type="text/css">
+
+		html {
+			font-family: Georgia serif;
+			font-size: 10px;
+		}
+
+		body {
+			font-size: 1.2rem;
+			position: relative;
+		}
+
+		.flex-container {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+
+			-webkit-flex-flow: row wrap;
+			justify-content: space-around;
+		}
+
+		.flex-container li {
+			background: dimgrey;
+			width: 40%;
+			height: 20%;
+			height: 150px;
+			margin-top: 1rem;
+			line-height: 15rem;
+
+			font-size: 3em;
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin: 0;
+		}
+	</style>
+</head>
 <body>
-	Developer site for Isaac Dettman
-	<script src="index.js"></script>
+<h1>Developer site for Isaac Dettman</h1>
+<ul class="flex-container">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+</ul>
+
+<script src="index.js"></script>
 </body>
 </html>
