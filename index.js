@@ -1,1 +1,1 @@
-alert("foo")
+console.log('index.js loaded')
