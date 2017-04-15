@@ -2,83 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Developer site for I.D.</title>
-	<style type="text/css">
-
-		html {
-			font-size: 100%;
-		}
-
-		body {
-			font-size: 100%;
-			font-family: Georgia serif;
-			position: relative;
-			margin: 0;
-		}
-
-		.flex-container {
-			padding: 0;
-			margin: 0;
-			list-style: none;
-			height: 100%;
-			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
-			display: -webkit-flex;
-			display: flex;
-
-			-webkit-flex-flow: row wrap;
-			justify-content: space-around;
-		}
-
-		.flex-container li {
-			background: dimgrey;
-			width: 49%;
-			height: 49%;
-			font-size: 3em;
-			overflow: hidden;
-		}
-
-		h1, h2, h3, h4 {
-			margin: 0;
-			color: #2e2e2e;
-		}
-		h1 {
-			font-size: 108%;
-		}
-		h2 {
-			font-size: 150%;
-			line-height: 250%;
-		}
-		h3 {
-			font-size: 80%
-		}
-		.favorites-list {
-			padding: 0;
-			font-size: 10%;
-		}
-		a {
-			text-decoration: none;
-			color: #FFF
-		}
-	</style>
+	<title>Isaac A. Dettman</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<ul class="flex-container" id="lockedAspectContainer">
-	<li><h1>idettman</h1></li>
-	<li><h2><a href="https://github.com/">github</a></h2></li>
-	<li>
-		<h3>favorites</h3>
-		<ul class="favorites-list">
-			<li><a href="https://github.com/idettman/preact-project-template">Preact + Rollup + Buble</a></li>
-			<li><a href="https://github.com/idettman/react-app-template">React + Rollup + Buble</a></li>
-			<li><a href="https://github.com/idettman/preact-matter-template">Preact + Matter Physics + Rollup</a></li>
-			<li><a href="https://github.com/idettman/story-graph">Story-Graph</a></li>
-		</ul>
-	</li>
-	<li>...</li>
-</ul>
-
-<script src="index.js"></script>
+<main id="root"></main>
+<script src="app-bundle.js"></script>
 </body>
 </html>

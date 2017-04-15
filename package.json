@@ -8,10 +8,9 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run dev",
-    "dev": "rollup --config rollup.config.js --env=development",
-    "prod": "NODE_ENV=production rollup --config rollup.config.js --env=production",
+    "dev": "rollup --config build/rollup.config.js --env=development",
+    "prod": "NODE_ENV=production rollup --config build/rollup.config.js --env=production",
     "rollup": "rollup"
   },
   "repository": {
@@ -37,5 +36,9 @@
     "ignore": [
       "build"
     ]
+  },
+  "dependencies": {
+    "preact": "^8.1.0",
+    "preact-router": "^2.4.5"
   }
 }

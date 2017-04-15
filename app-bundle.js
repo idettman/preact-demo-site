@@ -1369,14 +1369,21 @@ var Home = (function (Component$$1) {
 }(Component));
 
 var Header = function (props) { return (
-	h( 'header', null,
-		h( 'h1', null, props.title )
+	h( 'header', { class: "header header__container" },
+		h( 'h1', { class: "header__title" }, props.title)
 	)
 ); };
 
 render((
 	h( 'article', null,
 	h( Header, { title: "Isaac A. Dettman" }),
+	h( 'div', { class: "subheader subheader__container" }, "subheader"),
+	h( 'ul', { class: "tiled-block tiled-block__container" },
+		h( 'li', null, "one" ),
+		h( 'li', null, "two" ),
+		h( 'li', null, "three" ),
+		h( 'li', null, "four" )
+	),
 	h( Router, null,
 	h( Home, { path: "/" })
 	)

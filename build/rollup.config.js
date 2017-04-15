@@ -3,23 +3,20 @@
 import commonjs from 'rollup-plugin-commonjs';
 import node from 'rollup-plugin-node-resolve';
 import buble from 'rollup-plugin-buble';
-import progress from 'rollup-plugin-progress';
-import visualizer from 'rollup-plugin-visualizer';
-import uglify from 'rollup-plugin-uglify';
 
-const environmentMode = 'const process={' +
-	'env:{' +
-	'NODE_ENV:"development"' +
-	'}' +
-	'};';
+const environmentMode = `const process = {
+	env: {
+		NODE_ENV: "development"
+	}
+}`
 
 export default {
-	entry: 'src/app.js',
+	entry: 'js/app.js',
 	intro: environmentMode,
 
 	exports: 'none',
 	format: 'iife',
-	dest: 'bin/app-bundle.js',
+	dest: 'app-bundle.js',
 	sourceMap: true,
 
 	plugins: [
@@ -43,17 +40,6 @@ export default {
 				modules: false
 			}
 		}),
-
-		progress({
-			clearLine: true
-		}),
-
-		(process.env.NODE_ENV === 'production' && uglify()),
-
-		visualizer({
-			filename: './bin/statistics.html',
-			sourcemap: false
-		})
 	],
 	external: ['fs', 'path', 'readline']
 }

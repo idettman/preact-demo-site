@@ -3,11 +3,20 @@
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
+      <inspection_tool class="AmdModulesDependencies" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+      <inspection_tool class="ES6UnusedImports" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="FlowJSConfig" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="FlowJSFlagCommentPlacement" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="JSJQueryEfficiency" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="JSXNamespaceValidation" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     </profile>
     <version value="1.0" />
   </component>
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/js" libraries="{Node.js Core, idettman.github.io/node_modules}" />
+  </component>
   <component name="JavaScriptSettings">
-    <option name="languageLevel" value="ES6" />
+    <option name="languageLevel" value="JSX" />
   </component>
   <component name="MarkdownNavigator.ProfileManager" default="" pdf-export="" />
   <component name="MarkdownProjectSettings">
@@ -96,6 +105,10 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+  </component>
+  <component name="TypeScriptCompiler">
+    <option name="useConfig" value="true" />
+    <option name="useService" value="false" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
