@@ -1,0 +1,41 @@
+{
+  "name": "idettman.github.io",
+  "version": "1.0.0",
+  "description": "isaac's github home",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=3.0.0",
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run dev",
+    "dev": "rollup --config rollup.config.js --env=development",
+    "prod": "NODE_ENV=production rollup --config rollup.config.js --env=production",
+    "rollup": "rollup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idettman/idettman.github.io.git"
+  },
+  "author": {
+    "name": "Isaac A. Dettman",
+    "url": "https://github.com/idettman"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Bublé",
+    "Preact",
+    "Rollup",
+    "StandardJS"
+  ],
+  "bugs": {
+    "url": "https://github.com/idettman/idettman.github.io/issues"
+  },
+  "homepage": "https://github.com/idettman/idettman.github.io#readme",
+  "standard": {
+    "ignore": [
+      "build"
+    ]
+  }
+}
