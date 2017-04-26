@@ -10,8 +10,6 @@ import About from './views/about/about.js';
 import Stars from './views/stars/stars.js';
 import Repos from './views/repos/repos.js';
 
-
-
 render((
 	<article>
 		<Header title="Isaac A. Dettman" />
@@ -22,11 +20,13 @@ render((
 			<li><Link activeClassName="active" href="/stars">Stars</Link></li>
 			<li><Link activeClassName="active" href="/repos">Repos</Link></li>
 		</ul>
-		<Router>
-			<Home path="/"/>
-			<About path="/about"/>
-			<Stars path="/stars"/>
-			<Repos path="/repos"/>
-		</Router>
+		<div className="page-content">
+			<Router>
+				<Home path="/"/>
+				<About path="/about"/>
+				<Stars path="/stars"/>
+				<Repos path="/repos"/>
+			</Router>
+		</div>
 	</article>
 ), document.getElementById('root'));

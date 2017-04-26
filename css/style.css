@@ -33,6 +33,7 @@ h2 {
 }
 
 a {
+	font-size: 4rem;
 	color: #272b29;
 	text-decoration: none;
 }
@@ -88,4 +89,9 @@ a.active {
 	/*height: 10rem;*/
 	list-style-type: none;
 	border-top: 0.5rem dotted #070c0b;
+}
+
+.page-content {
+	background-color: #cfc8d6;
+    height: 200px;
 }

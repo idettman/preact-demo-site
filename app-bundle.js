@@ -1579,11 +1579,13 @@ render((
 			h( 'li', null, h( match_1, { activeClassName: "active", href: "/stars" }, "Stars") ),
 			h( 'li', null, h( match_1, { activeClassName: "active", href: "/repos" }, "Repos") )
 		),
-		h( Router, null,
-			h( Home, { path: "/" }),
-			h( About, { path: "/about" }),
-			h( Stars, { path: "/stars" }),
-			h( Repos, { path: "/repos" })
+		h( 'div', { className: "page-content" },
+			h( Router, null,
+				h( Home, { path: "/" }),
+				h( About, { path: "/about" }),
+				h( Stars, { path: "/stars" }),
+				h( Repos, { path: "/repos" })
+			)
 		)
 	)
 ), document.getElementById('root'));
