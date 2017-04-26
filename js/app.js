@@ -14,14 +14,14 @@ render((
 		<Header title="Isaac A. Dettman" />
 		<div class="subheader subheader__container">subheader</div>
 		<ul class="tiled-block tiled-block__container">
-			<li><Link activeClassName="active" href="/idettman.github.io/index.html">Home</Link></li>
-			<li><Link activeClassName="active" href="/idettman.github.io/index.html/about">About</Link></li>
+			<li><Link activeClassName="active" href="/">Home</Link></li>
+			<li><Link activeClassName="active" href="/about">About</Link></li>
 			<li>three</li>
 			<li>four</li>
 		</ul>
 		<Router>
-			<Home path="/idettman.github.io/index.html"/>
-			<About path="/idettman.github.io/index.html/about"/>
+			<Home path="/"/>
+			<About path="/about"/>
 		</Router>
 	</article>
 ), document.getElementById('root'));
