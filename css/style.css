@@ -86,7 +86,7 @@ a.active {
 	display: block;
 	background-color: #0a010a;
 	text-indent: 5rem;
-	/*height: 10rem;*/
+	height: 5rem;
 	list-style-type: none;
 	border-top: 0.5rem dotted #070c0b;
 }
