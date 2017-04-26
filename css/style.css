@@ -83,12 +83,11 @@ a.active {
 
 .tiled-block__container li {
 	color: #15111d;
-	display: block;
-	background-color: #0a010a;
-	text-indent: 5rem;
-	height: 5rem;
-	list-style-type: none;
-	border-top: 0.5rem dotted #070c0b;
+    display: block;
+    text-indent: 2rem;
+    line-height: 6rem;
+    list-style-type: none;
+    border-top: 0.5rem dotted #1b1b1b;
 }
 
 .page-content {
