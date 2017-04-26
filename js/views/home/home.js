@@ -1,10 +1,9 @@
 import {h, Component} from 'preact';
 
 class Home extends Component {
-	render()
-	{
+	render() {
 		return (
-			<main>Home content</main>
+			<div>Home content</div>
 		);
 	}
 }

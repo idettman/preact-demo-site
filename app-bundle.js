@@ -1005,18 +1005,50 @@ function render(vnode, parent, merge) {
 	return diff(merge, vnode, {}, false, parent, false);
 }
 
+var preact = {
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options
+};
+
+
+
+
+var preact$1 = Object.freeze({
+	default: preact,
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options
+});
+
 var EMPTY$1 = {};
 
-function exec(url, route) {
-	var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY$1;
+function assign(obj, props) {
+	// eslint-disable-next-line guard-for-in
+	for (var i in props) {
+		obj[i] = props[i];
+	}
+	return obj;
+}
+
+function exec(url, route, opts) {
+	if ( opts === void 0 ) { opts=EMPTY$1; }
 
 	var reg = /(?:\?([^#]*))?(#.*)?$/,
-	    c = url.match(reg),
-	    matches = {},
-	    ret = void 0;
+		c = url.match(reg),
+		matches = {},
+		ret;
 	if (c && c[1]) {
 		var p = c[1].split('&');
-		for (var i = 0; i < p.length; i++) {
+		for (var i=0; i<p.length; i++) {
 			var r = p[i].split('=');
 			matches[decodeURIComponent(r[0])] = decodeURIComponent(r.slice(1).join('='));
 		}
@@ -1024,38 +1056,39 @@ function exec(url, route) {
 	url = segmentize(url.replace(reg, ''));
 	route = segmentize(route || '');
 	var max = Math.max(url.length, route.length);
-	for (var _i = 0; _i < max; _i++) {
-		if (route[_i] && route[_i].charAt(0) === ':') {
-			var param = route[_i].replace(/(^\:|[+*?]+$)/g, ''),
-			    flags = (route[_i].match(/[+*?]+$/) || EMPTY$1)[0] || '',
-			    plus = ~flags.indexOf('+'),
-			    star = ~flags.indexOf('*'),
-			    val = url[_i] || '';
-			if (!val && !star && (flags.indexOf('?') < 0 || plus)) {
+	for (var i$1=0; i$1<max; i$1++) {
+		if (route[i$1] && route[i$1].charAt(0)===':') {
+			var param = route[i$1].replace(/(^\:|[+*?]+$)/g, ''),
+				flags = (route[i$1].match(/[+*?]+$/) || EMPTY$1)[0] || '',
+				plus = ~flags.indexOf('+'),
+				star = ~flags.indexOf('*'),
+				val = url[i$1] || '';
+			if (!val && !star && (flags.indexOf('?')<0 || plus)) {
 				ret = false;
 				break;
 			}
 			matches[param] = decodeURIComponent(val);
 			if (plus || star) {
-				matches[param] = url.slice(_i).map(decodeURIComponent).join('/');
+				matches[param] = url.slice(i$1).map(decodeURIComponent).join('/');
 				break;
 			}
-		} else if (route[_i] !== url[_i]) {
+		}
+		else if (route[i$1]!==url[i$1]) {
 			ret = false;
 			break;
 		}
 	}
-	if (opts.default !== true && ret === false) { return false; }
+	if (opts.default!==true && ret===false) { return false; }
 	return matches;
 }
 
 function pathRankSort(a, b) {
 	var aAttr = a.attributes || EMPTY$1,
-	    bAttr = b.attributes || EMPTY$1;
+		bAttr = b.attributes || EMPTY$1;
 	if (aAttr.default) { return 1; }
 	if (bAttr.default) { return -1; }
 	var diff = rank(aAttr.path) - rank(bAttr.path);
-	return diff || aAttr.path.length - bAttr.path.length;
+	return diff || (aAttr.path.length - bAttr.path.length);
 }
 
 function segmentize(url) {
@@ -1070,52 +1103,50 @@ function strip(url) {
 	return url.replace(/(^\/+|\/+$)/g, '');
 }
 
-var _extends = Object.assign || function (target) {
-var arguments$1 = arguments;
- for (var i = 1; i < arguments.length; i++) { var source = arguments$1[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) { Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } }
-
 var customHistory = null;
 
 var ROUTERS = [];
 
+var subscribers = [];
+
 var EMPTY = {};
 
 function isPreactElement(node) {
-	return node.__preactattr_ != null || typeof Symbol !== 'undefined' && node[Symbol.for('preactattr')] != null;
+	return node.__preactattr_!=null || typeof Symbol!=='undefined' && node[Symbol.for('preactattr')]!=null;
 }
 
-function setUrl(url) {
-	var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'push';
+function setUrl(url, type) {
+	if ( type === void 0 ) { type='push'; }
 
 	if (customHistory && customHistory[type]) {
 		customHistory[type](url);
-	} else if (typeof history !== 'undefined' && history[type + 'State']) {
-		history[type + 'State'](null, null, url);
+	}
+	else if (typeof history!=='undefined' && history[type+'State']) {
+		history[type+'State'](null, null, url);
 	}
 }
+
 
 function getCurrentUrl() {
-	var url = void 0;
+	var url;
 	if (customHistory && customHistory.location) {
 		url = customHistory.location;
-	} else if (customHistory && customHistory.getCurrentLocation) {
-		url = customHistory.getCurrentLocation();
-	} else {
-		url = typeof location !== 'undefined' ? location : EMPTY;
 	}
-	return '' + (url.pathname || '') + (url.search || '');
+	else if (customHistory && customHistory.getCurrentLocation) {
+		url = customHistory.getCurrentLocation();
+	}
+	else {
+		url = typeof location!=='undefined' ? location : EMPTY;
+	}
+	return ("" + (url.pathname || '') + (url.search || ''));
 }
 
-function route(url) {
-	var replace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-	if (typeof url !== 'string' && url.url) {
+
+function route(url, replace) {
+	if ( replace === void 0 ) { replace=false; }
+
+	if (typeof url!=='string' && url.url) {
 		replace = url.replace;
 		url = url.url;
 	}
@@ -1128,44 +1159,53 @@ function route(url) {
 	return routeTo(url);
 }
 
+
 /** Check if the given URL can be handled by any router instances. */
 function canRoute(url) {
-	for (var i = ROUTERS.length; i--;) {
+	for (var i=ROUTERS.length; i--; ) {
 		if (ROUTERS[i].canRoute(url)) { return true; }
 	}
 	return false;
 }
 
+
 /** Tell all router instances to handle the given URL.  */
 function routeTo(url) {
 	var didRoute = false;
-	for (var i = 0; i < ROUTERS.length; i++) {
-		if (ROUTERS[i].routeTo(url) === true) {
+	for (var i=0; i<ROUTERS.length; i++) {
+		if (ROUTERS[i].routeTo(url)===true) {
 			didRoute = true;
 		}
 	}
+	for (var i$1=subscribers.length; i$1--; ) {
+		subscribers[i$1](url);
+	}
 	return didRoute;
 }
+
 
 function routeFromLink(node) {
 	// only valid elements
 	if (!node || !node.getAttribute) { return; }
 
 	var href = node.getAttribute('href'),
-	    target = node.getAttribute('target');
+		target = node.getAttribute('target');
 
 	// ignore links with targets and non-path URLs
-	if (!href || !href.match(/^\//g) || target && !target.match(/^_?self$/i)) { return; }
+	if (!href || !href.match(/^\//g) || (target && !target.match(/^_?self$/i))) { return; }
 
 	// attempt to route, if no match simply cede control to browser
 	return route(href);
 }
 
+
 function handleLinkClick(e) {
-	if (e.button !== 0) { return; }
-	routeFromLink(e.currentTarget || e.target || this);
-	return prevent(e);
+	if (e.button==0) {
+		routeFromLink(e.currentTarget || e.target || this);
+		return prevent(e);
+	}
 }
+
 
 function prevent(e) {
 	if (e) {
@@ -1176,80 +1216,71 @@ function prevent(e) {
 	return false;
 }
 
+
 function delegateLinkHandler(e) {
 	// ignore events the browser takes care of already:
-	if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.button !== 0) { return; }
+	if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.button!==0) { return; }
 
 	var t = e.target;
 	do {
-		if (String(t.nodeName).toUpperCase() === 'A' && t.getAttribute('href') && isPreactElement(t)) {
+		if (String(t.nodeName).toUpperCase()==='A' && t.getAttribute('href') && isPreactElement(t)) {
 			if (t.hasAttribute('native')) { return; }
 			// if link is handled by the router, prevent browser defaults
 			if (routeFromLink(t)) {
 				return prevent(e);
 			}
 		}
-	} while (t = t.parentNode);
+	} while ((t=t.parentNode));
 }
+
 
 var eventListenersInitialized = false;
 
 function initEventListeners() {
-	if (eventListenersInitialized) {
+	if (eventListenersInitialized){
 		return;
 	}
 
-	if (typeof addEventListener === 'function') {
+	if (typeof addEventListener==='function') {
 		if (!customHistory) {
-			addEventListener('popstate', function () {
-				return routeTo(getCurrentUrl());
-			});
+			addEventListener('popstate', function () { return routeTo(getCurrentUrl()); });
 		}
 		addEventListener('click', delegateLinkHandler);
 	}
 	eventListenersInitialized = true;
 }
 
-var Link = function Link(props) {
-	return h('a', _extends({}, props, { onClick: handleLinkClick }));
-};
 
-var Router = function (_Component) {
-	_inherits(Router, _Component);
-
+var Router = (function (Component$$1) {
 	function Router(props) {
-		_classCallCheck(this, Router);
-
-		var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
+		Component$$1.call(this, props);
 		if (props.history) {
 			customHistory = props.history;
 		}
 
-		_this.state = {
-			url: _this.props.url || getCurrentUrl()
+		this.state = {
+			url: props.url || getCurrentUrl()
 		};
 
 		initEventListeners();
-		return _this;
 	}
 
-	Router.prototype.shouldComponentUpdate = function shouldComponentUpdate(props) {
-		if (props.static !== true) { return true; }
-		return props.url !== this.props.url || props.onChange !== this.props.onChange;
+	if ( Component$$1 ) { Router.__proto__ = Component$$1; }
+	Router.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Router.prototype.constructor = Router;
+
+	Router.prototype.shouldComponentUpdate = function shouldComponentUpdate (props) {
+		if (props.static!==true) { return true; }
+		return props.url!==this.props.url || props.onChange!==this.props.onChange;
 	};
 
 	/** Check if the given URL can be matched against any children */
-
-
-	Router.prototype.canRoute = function canRoute(url) {
+	Router.prototype.canRoute = function canRoute (url) {
 		return this.getMatchingChildren(this.props.children, url, false).length > 0;
 	};
 
 	/** Re-render children with a new URL to match against. */
-
-
-	Router.prototype.routeTo = function routeTo(url) {
+	Router.prototype.routeTo = function routeTo (url) {
 		this._didRoute = false;
 		this.setState({ url: url });
 
@@ -1260,48 +1291,44 @@ var Router = function (_Component) {
 		return this._didRoute;
 	};
 
-	Router.prototype.componentWillMount = function componentWillMount() {
+	Router.prototype.componentWillMount = function componentWillMount () {
 		ROUTERS.push(this);
 		this.updating = true;
 	};
 
-	Router.prototype.componentDidMount = function componentDidMount() {
-		var _this2 = this;
+	Router.prototype.componentDidMount = function componentDidMount () {
+		var this$1 = this;
 
 		if (customHistory) {
 			this.unlisten = customHistory.listen(function (location) {
-				_this2.routeTo('' + (location.pathname || '') + (location.search || ''));
+				this$1.routeTo(("" + (location.pathname || '') + (location.search || '')));
 			});
 		}
 		this.updating = false;
 	};
 
-	Router.prototype.componentWillUnmount = function componentWillUnmount() {
-		if (typeof this.unlisten === 'function') { this.unlisten(); }
+	Router.prototype.componentWillUnmount = function componentWillUnmount () {
+		if (typeof this.unlisten==='function') { this.unlisten(); }
 		ROUTERS.splice(ROUTERS.indexOf(this), 1);
 	};
 
-	Router.prototype.componentWillUpdate = function componentWillUpdate() {
+	Router.prototype.componentWillUpdate = function componentWillUpdate () {
 		this.updating = true;
 	};
 
-	Router.prototype.componentDidUpdate = function componentDidUpdate() {
+	Router.prototype.componentDidUpdate = function componentDidUpdate () {
 		this.updating = false;
 	};
 
-	Router.prototype.getMatchingChildren = function getMatchingChildren(children, url, invoke) {
-		return children.slice().sort(pathRankSort).map(function (vnode) {
-			var path = vnode.attributes.path,
-			    matches = exec(url, path, vnode.attributes);
+	Router.prototype.getMatchingChildren = function getMatchingChildren (children, url, invoke) {
+		return children.slice().sort(pathRankSort).map( function (vnode) {
+			var attrs = vnode.attributes || {},
+				path = attrs.path,
+				matches = exec(url, path, attrs);
 			if (matches) {
-				if (invoke !== false) {
+				if (invoke!==false) {
 					var newProps = { url: url, matches: matches };
-					// copy matches onto props
-					for (var i in matches) {
-						if (matches.hasOwnProperty(i)) {
-							newProps[i] = matches[i];
-						}
-					}
+					assign(newProps, matches);
 					return cloneElement(vnode, newProps);
 				}
 				return vnode;
@@ -1310,10 +1337,10 @@ var Router = function (_Component) {
 		}).filter(Boolean);
 	};
 
-	Router.prototype.render = function render$$1(_ref, _ref2) {
-		var children = _ref.children,
-		    onChange = _ref.onChange;
-		var url = _ref2.url;
+	Router.prototype.render = function render$$1 (ref, ref$1) {
+		var children = ref.children;
+		var onChange = ref.onChange;
+		var url = ref$1.url;
 
 		var active = this.getMatchingChildren(children, url, true);
 
@@ -1321,9 +1348,9 @@ var Router = function (_Component) {
 		this._didRoute = !!current;
 
 		var previous = this.previousUrl;
-		if (url !== previous) {
+		if (url!==previous) {
 			this.previousUrl = url;
-			if (typeof onChange === 'function') {
+			if (typeof onChange==='function') {
 				onChange({
 					router: this,
 					url: url,
@@ -1338,16 +1365,34 @@ var Router = function (_Component) {
 	};
 
 	return Router;
-}(Component);
+}(Component));
 
-var Route = function Route(props) {
-	return h(props.component, props);
-};
+var Link = function (props) { return (
+	h('a', assign({ onClick: handleLinkClick }, props))
+); };
 
+var Route = function (props) { return h(props.component, props); };
+
+Router.subscribers = subscribers;
+Router.getCurrentUrl = getCurrentUrl;
 Router.route = route;
 Router.Router = Router;
 Router.Route = Route;
 Router.Link = Link;
+
+
+
+
+
+var preactRouter_es = Object.freeze({
+	subscribers: subscribers,
+	getCurrentUrl: getCurrentUrl,
+	route: route,
+	Router: Router,
+	Route: Route,
+	Link: Link,
+	default: Router
+});
 
 var Home = (function (Component$$1) {
 	function Home () {
@@ -1358,14 +1403,31 @@ var Home = (function (Component$$1) {
 	Home.prototype = Object.create( Component$$1 && Component$$1.prototype );
 	Home.prototype.constructor = Home;
 
-	Home.prototype.render = function render$$1 ()
-	{
+	Home.prototype.render = function render$$1 () {
 		return (
-			h( 'main', null, "Home content" )
+			h( 'div', null, "Home content" )
 		);
 	};
 
 	return Home;
+}(Component));
+
+var About = (function (Component$$1) {
+	function About () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) About.__proto__ = Component$$1;
+	About.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	About.prototype.constructor = About;
+
+	About.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, "About content" )
+		);
+	};
+
+	return About;
 }(Component));
 
 var Header = function (props) { return (
@@ -1374,19 +1436,117 @@ var Header = function (props) { return (
 	)
 ); };
 
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var _preact = ( preact$1 && preact ) || preact$1;
+
+var _preactRouter = ( preactRouter_es && Router ) || preactRouter_es;
+
+var match = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Link = exports.Match = undefined;
+
+var _extends = Object.assign || function (target) {
+var arguments$1 = arguments;
+ for (var i = 1; i < arguments.length; i++) { var source = arguments$1[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) { continue; } if (!Object.prototype.hasOwnProperty.call(obj, i)) { continue; } target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) { Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } }
+
+var Match = exports.Match = function (_Component) {
+	_inherits(Match, _Component);
+
+	function Match() {
+		var arguments$1 = arguments;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Match);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments$1[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.update = function (url) {
+			_this.nextUrl = url;
+			_this.setState({});
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	Match.prototype.componentDidMount = function componentDidMount() {
+		_preactRouter.subscribers.push(this.update);
+	};
+
+	Match.prototype.componentWillUnmount = function componentWillUnmount() {
+		_preactRouter.subscribers.splice(_preactRouter.subscribers.indexOf(this.update) >>> 0, 1);
+	};
+
+	Match.prototype.render = function render(props) {
+		var url = this.nextUrl || (0, _preactRouter.getCurrentUrl)(),
+		    path = url.replace(/\?.+$/, '');
+		this.nextUrl = null;
+		return props.children[0] && props.children[0]({
+			url: url,
+			path: path,
+			matches: path === props.path
+		});
+	};
+
+	return Match;
+}(_preact.Component);
+
+var Link = function Link(_ref) {
+	var activeClassName = _ref.activeClassName,
+	    path = _ref.path,
+	    props = _objectWithoutProperties(_ref, ['activeClassName', 'path']);
+
+	return (0, _preact.h)(
+		Match,
+		{ path: path || props.href },
+		function (_ref2) {
+			var matches = _ref2.matches;
+			return (0, _preact.h)(_preactRouter.Link, _extends({}, props, { 'class': [props.class || props.className, matches && activeClassName].filter(Boolean).join(' ') }));
+		}
+	);
+};
+
+exports.Link = Link;
+exports.default = Match;
+
+Match.Link = Link;
+});
+
+var match_1 = match.Link;
+
 render((
 	h( 'article', null,
-	h( Header, { title: "Isaac A. Dettman" }),
-	h( 'div', { class: "subheader subheader__container" }, "subheader"),
-	h( 'ul', { class: "tiled-block tiled-block__container" },
-		h( 'li', null, "one" ),
-		h( 'li', null, "two" ),
-		h( 'li', null, "three" ),
-		h( 'li', null, "four" )
-	),
-	h( Router, null,
-	h( Home, { path: "/" })
-	)
+		h( Header, { title: "Isaac A. Dettman" }),
+		h( 'div', { class: "subheader subheader__container" }, "subheader"),
+		h( 'ul', { class: "tiled-block tiled-block__container" },
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/idettman.github.io/index.html" }, "Home") ),
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/idettman.github.io/index.html/about" }, "About") ),
+			h( 'li', null, "three" ),
+			h( 'li', null, "four" )
+		),
+		h( Router, null,
+			h( Home, { path: "/idettman.github.io/index.html" }),
+			h( About, { path: "/idettman.github.io/index.html/about" })
+		)
 	)
 ), document.getElementById('root'));
 
