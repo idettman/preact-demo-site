@@ -1394,42 +1394,6 @@ var preactRouter_es = Object.freeze({
 	default: Router
 });
 
-var Home = (function (Component$$1) {
-	function Home () {
-		Component$$1.apply(this, arguments);
-	}
-
-	if ( Component$$1 ) Home.__proto__ = Component$$1;
-	Home.prototype = Object.create( Component$$1 && Component$$1.prototype );
-	Home.prototype.constructor = Home;
-
-	Home.prototype.render = function render$$1 () {
-		return (
-			h( 'div', null, "Home content" )
-		);
-	};
-
-	return Home;
-}(Component));
-
-var About = (function (Component$$1) {
-	function About () {
-		Component$$1.apply(this, arguments);
-	}
-
-	if ( Component$$1 ) About.__proto__ = Component$$1;
-	About.prototype = Object.create( Component$$1 && Component$$1.prototype );
-	About.prototype.constructor = About;
-
-	About.prototype.render = function render$$1 () {
-		return (
-			h( 'div', null, "About content" )
-		);
-	};
-
-	return About;
-}(Component));
-
 var Header = function (props) { return (
 	h( 'header', { class: "header header__container" },
 		h( 'h1', { class: "header__title" }, props.title)
@@ -1533,6 +1497,78 @@ Match.Link = Link;
 
 var match_1 = match.Link;
 
+var Home = (function (Component$$1) {
+	function Home () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Home.__proto__ = Component$$1;
+	Home.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Home.prototype.constructor = Home;
+
+	Home.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, "Home content" )
+		);
+	};
+
+	return Home;
+}(Component));
+
+var About = (function (Component$$1) {
+	function About () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) About.__proto__ = Component$$1;
+	About.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	About.prototype.constructor = About;
+
+	About.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, "About content" )
+		);
+	};
+
+	return About;
+}(Component));
+
+var Stars = (function (Component$$1) {
+	function Stars () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Stars.__proto__ = Component$$1;
+	Stars.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Stars.prototype.constructor = Stars;
+
+	Stars.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, "Stars content" )
+		);
+	};
+
+	return Stars;
+}(Component));
+
+var Repos = (function (Component$$1) {
+	function Repos () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Repos.__proto__ = Component$$1;
+	Repos.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Repos.prototype.constructor = Repos;
+
+	Repos.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, "Repos content" )
+		);
+	};
+
+	return Repos;
+}(Component));
+
 render((
 	h( 'article', null,
 		h( Header, { title: "Isaac A. Dettman" }),
@@ -1540,12 +1576,14 @@ render((
 		h( 'ul', { class: "tiled-block tiled-block__container" },
 			h( 'li', null, h( match_1, { activeClassName: "active", href: "/" }, "Home") ),
 			h( 'li', null, h( match_1, { activeClassName: "active", href: "/about" }, "About") ),
-			h( 'li', null, "three" ),
-			h( 'li', null, "four" )
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/stars" }, "Stars") ),
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/repos" }, "Repos") )
 		),
 		h( Router, null,
 			h( Home, { path: "/" }),
-			h( About, { path: "/about" })
+			h( About, { path: "/about" }),
+			h( Stars, { path: "/stars" }),
+			h( Repos, { path: "/repos" })
 		)
 	)
 ), document.getElementById('root'));
