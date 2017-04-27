@@ -15,10 +15,10 @@ render((
 		<Header title="Isaac A. Dettman" />
 		<div class="subheader subheader__container">subheader</div>
 		<ul class="tiled-block tiled-block__container">
-			<li><Link activeClassName="active" href="/">Home</Link></li>
-			<li><Link activeClassName="active" href="/about">About</Link></li>
-			<li><Link activeClassName="active" href="/stars">Stars</Link></li>
-			<li><Link activeClassName="active" href="/repos">Repos</Link></li>
+			<li><Link activeClassName="active" href="/">home</Link></li>
+			<li><Link activeClassName="active" href="/about">about</Link></li>
+			<li><Link activeClassName="active" href="/stars">stars</Link></li>
+			<li><Link activeClassName="active" href="/repos">repos</Link></li>
 		</ul>
 		<div className="page-content">
 			<Router>
