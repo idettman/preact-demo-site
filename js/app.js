@@ -1,9 +1,9 @@
 import { h, render } from 'preact'
 
 import Router from 'preact-router'
-import { Link } from 'preact-router/match'
 
 import Header from './components/header/header.js'
+import MainNavigation from './components/nav/main-navigation.js'
 
 import Home from './views/home.js'
 import About from './views/about.js'
@@ -14,12 +14,7 @@ render((
 	<article>
 		<Header title="Isaac A. Dettman" />
 		<div class="subheader subheader__container">subheader</div>
-		<ul class="tiled-block tiled-block__container">
-			<li><Link activeClassName="active" href="/">home</Link></li>
-			<li><Link activeClassName="active" href="/about">about</Link></li>
-			<li><Link activeClassName="active" href="/stars">stars</Link></li>
-			<li><Link activeClassName="active" href="/repos">repos</Link></li>
-		</ul>
+		<MainNavigation />
 		<div className="page-content">
 			<Router>
 				<Home path="/"/>

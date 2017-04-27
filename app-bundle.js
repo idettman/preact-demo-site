@@ -1394,6 +1394,12 @@ var preactRouter_es = Object.freeze({
 	default: Router
 });
 
+var Header = function (props) { return (
+	h( 'header', { class: "header header__container" },
+		h( 'h1', { class: "header__title" }, props.title)
+	)
+); };
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -1491,9 +1497,12 @@ Match.Link = Link;
 
 var match_1 = match.Link;
 
-var Header = function (props) { return (
-	h( 'header', { class: "header header__container" },
-		h( 'h1', { class: "header__title" }, props.title)
+var MainNavigation = function (props) { return (
+	h( 'div', { className: "main-navigation" },
+		h( match_1, { activeClassName: "active", href: "/" }, "home"),
+		h( match_1, { activeClassName: "active", href: "/about" }, "about"),
+		h( match_1, { activeClassName: "active", href: "/stars" }, "stars"),
+		h( match_1, { activeClassName: "active", href: "/repos" }, "repos")
 	)
 ); };
 
@@ -1573,12 +1582,7 @@ render((
 	h( 'article', null,
 		h( Header, { title: "Isaac A. Dettman" }),
 		h( 'div', { class: "subheader subheader__container" }, "subheader"),
-		h( 'ul', { class: "tiled-block tiled-block__container" },
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/" }, "home") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/about" }, "about") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/stars" }, "stars") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/repos" }, "repos") )
-		),
+		h( MainNavigation, null ),
 		h( 'div', { className: "page-content" },
 			h( Router, null,
 				h( Home, { path: "/" }),
