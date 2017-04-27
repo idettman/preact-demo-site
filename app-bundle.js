@@ -1580,7 +1580,7 @@ var Repos = (function (Component$$1) {
 
 render((
 	h( 'article', null,
-		h( Header, { title: "Isaac A. Dettman" }),
+		h( Header, { title: "idettman" }),
 		h( 'div', { class: "subheader subheader__container" }, "subheader"),
 		h( MainNavigation, null ),
 		h( 'div', { className: "page-content" },

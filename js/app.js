@@ -12,7 +12,7 @@ import Repos from './views/repos.js'
 
 render((
 	<article>
-		<Header title="Isaac A. Dettman" />
+		<Header title="idettman" />
 		<div class="subheader subheader__container">subheader</div>
 		<MainNavigation />
 		<div className="page-content">
