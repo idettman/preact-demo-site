@@ -1,11 +1,11 @@
-import {h, Component} from 'preact';
+import {h, Component} from 'preact'
 
 class Stars extends Component {
 	render() {
 		return (
-			<div>Stars content</div>
-		);
+			<h2>Stars content</h2>
+		)
 	}
 }
 
-export default Stars;
+export default Stars

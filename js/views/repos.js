@@ -1,11 +1,11 @@
-import {h, Component} from 'preact';
+import {h, Component} from 'preact'
 
 class Repos extends Component {
 	render() {
 		return (
-			<div>Repos content</div>
-		);
+			<h2>Repos content</h2>
+		)
 	}
 }
 
-export default Repos;
+export default Repos

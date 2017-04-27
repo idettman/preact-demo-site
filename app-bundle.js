@@ -1394,12 +1394,6 @@ var preactRouter_es = Object.freeze({
 	default: Router
 });
 
-var Header = function (props) { return (
-	h( 'header', { class: "header header__container" },
-		h( 'h1', { class: "header__title" }, props.title)
-	)
-); };
-
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -1497,6 +1491,12 @@ Match.Link = Link;
 
 var match_1 = match.Link;
 
+var Header = function (props) { return (
+	h( 'header', { class: "header header__container" },
+		h( 'h1', { class: "header__title" }, props.title)
+	)
+); };
+
 var Home = (function (Component$$1) {
 	function Home () {
 		Component$$1.apply(this, arguments);
@@ -1508,8 +1508,8 @@ var Home = (function (Component$$1) {
 
 	Home.prototype.render = function render$$1 () {
 		return (
-			h( 'div', null, "Home content" )
-		);
+			h( 'h2', null, "Home content" )
+		)
 	};
 
 	return Home;
@@ -1526,8 +1526,8 @@ var About = (function (Component$$1) {
 
 	About.prototype.render = function render$$1 () {
 		return (
-			h( 'div', null, "About content" )
-		);
+			h( 'h2', null, "About content" )
+		)
 	};
 
 	return About;
@@ -1544,8 +1544,8 @@ var Stars = (function (Component$$1) {
 
 	Stars.prototype.render = function render$$1 () {
 		return (
-			h( 'div', null, "Stars content" )
-		);
+			h( 'h2', null, "Stars content" )
+		)
 	};
 
 	return Stars;
@@ -1562,8 +1562,8 @@ var Repos = (function (Component$$1) {
 
 	Repos.prototype.render = function render$$1 () {
 		return (
-			h( 'div', null, "Repos content" )
-		);
+			h( 'h2', null, "Repos content" )
+		)
 	};
 
 	return Repos;

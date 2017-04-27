@@ -1,11 +1,11 @@
-import {h, Component} from 'preact';
+import {h, Component} from 'preact'
 
 class About extends Component {
 	render() {
 		return (
-			<div>About content</div>
-		);
+			<h2>About content</h2>
+		)
 	}
 }
 
-export default About;
+export default About
