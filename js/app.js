@@ -1,9 +1,9 @@
 import { h, render } from 'preact';
 
 import Router from 'preact-router';
+import { Link } from 'preact-router/match';
 
 import Header from './components/header/header.js';
-import { Link } from 'preact-router/match';
 
 import Home from './views/home.js';
 import About from './views/about.js';
