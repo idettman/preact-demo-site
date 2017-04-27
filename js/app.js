@@ -5,10 +5,10 @@ import Router from 'preact-router';
 import Header from './components/header/header.js';
 import { Link } from 'preact-router/match';
 
-import Home from './views/home/home.js';
-import About from './views/about/about.js';
-import Stars from './views/stars/stars.js';
-import Repos from './views/repos/repos.js';
+import Home from './views/home.js';
+import About from './views/about.js';
+import Stars from './views/stars.js';
+import Repos from './views/repos.js';
 
 render((
 	<article>
