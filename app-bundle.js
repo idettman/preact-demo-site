@@ -1574,10 +1574,10 @@ render((
 		h( Header, { title: "Isaac A. Dettman" }),
 		h( 'div', { class: "subheader subheader__container" }, "subheader"),
 		h( 'ul', { class: "tiled-block tiled-block__container" },
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/" }, "Home") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/about" }, "About") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/stars" }, "Stars") ),
-			h( 'li', null, h( match_1, { activeClassName: "active", href: "/repos" }, "Repos") )
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/" }, "home") ),
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/about" }, "about") ),
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/stars" }, "stars") ),
+			h( 'li', null, h( match_1, { activeClassName: "active", href: "/repos" }, "repos") )
 		),
 		h( 'div', { className: "page-content" },
 			h( Router, null,
