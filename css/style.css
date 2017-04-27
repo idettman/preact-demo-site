@@ -9,8 +9,7 @@ html {
 	font-family: "Times New Roman", Times, serif;
 	background-color: #151515;
 	font-kerning: none;
-
-	/*color: #6b857a;*/
+	
 	color: #272b29;
 }
 
@@ -33,7 +32,7 @@ h2 {
 }
 
 a {
-	color: #272b29;
+	color: #CFC8D6;
 	font-size: 4rem;
 	text-decoration: none;
 }
@@ -50,15 +49,11 @@ a.active {
 
 .header__title {
 	position: absolute;
-
 	top: 0;
 	right: 0;
 	height: 100%;
-
 	writing-mode: vertical-rl;
-
 	text-align: center;
-
 	background-color: #100010;
 }
 
@@ -72,21 +67,15 @@ a.active {
 	text-indent: 0.5rem;
 }
 
-.tiled-block {
-	font-size: 6rem;
-}
-
 .main-navigation {
 	padding: 0;
 	margin: 0;
 }
 
 .main-navigation a {
-	color: #15111d;
-    display: block;
+	display: block;
     text-indent: 2rem;
     line-height: 6rem;
-    list-style-type: none;
     border-top: 0.5rem dotted #1b1b1b;
 }
 
