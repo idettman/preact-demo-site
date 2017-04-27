@@ -1,14 +1,14 @@
-import { h, render } from 'preact';
+import { h, render } from 'preact'
 
-import Router from 'preact-router';
-import { Link } from 'preact-router/match';
+import Router from 'preact-router'
+import { Link } from 'preact-router/match'
 
-import Header from './components/header/header.js';
+import Header from './components/header/header.js'
 
-import Home from './views/home.js';
-import About from './views/about.js';
-import Stars from './views/stars.js';
-import Repos from './views/repos.js';
+import Home from './views/home.js'
+import About from './views/about.js'
+import Stars from './views/stars.js'
+import Repos from './views/repos.js'
 
 render((
 	<article>
@@ -29,4 +29,4 @@ render((
 			</Router>
 		</div>
 	</article>
-), document.getElementById('root'));
+), document.getElementById('root'))
