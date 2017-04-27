@@ -11,7 +11,8 @@
     "build": "npm run dev",
     "dev": "rollup --config build/rollup.config.js --env=development",
     "prod": "NODE_ENV=production rollup --config build/rollup.config.js --env=production",
-    "rollup": "rollup"
+    "rollup": "rollup",
+	"serve": "node http-server.js"
   },
   "repository": {
     "type": "git",

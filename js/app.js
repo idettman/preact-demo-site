@@ -18,9 +18,9 @@ render((
 		<div className="page-content">
 			<Router>
 				<Home path="/"/>
-				<About path="/about"/>
-				<Stars path="/stars"/>
-				<Repos path="/repos"/>
+				<About path="/about" />
+				<Stars path="/stars" />
+				<Repos path="/repos" />
 			</Router>
 		</div>
 	</article>
