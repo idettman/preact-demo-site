@@ -4,11 +4,14 @@
 
 html {
 	height: 100%;
+	overflow: hidden;
 	font-size: 1.6rem;
 	background-color: #FFF;
 }
 
 body {
+	height: 100%;
+	overflow: auto;
 	margin: 0.2rem;
 	position: relative;
 
