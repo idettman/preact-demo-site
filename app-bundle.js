@@ -1395,9 +1395,7 @@ var preactRouter_es = Object.freeze({
 });
 
 var Header = function (props) { return (
-	h( 'header', { class: "header header__container" },
-		h( 'h1', { class: "header__title" }, props.title)
-	)
+	h( 'h1', { class: "header__title" }, props.title)
 ); };
 
 function createCommonjsModule(fn, module) {
@@ -1519,14 +1517,14 @@ var Home = (function (Component$$1) {
 	Home.prototype.render = function render$$1 () {
 		return (
 			h( 'div', null,
-				h( 'h2', null, "Notes" ),
+				h( 'h1', null, "Developer Log" ),
 				h( 'div', null,
-					h( 'h3', null, "ES2015 const + let" ),
+					h( 'h2', null, "ES2015 const + let" ),
 					h( 'p', null, "ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding." ),
 					h( 'p', null, "The only difference between const and let is that const makes the contract that no rebinding will happen." )
 				),
 				h( 'div', null,
-					h( 'h3', null, "When Not to use Arrow Functions" ),
+					h( 'h2', null, "When Not to use Arrow Functions" ),
 					h( 'ul', null,
 						h( 'li', null, "In event handlers when you want the function scoped to the object dispatching the event" ),
 						h( 'li', null, "As object methods" ),
@@ -1534,7 +1532,7 @@ var Home = (function (Component$$1) {
 					)
 				),
 				h( 'div', null,
-					h( 'h3', null, "ES6 Block Scope is The new IIFE" ),
+					h( 'h2', null, "ES6 Block Scope is The new IIFE" ),
 					h( 'code', null,
 						h( 'script', null, "'use strict' "
 							// code that previously used an IIFE
@@ -1614,6 +1612,7 @@ var GitFlow = (function (Component$$1) {
 	GitFlow.prototype.render = function render$$1 () {
 		return (
 			h( 'div', null,
+				h( 'h1', null, "Git workflow recommendations" ),
 				h( 'h2', null, "Before submitting a bug or feature request" ),
 				h( 'p', null, "Capable programmers should always attempt to investigate and fix problems themselves before asking for others to help. Submit a pull request instead of an issue!" ),
 				h( 'ul', null,
@@ -1655,7 +1654,7 @@ var GitFlow = (function (Component$$1) {
 }(Component));
 
 render((
-	h( 'article', null,
+	h( 'main', null,
 		h( Header, { title: "idettman" }),
 		h( MainNavigation, null ),
 		h( 'div', { className: "page-content" },

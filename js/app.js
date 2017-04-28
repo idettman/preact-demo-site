@@ -2,8 +2,8 @@ import { h, render } from 'preact'
 
 import Router from 'preact-router'
 
-import Header from './components/header/header'
-import MainNavigation from './components/nav/main-navigation'
+import Header from './components/header'
+import MainNavigation from './components/main-navigation'
 
 import Home from './views/home'
 import About from './views/about'
@@ -12,7 +12,7 @@ import Repos from './views/repos'
 import GitFlow from './views/git-flow'
 
 render((
-	<article>
+	<main>
 		<Header title="idettman" />
 		<MainNavigation />
 		<div className="page-content">
@@ -24,5 +24,5 @@ render((
 				<GitFlow path="/gitflow" />
 			</Router>
 		</div>
-	</article>
+	</main>
 ), document.getElementById('root'))
