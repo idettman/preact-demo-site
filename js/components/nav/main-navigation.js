@@ -7,6 +7,7 @@ const MainNavigation = (props) => (
 		<Link activeClassName="active" href="/about">about</Link>
 		<Link activeClassName="active" href="/stars">stars</Link>
 		<Link activeClassName="active" href="/repos">repos</Link>
+		<Link activeClassName="active" href="/gitflow">git workflow</Link>
 	</div>
 )
 

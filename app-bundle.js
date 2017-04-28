@@ -1502,7 +1502,8 @@ var MainNavigation = function (props) { return (
 		h( match_1, { activeClassName: "active", href: "/" }, "home"),
 		h( match_1, { activeClassName: "active", href: "/about" }, "about"),
 		h( match_1, { activeClassName: "active", href: "/stars" }, "stars"),
-		h( match_1, { activeClassName: "active", href: "/repos" }, "repos")
+		h( match_1, { activeClassName: "active", href: "/repos" }, "repos"),
+		h( match_1, { activeClassName: "active", href: "/gitflow" }, "git workflow")
 	)
 ); };
 
@@ -1517,7 +1518,14 @@ var Home = (function (Component$$1) {
 
 	Home.prototype.render = function render$$1 () {
 		return (
-			h( 'h2', null, "Home content" )
+			h( 'div', null,
+				h( 'h2', null, "Notes" ),
+				h( 'div', null,
+					h( 'h3', null, "ES2015 const + let" ),
+					h( 'p', null, "ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding." ),
+					h( 'p', null, "The only difference between const and let is that const makes the contract that no rebinding will happen." )
+				)
+			)
 		)
 	};
 
@@ -1578,17 +1586,69 @@ var Repos = (function (Component$$1) {
 	return Repos;
 }(Component));
 
+var GitFlow = (function (Component$$1) {
+	function GitFlow () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) GitFlow.__proto__ = Component$$1;
+	GitFlow.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	GitFlow.prototype.constructor = GitFlow;
+
+	GitFlow.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null,
+				h( 'h2', null, "Before submitting a bug or feature request" ),
+				h( 'p', null, "Capable programmers should always attempt to investigate and fix problems themselves before asking for others to help. Submit a pull request instead of an issue!" ),
+				h( 'ul', null,
+					h( 'li', null, "Have you actually read the error message?" ),
+					h( 'li', null, "Have you checked for a Troubleshooting wiki/page?" ),
+					h( 'li', null, "Have you searched for similar issues?" ),
+					h( 'li', null, "Have you updated to the latest stable version of node, npm and the packages you're using?" ),
+					h( 'li', null, "Have you checked that it's not a problem with one of the packages you're using, rather than npm itself?" ),
+					h( 'li', null, "Have you looked at what's involved in fixing/implementing this yourself?" )
+				),
+				h( 'h2', null, "A great bug report contains" ),
+				h( 'ul', null,
+					h( 'li', null, "Context – what were you trying to achieve?" ),
+					h( 'li', null, "Detailed steps to reproduce the error from scratch. Try isolating the minimal amount of code needed to reproduce the error." ),
+					h( 'li', null, "A link to the full corresponding log output." ),
+					h( 'li', null, "Evidence you've looked into solving the problem and ideally, a theory on the cause and a possible solution." )
+				),
+				h( 'h2', null, "A great feature request contains" ),
+				h( 'ul', null,
+					h( 'li', null, "The current situation." ),
+					h( 'li', null, "How and why the current situation is problematic." ),
+					h( 'li', null, "A detailed proposal or pull request that demonstrates how the problem could be solved." ),
+					h( 'li', null, "A use case – who needs this feature and why?" ),
+					h( 'li', null, "Any caveats." )
+				),
+				h( 'h2', null, "A great pull request contains" ),
+				h( 'ul', null,
+					h( 'li', null, "Minimal changes. Only submit code relevant to the current issue. Other changes should go in new pull requests." ),
+					h( 'li', null, "Minimal commits. Please squash to a single commit before sending your pull request." ),
+					h( 'li', null, "No conflicts. Please rebase off the latest master before submitting." ),
+					h( 'li', null, "Code conforming to the existing conventions and formats. i.e. Please don't reformat whitespace." ),
+					h( 'li', null, "Passing tests. Use existing tests as a reference." )
+				)
+			)
+		)
+	};
+
+	return GitFlow;
+}(Component));
+
 render((
 	h( 'article', null,
 		h( Header, { title: "idettman" }),
-		h( 'div', { class: "subheader subheader__container" }, "subheader"),
 		h( MainNavigation, null ),
 		h( 'div', { className: "page-content" },
 			h( Router, null,
 				h( Home, { path: "/" }),
 				h( About, { path: "/about" }),
 				h( Stars, { path: "/stars" }),
-				h( Repos, { path: "/repos" })
+				h( Repos, { path: "/repos" }),
+				h( GitFlow, { path: "/gitflow" })
 			)
 		)
 	)
