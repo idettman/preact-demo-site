@@ -15,7 +15,7 @@ body {
 	color: #BBB;
 	background-color: #101;
 
-	font-size: 1.8rem;
+	font-size: 2rem;
 
 	font-kerning: none;
 	font-family: 'Lora',serif;
@@ -74,13 +74,13 @@ a.active {
 
 .main-navigation {
 	margin: 0 0 0 1rem;
+	width: 14rem;
 }
 
 .main-navigation a {
 	display: block;
-	text-indent:1rem;
-    line-height:3rem;
-	width: 10rem;
+	font-size: 2rem;
+	line-height:3rem;
 }
 
 .page-content {

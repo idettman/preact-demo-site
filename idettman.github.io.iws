@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="042fa8b2-e8e0-404b-97db-ffe57b6c5045" name="Default" comment="update project file">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/404.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/components/header/header.js" afterPath="$PROJECT_DIR$/js/components/header.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/components/nav/main-navigation.js" afterPath="$PROJECT_DIR$/js/components/main-navigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-bundle.js" afterPath="$PROJECT_DIR$/app-bundle.js" />
+    <list default="true" id="042fa8b2-e8e0-404b-97db-ffe57b6c5045" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/idettman.github.io.ipr" afterPath="$PROJECT_DIR$/idettman.github.io.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/idettman.github.io.iws" afterPath="$PROJECT_DIR$/idettman.github.io.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/git-flow.js" afterPath="$PROJECT_DIR$/js/views/git-flow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/home.js" afterPath="$PROJECT_DIR$/js/views/home.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +15,18 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -396,8 +398,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="npm.build" />
-        <item index="1" class="java.lang.String" itemvalue="npm.serve" />
+        <item index="0" class="java.lang.String" itemvalue="npm.serve" />
+        <item index="1" class="java.lang.String" itemvalue="npm.build" />
         <item index="2" class="java.lang.String" itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -487,7 +489,9 @@
     <MESSAGE value="renamed index to 404 to better handle front end routing" />
     <MESSAGE value="add index in addition to 404 to better handle front end routing" />
     <MESSAGE value="update project file" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project file" />
+    <MESSAGE value="update css, dom structure, and js component package structure" />
+    <MESSAGE value="update css base size" />
+    <option name="LAST_COMMIT_MESSAGE" value="update css base size" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -812,14 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/views/git-flow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -848,6 +844,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
         </state>
       </provider>
