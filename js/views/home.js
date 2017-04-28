@@ -18,6 +18,17 @@ class Home extends Component {
 						<li>As prototype methods</li>
 					</ul>
 				</div>
+				<div>
+					<h3>ES6 Block Scope is The new IIFE</h3>
+					<code>
+						<script>
+						'use strict'
+						{
+							// code that previously used an IIFE
+						}
+						</script>
+					}</code>
+				</div>
 			</div>
 		)
 	}

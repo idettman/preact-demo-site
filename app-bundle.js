@@ -1532,6 +1532,14 @@ var Home = (function (Component$$1) {
 						h( 'li', null, "As object methods" ),
 						h( 'li', null, "As prototype methods" )
 					)
+				),
+				h( 'div', null,
+					h( 'h3', null, "ES6 Block Scope is The new IIFE" ),
+					h( 'code', null,
+						h( 'script', null, "'use strict' "
+							// code that previously used an IIFE
+						
+						), "}" )
 				)
 			)
 		)
