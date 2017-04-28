@@ -1524,6 +1524,14 @@ var Home = (function (Component$$1) {
 					h( 'h3', null, "ES2015 const + let" ),
 					h( 'p', null, "ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding." ),
 					h( 'p', null, "The only difference between const and let is that const makes the contract that no rebinding will happen." )
+				),
+				h( 'div', null,
+					h( 'h3', null, "When Not to use Arrow Functions" ),
+					h( 'ul', null,
+						h( 'li', null, "In event handlers when you want the function scoped to the object dispatching the event" ),
+						h( 'li', null, "As object methods" ),
+						h( 'li', null, "As prototype methods" )
+					)
 				)
 			)
 		)

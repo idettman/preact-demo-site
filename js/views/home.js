@@ -10,6 +10,14 @@ class Home extends Component {
 					<p>ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding.</p>
 					<p>The only difference between const and let is that const makes the contract that no rebinding will happen.</p>
 				</div>
+				<div>
+					<h3>When Not to use Arrow Functions</h3>
+					<ul>
+						<li>In event handlers when you want the function scoped to the object dispatching the event</li>
+						<li>As object methods</li>
+						<li>As prototype methods</li>
+					</ul>
+				</div>
 			</div>
 		)
 	}
