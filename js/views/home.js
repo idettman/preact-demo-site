@@ -20,14 +20,12 @@ class Home extends Component {
 				</div>
 				<div>
 					<h2>ES6 Block Scope is The new IIFE</h2>
-					<code>
-						<script>
-						'use strict'
-						{
-							// code that previously used an IIFE
-						}
-						</script>
-					}</code>
+					<div className="gist gist-iife">
+					'use strict'
+					<br/>{'{'}
+					<br/>&nbsp;&nbsp;&nbsp;console.log('foo')
+					<br/>{'}'}
+					</div>
 				</div>
 			</div>
 		)

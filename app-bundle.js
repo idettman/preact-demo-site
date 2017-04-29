@@ -1533,11 +1533,9 @@ var Home = (function (Component$$1) {
 				),
 				h( 'div', null,
 					h( 'h2', null, "ES6 Block Scope is The new IIFE" ),
-					h( 'code', null,
-						h( 'script', null, "'use strict' "
-							// code that previously used an IIFE
-						
-						), "}" )
+					h( 'div', { className: "gist gist-iife" }, "'use strict' ", h( 'br', null ), '{',
+					h( 'br', null ), "   console.log('foo') ", h( 'br', null ), '}'
+					)
 				)
 			)
 		)
