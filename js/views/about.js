@@ -3,7 +3,10 @@ import {h, Component} from 'preact'
 class About extends Component {
 	render() {
 		return (
-			<h2>About content</h2>
+			<div className="about">
+				<h2>Evolving Philosophy</h2>
+				<div>Ask questions and be fluid</div>
+			</div>
 		)
 	}
 }

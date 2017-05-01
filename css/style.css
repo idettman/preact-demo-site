@@ -11,8 +11,8 @@ html {
 
 body {
 	width: 99.5%;
-	height: 99.5%;
-	margin: 0.25%;
+	height: 99%;
+	margin: 0.5% 0.25%;
 	
 	border-top-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
@@ -96,4 +96,10 @@ a.active {
 .page-content {
 	padding:1rem;
 	box-sizing: border-box;
+}
+
+.about {
+	background-image: url("../img/stjohn.jpg");
+	background-size: cover;
+	height: 35rem;
 }

@@ -1566,7 +1566,10 @@ var About = (function (Component$$1) {
 
 	About.prototype.render = function render$$1 () {
 		return (
-			h( 'h2', null, "About content" )
+			h( 'div', { className: "about" },
+				h( 'h2', null, "Evolving Philosophy" ),
+				h( 'div', null, "Ask questions and be fluid" )
+			)
 		)
 	};
 
