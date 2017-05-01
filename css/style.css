@@ -92,8 +92,8 @@ dd {
 
 .header__title {
 	position: absolute;
-	top: 2rem;
-	right: 3rem;
+	top: 1rem;
+	right: 1rem;
 	margin: 0;
 	color: orange;
 }
