@@ -1592,6 +1592,17 @@ var Definitions = (function (Component$$1) {
 							h( 'dt', null, "accordian menu" ),
 							h( 'dd', null, "menu that repositions surrounding content as it expands and contracts" )
 						)
+					),
+					h( 'li', null,
+						h( 'h3', null, "Types" ),
+						h( 'ul', null,
+							h( 'li', null, "Button" ),
+							h( 'li', null, "Card" ),
+							h( 'li', null, "Menu" ),
+							h( 'li', null, "Input" ),
+							h( 'li', null, "Grid" ),
+							h( 'li', null, "Table" )
+						)
 					)
 				)
 				

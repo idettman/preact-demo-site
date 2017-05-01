@@ -32,6 +32,17 @@ class Definitions extends Component {
 							<dd>menu that repositions surrounding content as it expands and contracts</dd>
 						</dl>
 					</li>
+					<li>
+						<h3>Types</h3>
+						<ul>
+							<li>Button</li>
+							<li>Card</li>
+							<li>Menu</li>
+							<li>Input</li>
+							<li>Grid</li>
+							<li>Table</li>
+						</ul>
+					</li>
 				</ul>
 				
 			</div>
