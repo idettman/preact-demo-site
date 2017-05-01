@@ -1625,74 +1625,100 @@ var Bash = (function (Component$$1) {
 	Bash.prototype.render = function render$$1 () {
 		return (
 			h( 'div', { className: "about" },
-				h( 'article', null,
-					h( 'h3', null, "wget" ),
-					h( 'code', null, "brew install wget" ),
-					h( 'code', null, "wget http://google.com" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "flush osx DNS cache" ),
-					h( 'code', null, "sudo killall -HUP mDNSResponder" ),
-					h( 'a', { href: "http://www.howtoisolve.com/how-to-flush-dns-cache-in-mac-os-x-ei-capitan-10-11-10-10-4/" }, "source page")
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "curl" ),
-					h( 'code', null, "curl --proxy http://proxy.address.com:80 http://target.url.com:8081/nexus/content/groups/public/spy/spymemcached/2.6/" ),
-					h( 'code', null, "curl -O http://appldnld.apple.com/iTunes11/091-6058.20130605.Cw321/iTunes11.0.4.dmg" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "nslookup" ),
-					h( 'code', null, "nslookup matrix.comcastnets.net" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "touch" ),
-					h( 'code', null, "touch filename.ext" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "show command history" ),
-					h( 'code', null, "history" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "show current processes" ),
-					h( 'code', null, "top" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "show external IP address" ),
-					h( 'code', null, "curl ipecho.net/plain; echo" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "show network IP address" ),
-					h( 'code', null, "ipconfig getifaddr en0" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "run the last command again" ),
-					h( 'code', null, "!!" ),
-					h( 'h4', null, "if you forgot sudo on last command" ),
-					h( 'code', null, "sudo !!" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "start a simple server in any folder" ),
-					h( 'code', null, "python -m SimpleHTTPServer 8000" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "view file system usage" ),
-					h( 'code', null, "sudo fs_usage" )
-				),
-				
-				h( 'article', null,
-					h( 'h3', null, "copy large folder/file data" ),
-					h( 'code', null, "ditto -V /old/work/ /new/work/" )
+				h( 'ul', null,
+					h( 'li', null,
+						h( 'h3', null, "Stop a running terminal process" ),
+						h( 'p', null, "Ctrl + C or Ctrl + Z if you want to suspend a process" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "history" ),
+						h( 'p', null, "show command history" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "top" ),
+						h( 'p', null, "show current processes" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "touch" ),
+						h( 'p', null, "touch filename.txt" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "man" ),
+						h( 'code', null, "man kill" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "show ip address" ),
+						h( 'code', null, "ipconfig getifaddr en0" )
+					),
+					h( 'li', null,
+						h( 'h3', null, "wget" ),
+						h( 'code', null, "brew install wget" ),
+						h( 'code', null, "wget http://google.com" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "flush osx DNS cache" ),
+						h( 'code', null, "sudo killall -HUP mDNSResponder" ),
+						h( 'a', { href: "http://www.howtoisolve.com/how-to-flush-dns-cache-in-mac-os-x-ei-capitan-10-11-10-10-4/" }, "source page")
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "curl" ),
+						h( 'code', null, "curl --proxy http://proxy.address.com:80 http://target.url.com:8081/nexus/content/groups/public/spy/spymemcached/2.6/" ),
+						h( 'code', null, "curl -O http://appldnld.apple.com/iTunes11.0.4.dmg" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "nslookup" ),
+						h( 'code', null, "nslookup target.site.net" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "touch" ),
+						h( 'code', null, "touch filename.ext" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "show command history" ),
+						h( 'code', null, "history" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "show current processes" ),
+						h( 'code', null, "top" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "show external IP address" ),
+						h( 'code', null, "curl ipecho.net/plain; echo" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "show network IP address" ),
+						h( 'code', null, "ipconfig getifaddr en0" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "run the last command again" ),
+						h( 'code', null, "!!" ),
+						h( 'h4', null, "if you forgot sudo on last command" ),
+						h( 'code', null, "sudo !!" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "start a simple server in any folder" ),
+						h( 'code', null, "python -m SimpleHTTPServer 8000" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "view file system usage" ),
+						h( 'code', null, "sudo fs_usage" )
+					),
+					
+					h( 'li', null,
+						h( 'h3', null, "copy large folder/file data" ),
+						h( 'code', null, "ditto -V /old/work/ /new/work/" )
+					)
 				)
 			)
 		)
