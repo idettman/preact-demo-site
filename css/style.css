@@ -43,7 +43,7 @@ h1, h2, h3 {
 }
 
 h1 {
-	color: cornflowerblue;
+	color: orange;
 	font-size: 2.6rem;
 	text-align: right;
 }
@@ -94,6 +94,7 @@ dd {
 	top: 1rem;
 	right: 1rem;
 	font-size: 4.5rem;
+	color: cornflowerblue;
 }
 
 .main-navigation {
