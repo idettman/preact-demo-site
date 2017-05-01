@@ -102,6 +102,7 @@ dd {
 .main-navigation {
 	width: 16rem;
 	margin: 0 0 0 1rem;
+	border: 0 none;
 	border-right: 0.1rem solid;
 	border-image: linear-gradient(0deg, #101101, cornflowerblue) 10;
 }
