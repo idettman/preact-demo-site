@@ -35,12 +35,32 @@ class Definitions extends Component {
 					<li>
 						<h3>Types</h3>
 						<ul>
-							<li>Button</li>
-							<li>Card</li>
-							<li>Menu</li>
-							<li>Input</li>
-							<li>Grid</li>
-							<li>Table</li>
+							<li>menu</li>
+							<li>sub-menu</li>
+							<li>filtered-menu</li>
+							<li>menu bar</li>
+							<li>menu button</li>
+							<li>menu item</li>
+							<li>menu separator</li>
+							<li>tree</li>
+							<li>tab</li>
+							<li>tab bar</li>
+							<li>table</li>
+							<li>table sorter</li>
+							<li>tool-tip</li>
+							<li>tool-bar</li>
+							<li>drag-drop detector</li>
+							<li>date picker</li>
+							<li>combo-box</li>
+							<li>checkbox</li>
+							<li>input</li>
+							<li>grid</li>
+							<li>auto-complete</li>
+							<li>bubble</li>
+							<li>button</li>
+							<li>dialog</li>
+							<li>card</li>
+							<li>hover-card</li>
 						</ul>
 					</li>
 				</ul>
