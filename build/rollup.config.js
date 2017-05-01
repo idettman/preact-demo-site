@@ -1,8 +1,9 @@
 'use strict';
 
-import commonjs from 'rollup-plugin-commonjs';
-import node from 'rollup-plugin-node-resolve';
-import buble from 'rollup-plugin-buble';
+import buble from 'rollup-plugin-buble'
+import node from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import uglify from 'rollup-plugin-uglify'
 
 const environmentMode = `const process = {
 	env: {
@@ -13,7 +14,7 @@ const environmentMode = `const process = {
 export default {
 	entry: 'js/app.js',
 	intro: environmentMode,
-
+	
 	exports: 'none',
 	format: 'iife',
 	dest: 'app-bundle.js',
@@ -40,6 +41,7 @@ export default {
 				modules: false
 			}
 		}),
+		uglify()
 	],
 	external: ['fs', 'path', 'readline']
 }
