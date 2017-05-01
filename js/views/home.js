@@ -23,7 +23,7 @@ class Home extends Component {
 					<div className="gist gist-iife">
 					'use strict'
 					<br/>{'{'}
-					<br/>&nbsp;&nbsp;&nbsp;console.log('foo')
+					<br/>&nbsp;&nbsp;&nbsp;const component = function(){'{}'}
 					<br/>{'}'}
 					</div>
 				</div>

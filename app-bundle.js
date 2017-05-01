@@ -1535,7 +1535,8 @@ var Home = (function (Component$$1) {
 				h( 'div', null,
 					h( 'h2', null, "ES6 Block Scope is The new IIFE" ),
 					h( 'div', { className: "gist gist-iife" }, "'use strict' ", h( 'br', null ), '{',
-					h( 'br', null ), "   console.log('foo') ", h( 'br', null ), '}'
+					h( 'br', null ), "   const component = function()", '{}',
+					h( 'br', null ), '}'
 					)
 				),
 				h( 'div', null,
