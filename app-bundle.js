@@ -1639,7 +1639,7 @@ var Bash = (function (Component$$1) {
 				
 				h( 'article', null,
 					h( 'h3', null, "curl" ),
-					h( 'code', null, "curl --proxy http://proxy.inbcu.com:80 http://matrix.comcastnets.net:8081/nexus/content/groups/public/spy/spymemcached/2.6/" ),
+					h( 'code', null, "curl --proxy http://proxy.address.com:80 http://target.url.com:8081/nexus/content/groups/public/spy/spymemcached/2.6/" ),
 					h( 'code', null, "curl -O http://appldnld.apple.com/iTunes11/091-6058.20130605.Cw321/iTunes11.0.4.dmg" )
 				),
 				
