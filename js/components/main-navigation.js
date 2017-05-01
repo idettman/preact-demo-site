@@ -5,7 +5,7 @@ const MainNavigation = (props) => (
 	<div className="main-navigation">
 		<Link activeClassName="active" href="/">home</Link>
 		<Link activeClassName="active" href="/definitions">definitions</Link>
-		<Link activeClassName="active" href="/about">about</Link>
+		<Link activeClassName="active" href="/bash">about</Link>
 		<Link activeClassName="active" href="/stars">stars</Link>
 		<Link activeClassName="active" href="/repos">repos</Link>
 		<Link activeClassName="active" href="/gitflow">git workflow</Link>

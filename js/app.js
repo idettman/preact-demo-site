@@ -20,7 +20,7 @@ render((
 			<Router>
 				<Home path="/" />
 				<Definitions path="/definitions" />
-				<Bash path="/about" />
+				<Bash path="/bash" />
 				<Stars path="/stars" />
 				<Repos path="/repos" />
 				<GitFlow path="/gitflow" />
