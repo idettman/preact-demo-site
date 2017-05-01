@@ -7,7 +7,7 @@ import MainNavigation from './components/main-navigation'
 
 import Home from './views/home'
 import Definitions from './views/definitions'
-import About from './views/about'
+import Bash from './views/bash'
 import Stars from './views/stars'
 import Repos from './views/repos'
 import GitFlow from './views/git-flow'
@@ -20,7 +20,7 @@ render((
 			<Router>
 				<Home path="/" />
 				<Definitions path="/definitions" />
-				<About path="/about" />
+				<Bash path="/about" />
 				<Stars path="/stars" />
 				<Repos path="/repos" />
 				<GitFlow path="/gitflow" />
