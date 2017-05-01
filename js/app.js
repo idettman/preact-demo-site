@@ -6,6 +6,7 @@ import Header from './components/header'
 import MainNavigation from './components/main-navigation'
 
 import Home from './views/home'
+import Definitions from './views/definitions'
 import About from './views/about'
 import Stars from './views/stars'
 import Repos from './views/repos'
@@ -18,6 +19,7 @@ render((
 		<div className="page-content">
 			<Router>
 				<Home path="/" />
+				<Definitions path="/definitions" />
 				<About path="/about" />
 				<Stars path="/stars" />
 				<Repos path="/repos" />

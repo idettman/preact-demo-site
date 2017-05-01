@@ -1498,6 +1498,7 @@ var match_1 = match.Link;
 var MainNavigation = function (props) { return (
 	h( 'div', { className: "main-navigation" },
 		h( match_1, { activeClassName: "active", href: "/" }, "home"),
+		h( match_1, { activeClassName: "active", href: "/definitions" }, "definitions"),
 		h( match_1, { activeClassName: "active", href: "/about" }, "about"),
 		h( match_1, { activeClassName: "active", href: "/stars" }, "stars"),
 		h( match_1, { activeClassName: "active", href: "/repos" }, "repos"),
@@ -1553,6 +1554,52 @@ var Home = (function (Component$$1) {
 	};
 
 	return Home;
+}(Component));
+
+var Definitions = (function (Component$$1) {
+	function Definitions () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Definitions.__proto__ = Component$$1;
+	Definitions.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Definitions.prototype.constructor = Definitions;
+
+	Definitions.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null,
+				h( 'h2', null, "Definitions content" ),
+				h( 'ul', null,
+					h( 'li', null,
+						h( 'h3', null, "JavaScript" ),
+						h( 'dl', null,
+							h( 'dt', null, "closure" ),
+							h( 'dd', null, "a block of code that can be referenced (and passed around) with access to the variables of the enclosing scope. Wrapping statements or an expression in a closure expression does not change their meaning, but merely defers their execution. A block of code which is either a statement list, an expression, or a combination of both. A closure is a function that refers to free variables in it's lexical context" ),
+							
+							h( 'dt', null, "function" ),
+							h( 'dd', null, "a block of code with parameters. It may produce a result value" ),
+							
+							h( 'dt', null, "free variable" ),
+							h( 'dd', null, "is an identifier used but not defined by the closure" ),
+							
+							h( 'dt', null, "imperative programming" ),
+							h( 'dd', null, "a paradigm that describes computation in terms of statements that change a program state" )
+						)
+					),
+					h( 'li', null,
+						h( 'h3', null, "UX Elements" ),
+						h( 'dl', null,
+							h( 'dt', null, "accordian menu" ),
+							h( 'dd', null, "menu that repositions surrounding content as it expands and contracts" )
+						)
+					)
+				)
+				
+			)
+		)
+	};
+
+	return Definitions;
 }(Component));
 
 var About = (function (Component$$1) {
@@ -1672,6 +1719,7 @@ render((
 		h( 'div', { className: "page-content" },
 			h( Router, null,
 				h( Home, { path: "/" }),
+				h( Definitions, { path: "/definitions" }),
 				h( About, { path: "/about" }),
 				h( Stars, { path: "/stars" }),
 				h( Repos, { path: "/repos" }),
