@@ -4,7 +4,7 @@ class GitFlow extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Git workflow recommendations</h1>
+				<h1>Git Methodology</h1>
 				<h2>Before submitting a bug or feature request</h2>
 				<p>Capable programmers should always attempt to investigate and fix problems themselves before asking for others to help. Submit a pull request instead of an issue!</p>
 				<ul>

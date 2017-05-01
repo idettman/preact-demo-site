@@ -4,6 +4,7 @@ class Bash extends Component {
 	render () {
 		return (
 			<div className="about">
+				<h2>Bash Reference</h2>
 				<ul>
 					<li>
 						<h3>Stop a running terminal process</h3>
