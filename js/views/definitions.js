@@ -4,7 +4,7 @@ class Definitions extends Component {
 	render () {
 		return (
 			<div>
-				<h2>Definitions content</h2>
+				<h2>Definitions</h2>
 				<ul>
 					<li>
 						<h3>JavaScript</h3>
