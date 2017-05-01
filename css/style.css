@@ -33,8 +33,9 @@ main{
 	height: 100%;
 }
 
-article {
-	height: 100%;
+article{
+	text-shadow: 0 0 1px black;
+	color: white;
 }
 
 h1,h2,h3 {

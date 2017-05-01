@@ -1499,7 +1499,7 @@ var MainNavigation = function (props) { return (
 	h( 'div', { className: "main-navigation" },
 		h( match_1, { activeClassName: "active", href: "/" }, "home"),
 		h( match_1, { activeClassName: "active", href: "/definitions" }, "definitions"),
-		h( match_1, { activeClassName: "active", href: "/about" }, "about"),
+		h( match_1, { activeClassName: "active", href: "/bash" }, "bash reference"),
 		h( match_1, { activeClassName: "active", href: "/stars" }, "stars"),
 		h( match_1, { activeClassName: "active", href: "/repos" }, "repos"),
 		h( match_1, { activeClassName: "active", href: "/gitflow" }, "git workflow")
@@ -1798,7 +1798,7 @@ render((
 			h( Router, null,
 				h( Home, { path: "/" }),
 				h( Definitions, { path: "/definitions" }),
-				h( Bash, { path: "/about" }),
+				h( Bash, { path: "/bash" }),
 				h( Stars, { path: "/stars" }),
 				h( Repos, { path: "/repos" }),
 				h( GitFlow, { path: "/gitflow" })
