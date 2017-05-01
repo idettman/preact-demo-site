@@ -4,7 +4,8 @@ class Bash extends Component {
 	render () {
 		return (
 			<div className="about">
-				<h2>Bash Reference</h2>
+				<h1>Bash Reference</h1>
+				<h2>OSX Terminal</h2>
 				<ul>
 					<li>
 						<h3>Stop a running terminal process</h3>
@@ -44,7 +45,7 @@ class Bash extends Component {
 					
 					<li>
 						<h3>curl</h3>
-						<code>curl --proxy http://proxy.address.com:80 http://target.url.com:8081/nexus/content/groups/public/spy/spymemcached/2.6/</code>
+						<code>curl --proxy http://proxy.com:80 http://target.com:80</code>
 						<code>curl -O http://appldnld.apple.com/iTunes11.0.4.dmg</code>
 					</li>
 					

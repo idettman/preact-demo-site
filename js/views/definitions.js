@@ -4,10 +4,10 @@ class Definitions extends Component {
 	render () {
 		return (
 			<div>
-				<h2>Definitions</h2>
+				<h1>Definitions</h1>
 				<ul>
 					<li>
-						<h3>JavaScript</h3>
+						<h2>JavaScript</h2>
 						<dl>
 							<dt>closure</dt>
 							<dd>a block of code that can be referenced (and passed around) with access to the variables of the enclosing scope.
@@ -26,14 +26,14 @@ class Definitions extends Component {
 						</dl>
 					</li>
 					<li>
-						<h3>UX Elements</h3>
+						<h2>UX Elements</h2>
 						<dl>
 							<dt>accordian menu</dt>
 							<dd>menu that repositions surrounding content as it expands and contracts</dd>
 						</dl>
 					</li>
 					<li>
-						<h3>Types</h3>
+						<h2>Types</h2>
 						<ul>
 							<li>menu</li>
 							<li>sub-menu</li>

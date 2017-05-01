@@ -4,7 +4,7 @@ class Repos extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Repos content</h2>
+				<h1>Repos content</h1>
 				<dl>
 					<dt>storygraph</dt>
 					<dd><a href="https://github.com/idettman/story-graph">story-graph</a></dd>
