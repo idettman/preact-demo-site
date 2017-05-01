@@ -31,6 +31,12 @@ class Home extends Component {
 					<h2>HTML Box Model</h2>
 					<p>After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element.</p>
 					<p>I decided to make a simple overview of the dom box model and how the display and position values work</p>
+					<ul>
+						<li>The following position types will not affect containing elements</li>
+						<li>absolute</li>
+						<li>fixed</li>
+						<li>relative (only the initial position is reflected by the box model, top and left values are not reflected)</li>
+					</ul>
 				</div>
 			</div>
 		)
