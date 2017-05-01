@@ -52,6 +52,7 @@ h2 {
 	font-size: 2.2rem;
 	color: orangered;
 	border-bottom: 0.1rem solid;
+	border-image: linear-gradient(90deg, orangered, orange) 100;
 }
 
 h3 {
@@ -100,7 +101,8 @@ dd {
 .main-navigation {
 	width: 16rem;
 	margin: 0 0 0 1rem;
-	border-right: 0.1rem solid cornflowerblue;
+	border-right: 0.1rem solid;
+	border-image: linear-gradient(0deg, #101101, cornflowerblue) 10;
 }
 
 .main-navigation a {
