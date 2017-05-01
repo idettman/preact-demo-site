@@ -26,6 +26,7 @@ class Home extends Component {
 					<br/>&nbsp;&nbsp;&nbsp;const component = function(){'{}'}
 					<br/>{'}'}
 					</div>
+					<p>The const is going to be scoped to that block and unavailable in the global scope</p>
 				</div>
 				<div>
 					<h2>HTML Box Model</h2>

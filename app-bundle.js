@@ -1537,7 +1537,8 @@ var Home = (function (Component$$1) {
 					h( 'div', { className: "gist gist-iife" }, "'use strict' ", h( 'br', null ), '{',
 					h( 'br', null ), "   const component = function()", '{}',
 					h( 'br', null ), '}'
-					)
+					),
+					h( 'p', null, "The const is going to be scoped to that block and unavailable in the global scope" )
 				),
 				h( 'div', null,
 					h( 'h2', null, "HTML Box Model" ),
@@ -1851,7 +1852,7 @@ render((
 		h( Header, { title: "idettman" }),
 		h( MainNavigation, null ),
 		h( 'div', { className: "page-content" },
-			h( Router, null,
+			h( Router, null, 	
 				h( Home, { path: "/" }),
 				h( Definitions, { path: "/definitions" }),
 				h( Bash, { path: "/bash" }),

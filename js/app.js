@@ -17,7 +17,7 @@ render((
 		<Header title="idettman" />
 		<MainNavigation />
 		<div className="page-content">
-			<Router>
+			<Router>	
 				<Home path="/" />
 				<Definitions path="/definitions" />
 				<Bash path="/bash" />
