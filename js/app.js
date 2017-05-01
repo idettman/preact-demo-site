@@ -54,4 +54,4 @@ render((
 			</Router>
 		</div>
 	</main>
-), document.getElementById('root'))
+), document.body)
