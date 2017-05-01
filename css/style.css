@@ -98,8 +98,9 @@ dd {
 }
 
 .main-navigation {
-	width: 14rem;
+	width: 16rem;
 	margin: 0 0 0 1rem;
+	border-right: 0.1rem solid cornflowerblue;
 }
 
 .main-navigation a {

@@ -1497,12 +1497,12 @@ var match_1 = match.Link;
 
 var MainNavigation = function (props) { return (
 	h( 'div', { className: "main-navigation" },
-		h( match_1, { activeClassName: "active", href: "/" }, "home"),
-		h( match_1, { activeClassName: "active", href: "/definitions" }, "definitions"),
-		h( match_1, { activeClassName: "active", href: "/bash" }, "bash reference"),
-		h( match_1, { activeClassName: "active", href: "/stars" }, "stars"),
-		h( match_1, { activeClassName: "active", href: "/repos" }, "repos"),
-		h( match_1, { activeClassName: "active", href: "/gitflow" }, "git workflow")
+		h( match_1, { activeClassName: "active", href: props.navData['home'].path }, props.navData['home'].title),
+		h( match_1, { activeClassName: "active", href: props.navData['definitions'].path }, props.navData['definitions'].title),
+		h( match_1, { activeClassName: "active", href: props.navData['bash'].path }, props.navData['bash'].title),
+		h( match_1, { activeClassName: "active", href: props.navData['stars'].path }, props.navData['stars'].title),
+		h( match_1, { activeClassName: "active", href: props.navData['repos'].path }, props.navData['repos'].title),
+		h( match_1, { activeClassName: "active", href: props.navData['gitflow'].path }, props.navData['gitflow'].title)
 	)
 ); };
 
@@ -1847,18 +1847,45 @@ var GitFlow = (function (Component$$1) {
 	return GitFlow;
 }(Component));
 
+var NAV_DATA = {
+	home: {
+		path: '/',
+		title: 'home'
+	},
+	definitions: {
+		path: '/definitions',
+		title: 'definitions'
+	},
+	bash: {
+		path: '/bash',
+		title: 'bash reference'
+	},
+	stars: {
+		path: '/stars',
+		title: 'stars'
+	},
+	repos: {
+		path: '/repos',
+		title: 'repositories'
+	},
+	gitflow: {
+		path: '/gitflow',
+		title: 'git methodology'
+	}
+};
+
 render((
 	h( 'main', null,
 		h( Header, { title: "idettman" }),
-		h( MainNavigation, null ),
+		h( MainNavigation, { navData: NAV_DATA }),
 		h( 'div', { className: "page-content" },
 			h( Router, null, 	
-				h( Home, { path: "/" }),
-				h( Definitions, { path: "/definitions" }),
-				h( Bash, { path: "/bash" }),
-				h( Stars, { path: "/stars" }),
-				h( Repos, { path: "/repos" }),
-				h( GitFlow, { path: "/gitflow" })
+				h( Home, { path: NAV_DATA['home'].path }),
+				h( Definitions, { path: NAV_DATA['definitions'].path }),
+				h( Bash, { path: NAV_DATA['bash'].path }),
+				h( Stars, { path: NAV_DATA['stars'].path }),
+				h( Repos, { path: NAV_DATA['repos'].path }),
+				h( GitFlow, { path: NAV_DATA['gitflow'].path })
 			)
 		)
 	)
