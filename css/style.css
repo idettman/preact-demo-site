@@ -21,23 +21,23 @@ body {
 	
 	overflow: auto;
 	position: relative;
-
+	
 	color: #BBB;
 	font-size: 2rem;
-
+	
 	font-kerning: none;
-	font-family: 'Lora',serif;
+	font-family: 'Lora', serif;
 }
 
-main{
+main {
 	height: 100%;
 }
 
-article{
+article {
 	color: white;
 }
 
-h1,h2,h3 {
+h1, h2, h3 {
 	margin: 1rem 0;
 	font-weight: normal;
 }
@@ -58,7 +58,6 @@ h3 {
 	color: orange;
 	font-size: 2rem;
 }
-
 
 a {
 	font-family: "Source Sans Pro", sans-serif;
@@ -95,7 +94,7 @@ dd {
 	top: 1rem;
 	right: 1rem;
 	margin: 0;
-	color: orange;
+	color: cadetblue;
 }
 
 .main-navigation {
@@ -107,10 +106,10 @@ dd {
 .main-navigation a {
 	display: block;
 	font-size: 2rem;
-	line-height:3rem;
+	line-height: 3rem;
 }
 
 .page-content {
-	padding:1rem;
+	padding: 1rem;
 	box-sizing: border-box;
 }
