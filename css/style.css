@@ -114,9 +114,3 @@ dd {
 	padding:1rem;
 	box-sizing: border-box;
 }
-
-.about {
-	background-image: url("../img/stjohn.jpg");
-	background-size: cover;
-	height: 35rem;
-}
