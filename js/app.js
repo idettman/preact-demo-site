@@ -17,7 +17,7 @@ render((
 		<MainNavigation />
 		<div className="page-content">
 			<Router>
-				<Home path="/"/>
+				<Home path="/" />
 				<About path="/about" />
 				<Stars path="/stars" />
 				<Repos path="/repos" />

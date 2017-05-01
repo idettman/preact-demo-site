@@ -1536,6 +1536,11 @@ var Home = (function (Component$$1) {
 					h( 'div', { className: "gist gist-iife" }, "'use strict' ", h( 'br', null ), '{',
 					h( 'br', null ), "   console.log('foo') ", h( 'br', null ), '}'
 					)
+				),
+				h( 'div', null,
+					h( 'h2', null, "HTML Box Model" ),
+					h( 'p', null, "After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element." ),
+					h( 'p', null, "I decided to make a simple overview of the dom box model and how the display and position values work" )
 				)
 			)
 		)
