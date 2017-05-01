@@ -11,22 +11,27 @@ html {
 
 body {
 	height: 100%;
+	margin: 0;
 	overflow: auto;
-	margin: 0.2rem;
 	position: relative;
 
 	color: #BBB;
-	background-color: #101;
-
 	font-size: 2rem;
 
 	font-kerning: none;
 	font-family: 'Lora',serif;
+}
+
+main{
+	width: 99.5%;
+	height: 99.5%;
+	margin: 0.25%;
+	background-color: #101;
 	border-top-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
 }
 
-main, article {
+article {
 	height: 100%;
 }
 
@@ -69,15 +74,15 @@ a.active {
 
 .header__title {
 	position: absolute;
-	color: cyan;
 	top: 2rem;
 	right: 3rem;
 	margin: 0;
+	color: cyan;
 }
 
 .main-navigation {
-	margin: 0 0 0 1rem;
 	width: 14rem;
+	margin: 0 0 0 1rem;
 }
 
 .main-navigation a {
