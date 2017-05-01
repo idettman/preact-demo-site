@@ -1540,7 +1540,13 @@ var Home = (function (Component$$1) {
 				h( 'div', null,
 					h( 'h2', null, "HTML Box Model" ),
 					h( 'p', null, "After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element." ),
-					h( 'p', null, "I decided to make a simple overview of the dom box model and how the display and position values work" )
+					h( 'p', null, "I decided to make a simple overview of the dom box model and how the display and position values work" ),
+					h( 'ul', null,
+						h( 'li', null, "The following position types will not affect containing elements" ),
+						h( 'li', null, "absolute" ),
+						h( 'li', null, "fixed" ),
+						h( 'li', null, "relative (only the initial position is reflected by the box model, top and left values are not reflected)" )
+					)
 				)
 			)
 		)
