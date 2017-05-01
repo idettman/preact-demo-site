@@ -11,28 +11,7 @@ import Bash from './views/bash'
 import Repos from './views/repos'
 import GitFlow from './views/git-flow'
 
-const NAV_DATA = {
-	home: {
-		path: '/',
-		title: 'home'
-	},
-	definitions: {
-		path: '/definitions',
-		title: 'definitions'
-	},
-	bash: {
-		path: '/bash',
-		title: 'bash reference'
-	},
-	repos: {
-		path: '/repos',
-		title: 'repositories'
-	},
-	gitflow: {
-		path: '/gitflow',
-		title: 'git methodology'
-	}
-}
+import {NAV_DATA} from './constants' 
 
 render((
 	<main>
