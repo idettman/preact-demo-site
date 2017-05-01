@@ -1777,7 +1777,16 @@ var Repos = (function (Component$$1) {
 
 	Repos.prototype.render = function render$$1 () {
 		return (
-			h( 'h2', null, "Repos content" )
+			h( 'div', null,
+				h( 'h2', null, "Repos content" ),
+				h( 'dl', null,
+					h( 'dt', null, "storygraph" ),
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/story-graph" }, "story-graph") ),
+					
+					h( 'dt', null, "webidl-externs" ),
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/webidl-externs" }, "webidl-externs") )
+				)
+			)
 		)
 	};
 
