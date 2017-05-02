@@ -50,7 +50,7 @@ h2 {
 	color: orangered;
 	border: 0 none;
 	border-bottom: 0.1rem solid;
-	border-image: linear-gradient(90deg, orangered, #101101 60%) 1;
+	border-image: linear-gradient(90deg, orangered, #101 60%) 1;
 }
 
 h3 {
@@ -59,7 +59,6 @@ h3 {
 }
 
 a {
-	font-family: "Source Sans Pro", sans-serif;
 	color: cornflowerblue;
 	font-weight: normal;
 	text-decoration: none;
@@ -95,20 +94,27 @@ dd {
 	font-size: 4.8rem;
 	color: cornflowerblue;
 	font-family: 'Lora', serif;
+	
+	
+	background: -webkit-linear-gradient(top, cornflowerblue, #101);
+	background: linear-gradient(top, cornflowerblue, #101);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .main-navigation {
-	width: 16rem;
+	width: 15rem;
 	margin: 0 0 0 1rem;
 	border: 0 none;
 	border-right: 0.1rem solid;
-	border-image: linear-gradient(180deg, cornflowerblue, #101101) 1;
+	border-image: linear-gradient(180deg, cornflowerblue, #101) 1;
 }
 
 .main-navigation a {
 	display: block;
-	font-size: 2rem;
-	line-height: 3rem;
+	font-size: 1.8rem;
+	line-height: 2.5rem;
+	font-family: "Source Sans Pro", sans-serif;
 }
 
 .page-content {
