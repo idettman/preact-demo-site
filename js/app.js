@@ -1,4 +1,5 @@
 import { h, render } from 'preact'
+
 import Router from 'preact-router'
 import AsyncRoute from 'preact-async-route'
 
@@ -12,7 +13,6 @@ import GitFlow from './views/git-flow'
 import Definitions from './views/definitions'
 
 import { NAV_DATA } from './constants'
-
 import { pipe, compose } from './util'
 
 const getNavPath = path => NAV_DATA[path].path

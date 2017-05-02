@@ -1,11 +1,13 @@
 /**
- * @param a
- * @param b
+ * @param {function} a
+ * @param {function} b
+ * @returns {function}
  */
-export const pipe = (a, b) => (c) => b(a(c))
+export const pipe = (a, b) => c => b(a(c))
 
 /**
- * @param a
- * @param b
+ * @param {function} a
+ * @param {function} b
+ * @returns {function}
  */
-export const compose = (a, b) => (c) => a(b(c))
+export const compose = (a, b) => c => a(b(c))

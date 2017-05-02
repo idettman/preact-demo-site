@@ -9,15 +9,12 @@ import cssnano from 'cssnano'
 import postcss from 'rollup-plugin-postcss'
 import postcssModules from 'postcss-modules'
 
-const cssExportMap = {};
-
 const NODE_ENV = (global.process.env.NODE_ENV) ? global.process.env.NODE_ENV : 'development'
 const ENVIRONMENT = `const process = { env:{ NODE_ENV: "${NODE_ENV}" } }`
 
 const environmentIs = value => NODE_ENV === value
-const development = environmentIs('development')
-const production = environmentIs('production')
 
+const cssExportMap = {};
 
 const NODE_OPTIONS = {
 	jsnext: true,
@@ -56,19 +53,16 @@ const POSTCSS_OPTIONS = {
 	}
 }
 
-const devPlugins = [
+const PLUGINS_DEV = [
 	node(NODE_OPTIONS),
 	commonjs(COMMONJS_OPTIONS),
 	buble(BUBLE_OPTIONS)
 ]
 
-const productionPlugins = [
-	node(NODE_OPTIONS),
-	commonjs(COMMONJS_OPTIONS),
-	buble(BUBLE_OPTIONS),
+const PLUGINS_PRODUCTION = PLUGINS_DEV.concat([
 	postcss(POSTCSS_OPTIONS),
 	uglify()
-]
+])
 
 export default {
 	entry: 'js/app.js',
@@ -77,6 +71,6 @@ export default {
 	format: 'iife',
 	dest: 'app-bundle.js',
 	sourceMap: true,
-	plugins: (development) ? devPlugins : productionPlugins,
+	plugins: (environmentIs('development')) ? PLUGINS_DEV : PLUGINS_PRODUCTION,
 	external: ['fs', 'path', 'readline']
 }
