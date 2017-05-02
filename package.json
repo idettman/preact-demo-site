@@ -1,16 +1,16 @@
 {
   "name": "idettman.github.io",
   "version": "1.0.0",
-  "description": "isaac's github home",
+  "description": "idettman's github home",
   "main": "index.js",
   "engines": {
-    "npm": ">=3.0.0",
-    "node": ">=6.0.0"
+    "npm": ">=4.2.0",
+    "node": ">=7.9.0"
   },
   "scripts": {
     "build": "npm run dev",
-    "dev": "rollup --config build/rollup.config.js --env=development",
-    "prod": "NODE_ENV=production rollup --config build/rollup.config.js --env=production",
+    "dev": "NODE_ENV=development rollup --config build/rollup.config.js",
+    "prod": "NODE_ENV=production rollup --config build/rollup.config.js",
     "rollup": "rollup",
     "serve": "node build/http-server.js"
   },
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/idettman/idettman.github.io.git"
   },
   "author": {
-    "name": "Isaac A. Dettman",
+    "name": "idettman",
     "url": "https://github.com/idettman"
   },
   "license": "MIT",
@@ -43,10 +43,14 @@
     "preact-router": "^2.4.5"
   },
   "devDependencies": {
+    "cssnano": "^3.10.0",
+    "postcss-modules": "^0.7.0",
+    "preact-async-route": "^1.0.3",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.4.1",
     "rollup-plugin-uglify": "^1.0.2"
   }
 }
