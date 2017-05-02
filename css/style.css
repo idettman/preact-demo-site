@@ -119,3 +119,7 @@ dd {
 	padding: 1rem;
 	box-sizing: border-box;
 }
+
+.gist {
+	color: cornflowerblue;
+}
