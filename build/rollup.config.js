@@ -7,14 +7,11 @@ import commonjs from 'rollup-plugin-commonjs'
 
 import cssnano from 'cssnano'
 import postcss from 'rollup-plugin-postcss'
-import postcssModules from 'postcss-modules'
 
 const NODE_ENV = (global.process.env.NODE_ENV) ? global.process.env.NODE_ENV : 'development'
 const ENVIRONMENT = `const process = { env:{ NODE_ENV: "${NODE_ENV}" } }`
 
 const environmentIs = value => NODE_ENV === value
-
-const cssExportMap = {};
 
 const NODE_OPTIONS = {
 	jsnext: true,
@@ -40,17 +37,10 @@ const BUBLE_OPTIONS = {
 }
 
 const POSTCSS_OPTIONS = {
+	extensions: ['.css', '.sss'],
 	plugins: [
-		cssnano,
-		postcssModules({
-			getJSON (id, exportTokens) {
-				cssExportMap[id] = exportTokens;
-			}
-		})
-	],
-	getExport (id) {
-		return cssExportMap[id];
-	}
+		cssnano
+	]
 }
 
 const PLUGINS_DEV = [

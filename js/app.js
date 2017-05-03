@@ -1,7 +1,6 @@
 import { h, render } from 'preact'
 
 import Router from 'preact-router'
-import AsyncRoute from 'preact-async-route'
 
 import Header from './components/header'
 import MainNavigation from './components/main-navigation'
@@ -28,10 +27,6 @@ render((
 				<Bash path={getNavPath('bash')} />
 				<Repos path={getNavPath('repos')} />
 				<GitFlow path={getNavPath('gitflow')} />
-				<AsyncRoute
-					path="/favorites"
-					loading={()=> <div>loading...</div>}
-				/>
 			</Router>
 		</div>
 	</main>
