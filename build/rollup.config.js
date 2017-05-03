@@ -1,17 +1,9 @@
-'use strict'
-
 import node from 'rollup-plugin-node-resolve'
 import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify'
 import commonjs from 'rollup-plugin-commonjs'
 
-import cssnano from 'cssnano'
-import postcss from 'rollup-plugin-postcss'
-
-const NODE_ENV = (global.process.env.NODE_ENV) ? global.process.env.NODE_ENV : 'development'
-const ENVIRONMENT = `const process = { env:{ NODE_ENV: "${NODE_ENV}" } }`
-
-const environmentIs = value => NODE_ENV === value
+import {environmentIs, ENVIRONMENT_DECLARATION_STUB} from './rollup.utils'
 
 const NODE_OPTIONS = {
 	jsnext: true,
@@ -36,13 +28,6 @@ const BUBLE_OPTIONS = {
 	}
 }
 
-const POSTCSS_OPTIONS = {
-	extensions: ['.css', '.sss'],
-	plugins: [
-		cssnano
-	]
-}
-
 const PLUGINS_DEV = [
 	node(NODE_OPTIONS),
 	commonjs(COMMONJS_OPTIONS),
@@ -50,13 +35,12 @@ const PLUGINS_DEV = [
 ]
 
 const PLUGINS_PRODUCTION = PLUGINS_DEV.concat([
-	postcss(POSTCSS_OPTIONS),
 	uglify()
 ])
 
 export default {
 	entry: 'js/app.js',
-	intro: ENVIRONMENT,
+	intro: ENVIRONMENT_DECLARATION_STUB,
 	exports: 'none',
 	format: 'iife',
 	dest: 'app-bundle.js',

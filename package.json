@@ -40,17 +40,28 @@
   },
   "dependencies": {
     "preact": "^8.1.0",
-    "preact-router": "^2.4.5"
+    "preact-router": "^2.4.5",
+    "preact-async-route": "^1.0.3"
   },
   "devDependencies": {
+    "chalk": "latest",
+    "chokidar": "^1.6.1",
     "cssnano": "^3.10.0",
+    "dependency-graph": "^0.5.0",
+    "fs-promise": "^2.0.2",
+    "get-stdin": "^5.0.1",
+    "globby": "^6.1.0",
+    "ora": "^1.2.0",
+    "postcss": "latest",
+    "postcss-cssnext": "^2.10.0",
+    "postcss-load-config": "^1.2.0",
     "postcss-modules": "^0.7.0",
-    "preact-async-route": "^1.0.3",
+    "read-cache": "^1.0.0",
     "rollup": "^0.41.6",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-postcss": "^0.4.1",
-    "rollup-plugin-uglify": "^1.0.2"
+    "rollup-plugin-uglify": "^1.0.2",
+	"yargs": "latest"
   }
 }
