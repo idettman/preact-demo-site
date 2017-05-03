@@ -6,24 +6,23 @@ html {
 	height: 100%;
 	overflow: hidden;
 	font-size: 1.6rem;
-	background-color: #000;
+	background-color: #101;
 }
 
 body {
 	height: 100%;
-	max-width: 75rem;
+	max-width: 80rem;
 	margin: 0;
-	
-	background-color: #101;
 	
 	overflow: auto;
 	position: relative;
 	
 	color: #DDD;
 	font-size: 2rem;
+	background-color: #101;
 	
-	-webkit-font-smoothing: antialiased;
 	font-family: 'Lora', serif;
+	-webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -92,9 +91,8 @@ dd {
 	position: absolute;
 	top: 1rem;
 	right: 1rem;
-	font-size: 4.8rem;
-	color: cornflowerblue;
-	font-family: 'Lora', serif;
+	width: 40%;
+	color: #0B598D;
 }
 
 .main-navigation {
@@ -102,7 +100,7 @@ dd {
 	margin: 0 0 0 1rem;
 	border: 0 none;
 	border-right: 0.1rem solid;
-	border-image: linear-gradient(180deg, cornflowerblue, #101) 1;
+	border-image: linear-gradient(180deg, #101, #0B598D, #101) 1;
 }
 
 .main-navigation a {

@@ -11,6 +11,8 @@
     "build": "npm run dev",
     "dev": "NODE_ENV=development rollup --config build/rollup.config.js",
     "prod": "NODE_ENV=production rollup --config build/rollup.config.js",
+	"postcss-dev": "node build/postcss.runner.js css/style.css -o css/style.bundle.css",
+	"postcss-prod": "node build/postcss.runner.js css/style.css -o css/style.bundle.css -c build/postcss.config.js",
     "rollup": "rollup",
     "serve": "node build/http-server.js"
   },
