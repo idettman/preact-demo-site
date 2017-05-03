@@ -95,11 +95,6 @@ dd {
 	font-size: 4.8rem;
 	color: cornflowerblue;
 	font-family: 'Lora', serif;
-	
-	background: -webkit-linear-gradient(top, cornflowerblue, #0B598D);
-	background: linear-gradient(top, cornflowerblue, #0B598D);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 }
 
 .main-navigation {
