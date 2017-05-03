@@ -1395,7 +1395,7 @@ var preactRouter_es = Object.freeze({
 });
 
 var Header = function (props) { return (
-	h( 'svg', { class: "header__title", viewBox: "0 0 36 9" },
+	h( 'svg', { class: "header__title", viewBox: "0 0 35 9" },
 		h( 'defs', null,
 			h( 'linearGradient', { id: "MyGradient", x1: "0%", x2: "0%", y1: "0%", y2: "100%" },
 				h( 'stop', { offset: "0%", 'stop-color': "cornflowerblue" }),

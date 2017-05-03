@@ -1,7 +1,7 @@
 import {h} from 'preact'
 
 const Header = (props) => (
-	<svg class="header__title" viewBox="0 0 36 9">
+	<svg class="header__title" viewBox="0 0 35 9">
 		<defs>
 			<linearGradient id="MyGradient" x1="0%" x2="0%" y1="0%" y2="100%">
 				<stop offset="0%" stop-color="cornflowerblue"/>
