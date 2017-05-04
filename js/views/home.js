@@ -6,6 +6,18 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
+					<h2>Replace SASS by using postcss with these plugins</h2>
+					<ul>
+						<li>postcss-nested-import</li>
+						<li>postcss-define-function</li>
+						<li>postcss-simple-vars</li>
+						<li>postcss-extend</li>
+						<li>postcss-mixins</li>
+						<li>postcss-responsive-font</li>
+					</ul>
+					<a href="http://postcss.parts/tag/sass" target="_blank" className="button marginTop">Postcss plugin catalog</a>
+				</div>
+				<div>
 					<h2>ES2015 const + let</h2>
 					<p>ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding.</p>
 					<p>The only difference between const and let is that const makes the contract that no rebinding will happen.</p>

@@ -11,7 +11,7 @@ html {
 
 body {
 	height: 100%;
-	max-width: 80rem;
+	max-width: 150rem;
 	margin: 0;
 	
 	overflow: auto;
@@ -87,6 +87,14 @@ dd {
 	margin-left: 2rem;
 }
 
+.button {
+	display: inline-block;
+	padding: 0.5rem;
+	background-color: #222222;
+	border: 0.1rem solid;
+	border-radius: 0.3rem;
+}
+
 .header__title {
 	position: absolute;
 	top: 1rem;
@@ -119,4 +127,8 @@ dd {
     border-radius: 0.5rem;
 	color: cornflowerblue;
 	background-color: #222;
+}
+
+.marginTop {
+	margin-top: 1rem;
 }
