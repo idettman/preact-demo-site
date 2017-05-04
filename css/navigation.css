@@ -1,3 +1,12 @@
+
+.header__title {
+	position: absolute;
+	font-family: var(--fontSerif);
+	top: 1rem;
+	right: 1rem;
+	width: 40%;
+}
+
 .main-navigation {
 	width: calc(var(--spaceNormal) * 15);
 	margin: 0 0 0 var(--spaceNormal);
@@ -12,9 +21,9 @@
 }
 
 .button {
-	display: inline-block;
+	display: block;
+	font-family: var(--fontSansSerif);
 	padding: calc(var(--spaceNormal) / 2);
-	background-color: #222222;
-	border: var(--borderThin);
-	border-radius: calc(var(--spaceNormal) / 3);
+	border-radius: calc(var(--spaceNormal) / 2);
 }
+

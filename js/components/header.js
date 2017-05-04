@@ -10,7 +10,7 @@ const Header = (props) => (
 			</linearGradient>
 		</defs>
 		<text x="0" y="7" style="fill: url(#MyGradient); font-size: 1rem">{ props.title }</text>
-		<text x="0" y="10" style="fill: orange; font-size: 0.3rem">{ props.subtitle }</text>
+		<text x="0" y="10" style="fill: orange; font-size: 0.34rem">{ props.subtitle }</text>
 	</svg>
 	</a>
 )
