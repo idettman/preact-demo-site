@@ -17,7 +17,7 @@ const getNavPath = path => NAV_DATA[path].path
 
 render((
 	<main>
-		<Header title="idettman" />
+		<Header title="idettman" subtitle="prototypical development" />
 		<MainNavigation navData={NAV_DATA} />
 		<div className="page-content">
 			<Router>

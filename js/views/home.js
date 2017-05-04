@@ -6,7 +6,7 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
-					<h2>Replace SASS by using postcss with these plugins</h2>
+					<h2>My current postcss plugin stack</h2>
 					<ul>
 						<li>postcss-nested-import</li>
 						<li>postcss-define-function</li>
