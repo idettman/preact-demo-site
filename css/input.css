@@ -1,4 +1,7 @@
-@import "base-elements.css";
+@import "site.css";
+@import "headings.css";
+@import "links.css";
+@import "lists.css";
 
 .button {
 	display: inline-block;

@@ -1,0 +1,13 @@
+a {
+	color: cornflowerblue;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a:hover {
+	color: orangered;
+}
+
+a.active {
+	color: #0B598D;
+}

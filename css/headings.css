@@ -1,0 +1,22 @@
+h1, h2, h3 {
+	margin: 1rem 0;
+	font-weight: normal;
+}
+
+h1 {
+	color: #0B598D;
+	font-size: 2.7rem;
+}
+
+h2 {
+	font-size: 2.2rem;
+	color: orangered;
+	border: 0 none;
+	border-bottom: 0.1rem solid;
+	border-image: linear-gradient(90deg, #101, orangered, #101 60%) 1;
+}
+
+h3 {
+	color: orange;
+	font-size: 2rem;
+}

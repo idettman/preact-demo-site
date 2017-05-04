@@ -1,0 +1,30 @@
+:root {
+	font-size: 62.5%;
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+	font-size: 1.6rem;
+	background-color: #101;
+}
+
+body {
+	height: 100%;
+	max-width: 150rem;
+	margin: 0;
+	
+	overflow: auto;
+	position: relative;
+	
+	color: #DDD;
+	font-size: 2rem;
+	background-color: #101;
+	
+	font-family: 'Lora', serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+main {
+	height: 100%;
+}
