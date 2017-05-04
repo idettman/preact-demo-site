@@ -3,6 +3,7 @@ module.exports = (ctx) => ({
 		'postcss-import': {
 			root: ctx.file.dirname
 		},
+		'postcss-cssnext': {},
 		'cssnano': {}
 	}
 })

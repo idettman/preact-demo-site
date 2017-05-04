@@ -6,11 +6,11 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
-					<h2>My current postcss plugin stack</h2>
+					<h2>Recommended postcss plugins</h2>
 					<ul>
 						<li>postcss-import</li>
-						<li>postcss-custom-properties</li>
-						<li>postcss-at-rules-variables</li>
+						<li>postcss-cssnext</li>
+						<li>postcss-url</li>
 					</ul>
 					<a href="http://postcss.parts/tag/sass" target="_blank" className="button marginTop">Postcss plugin catalog</a>
 				</div>

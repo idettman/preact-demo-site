@@ -1,12 +1,16 @@
 :root {
 	font-size: 62.5%;
+	
+	--colorDark: #101;
+	--fontSerif: "Lora", serif;
+	--fontSansSerif: "Source Sans Pro", sans-serif;
 }
 
 html {
 	height: 100%;
 	overflow: hidden;
 	font-size: 1.6rem;
-	background-color: #101;
+	background-color: var(--colorDark);
 }
 
 body {
@@ -19,9 +23,9 @@ body {
 	
 	color: #DDD;
 	font-size: 2rem;
-	background-color: #101;
+	background-color: var(--colorDark);
 	
-	font-family: 'Lora', serif;
+	font-family: var(--fontSerif);
 	-webkit-font-smoothing: antialiased;
 }
 
