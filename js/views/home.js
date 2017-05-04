@@ -8,12 +8,9 @@ class Home extends Component {
 				<div>
 					<h2>My current postcss plugin stack</h2>
 					<ul>
-						<li>postcss-nested-import</li>
-						<li>postcss-define-function</li>
-						<li>postcss-simple-vars</li>
-						<li>postcss-extend</li>
-						<li>postcss-mixins</li>
-						<li>postcss-responsive-font</li>
+						<li>postcss-import</li>
+						<li>postcss-custom-properties</li>
+						<li>postcss-at-rules-variables</li>
 					</ul>
 					<a href="http://postcss.parts/tag/sass" target="_blank" className="button marginTop">Postcss plugin catalog</a>
 				</div>
