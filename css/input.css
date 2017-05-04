@@ -1,14 +1,4 @@
 @import "global.css";
-@import "navigation.css";
-
-.page-content {
-	padding: var(--spaceNormal);
-	box-sizing: border-box;
-}
-
-.gist {
-    padding: calc(var(--spaceNormal) / 2);
-    border-radius: calc(var(--spaceNormal) / 2);
-	color: var(--colorBlue);
-	background-color: #222;
-}
+@import "overrides.css";
+@import "persistent.css";
+@import "pages.css";

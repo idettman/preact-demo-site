@@ -1,7 +1,7 @@
 import {h, Component} from 'preact'
 
 class Home extends Component {
-	render() {
+	render () {
 		return (
 			<div>
 				<h1>Developer Log</h1>
@@ -29,11 +29,11 @@ class Home extends Component {
 				</div>
 				<div>
 					<h2>ES6 Block Scope is The new IIFE</h2>
-					<div className="gist gist-iife">
-					'use strict'
-					<br/>{'{'}
-					<br/>&nbsp;&nbsp;&nbsp;const component = function(){'{}'}
-					<br/>{'}'}
+					<div className='gist gist-iife'>
+						<div className='js-strict'>'use strict'</div>
+						<div className='js-bracket'>{'{'}</div>
+							<div className='js-code'><span className="js-reserved">const</span> <span className='js-var'>component</span> = <span className="js-reserved">function</span>()<span className='js-bracket'>{'{}'}</span></div>
+						<div className='js-bracket'>{'}'}</div>
 					</div>
 					<p>The const is going to be scoped to that block and unavailable in the global scope</p>
 				</div>
