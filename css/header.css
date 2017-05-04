@@ -1,0 +1,7 @@
+.header__title {
+	position: absolute;
+	font-family: var(--fontSerif);
+	top: 1rem;
+	right: 1rem;
+	width: 40%;
+}

@@ -1,51 +1,18 @@
-@import "site.css";
+@import "global.css";
 @import "headings.css";
 @import "links.css";
 @import "lists.css";
-
-.button {
-	display: inline-block;
-	padding: 0.5rem;
-	background-color: #222222;
-	border: 0.1rem solid;
-	border-radius: 0.3rem;
-}
-
-.header__title {
-	position: absolute;
-	font-family: var(--fontSerif);
-	top: 1rem;
-	right: 1rem;
-	width: 40%;
-}
-
-.main-navigation {
-	width: 15rem;
-	margin: 0 0 0 1rem;
-	border: 0 none;
-	border-right: 0.1rem solid;
-	border-image: linear-gradient(180deg, var(--colorDark), #0B598D, var(--colorDark)) 1;
-}
-
-.main-navigation a {
-	display: block;
-	font-size: 1.8rem;
-	line-height: 2.5rem;
-	font-family: "Source Sans Pro", sans-serif;
-}
+@import "header.css";
+@import "navigation.css";
 
 .page-content {
-	padding: 1rem;
+	padding: var(--spaceNormal);
 	box-sizing: border-box;
 }
 
 .gist {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-	color: cornflowerblue;
+    padding: calc(var(--spaceNormal) / 2);
+    border-radius: calc(var(--spaceNormal) / 2);
+	color: var(--colorBlue);
 	background-color: #222;
-}
-
-.marginTop {
-	margin-top: 1rem;
 }

@@ -1,0 +1,42 @@
+:root {
+	font-size: 62.5%;
+	
+	--fontSerif: "Lora", serif;
+	--fontSansSerif: "Source Sans Pro", sans-serif;
+	
+	--borderNone: 0 none;
+	--borderThin: 0.1rem solid;
+	
+	--spaceNormal: 1rem;
+	
+	--colorDark: #101;
+	--colorBlue: cornflowerblue;
+	--colorBlueDark: #0B598D;
+	--colorOrange: orange;
+	--colorOrangeRed: orangered;
+	
+	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrangeRed), var(--colorDark) 60%);
+	--gradientBlueVertical: linear-gradient(180deg, var(--colorDark), var(--colorBlueDark), var(--colorDark));
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+	font-size: 1.6rem;
+	background-color: var(--colorDark);
+}
+
+body {
+	height: 100%;
+	max-width: calc(var(--spaceNormal) * 150);
+	margin: 0;
+	
+	position: relative;
+	
+	color: #DDD;
+	font-size: calc(var(--spaceNormal) * 2);
+	background-color: var(--colorDark);
+	
+	font-family: var(--fontSerif);
+	-webkit-font-smoothing: antialiased;
+}

@@ -3,13 +3,14 @@ import {h, Component} from 'preact'
 class Bash extends Component {
 	render () {
 		return (
-			<div className="about">
+			<div>
 				<h1>Bash Reference</h1>
 				<h2>OSX Terminal</h2>
 				<ul>
 					<li>
 						<h3>Stop a running terminal process</h3>
-						<p>Ctrl + C or Ctrl + Z if you want to suspend a process</p>
+						<p>Ctrl + C</p>
+						<p>Ctrl + Z (suspends)</p>
 					</li>
 					<li>
 						<h3>history</h3>
@@ -45,8 +46,8 @@ class Bash extends Component {
 					
 					<li>
 						<h3>curl</h3>
-						<code>curl --proxy http://proxy.com:80 http://target.com:80</code>
-						<code>curl -O http://appldnld.apple.com/iTunes11.0.4.dmg</code>
+						<code>curl --proxy http://proxy.com:80 http://site.com:80</code>
+						<code>curl -O http://site.com/file.ext</code>
 					</li>
 					
 					<li>

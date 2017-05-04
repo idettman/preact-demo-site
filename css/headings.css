@@ -10,13 +10,13 @@ h1 {
 
 h2 {
 	font-size: 2.2rem;
-	color: orangered;
-	border: 0 none;
-	border-bottom: 0.1rem solid;
-	border-image: linear-gradient(90deg, var(--colorDark), orangered, var(--colorDark) 60%) 1;
+	color: var(--colorOrangeRed);
+	border: var(--borderNone);
+	border-bottom: var(--borderThin);
+	border-image: var(--gradientOrange) 1;
 }
 
 h3 {
-	color: orange;
+	color: var(--colorOrange);
 	font-size: 2rem;
 }

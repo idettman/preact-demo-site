@@ -1,11 +1,11 @@
 a {
-	color: cornflowerblue;
+	color: var(--colorBlue);
 	font-weight: normal;
 	text-decoration: none;
 }
 
 a:hover {
-	color: orangered;
+	color: var(--colorOrange);
 }
 
 a.active {

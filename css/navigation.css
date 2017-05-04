@@ -1,0 +1,20 @@
+.main-navigation {
+	width: calc(var(--spaceNormal) * 15);
+	margin: 0 0 0 var(--spaceNormal);
+	border: var(--borderNone);
+	border-right: var(--borderThin);
+	border-image: var(--gradientBlueVertical) 1;
+}
+
+.main-navigation a {
+	display: block;
+	font-family: var(--fontSansSerif);
+}
+
+.button {
+	display: inline-block;
+	padding: calc(var(--spaceNormal) / 2);
+	background-color: #222222;
+	border: var(--borderThin);
+	border-radius: calc(var(--spaceNormal) / 3);
+}
