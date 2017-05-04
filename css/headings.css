@@ -13,7 +13,7 @@ h2 {
 	color: orangered;
 	border: 0 none;
 	border-bottom: 0.1rem solid;
-	border-image: linear-gradient(90deg, #101, orangered, #101 60%) 1;
+	border-image: linear-gradient(90deg, var(--colorDark), orangered, var(--colorDark) 60%) 1;
 }
 
 h3 {

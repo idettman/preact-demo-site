@@ -24,7 +24,7 @@
 	margin: 0 0 0 1rem;
 	border: 0 none;
 	border-right: 0.1rem solid;
-	border-image: linear-gradient(180deg, #101, #0B598D, #101) 1;
+	border-image: linear-gradient(180deg, var(--colorDark), #0B598D, var(--colorDark)) 1;
 }
 
 .main-navigation a {
