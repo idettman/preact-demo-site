@@ -53,8 +53,8 @@ body {
 	max-width: calc(var(--spaceNormal) * 150);
 	margin: 0;
 	
-	position: relative;
 	overflow: auto;
+	position: relative;
 	
 	color: #DDD;
 	font-size: calc(var(--spaceNormal) * 2);
