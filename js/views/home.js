@@ -6,6 +6,18 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
+					<h2>CSS Custom Properties</h2>
+					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
+					<div className="gist">
+						<div>::root {'{'}</div>
+						<div className="js-code">--screen-category: 'mobile'</div>
+						<div>{'}'}</div>
+					</div>
+					<div className="gist">
+						const screenCategory = el.style.var.get(‘screen-category’)
+					</div>
+				</div>
+				<div>
 					<h2>DOMPoint, DOMQuad and DOMMatrix</h2>
 					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
 					<div className='gist'>
