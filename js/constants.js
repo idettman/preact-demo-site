@@ -3,6 +3,10 @@ export const NAV_DATA = {
 		path: '/',
 		title: 'home'
 	},
+	repos: {
+		path: '/repos',
+		title: 'git repos'
+	},
 	definitions: {
 		path: '/definitions',
 		title: 'definitions'
@@ -10,10 +14,6 @@ export const NAV_DATA = {
 	bash: {
 		path: '/bash',
 		title: 'bash reference'
-	},
-	repos: {
-		path: '/repos',
-		title: 'repositories'
 	},
 	gitflow: {
 		path: '/gitflow',

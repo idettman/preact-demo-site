@@ -42,10 +42,6 @@
       "build"
     ]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "dependencies": {
     "preact": "^8.1.0",
     "preact-router": "^2.4.5",

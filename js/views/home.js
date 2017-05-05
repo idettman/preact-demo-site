@@ -10,11 +10,11 @@ class Home extends Component {
 					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
 					<div className="gist">
 						<div>:root {'{'}</div>
-						<div className="js-code">--screen-category: 'mobile'</div>
+						<div className="js-code">--platform: 'mobile'</div>
 						<div>{'}'}</div>
 					</div>
 					<div className="gist">
-						const screenCategory = el.style.var.get(‘screen-category’)
+						const platform = el.style.var.get(‘platform’)
 					</div>
 				</div>
 				<div>
@@ -22,8 +22,8 @@ class Home extends Component {
 					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
 					<div className='gist'>
 						<div className='js-bracket'>{'{'}</div>
-						<div className='js-code'>var point = new DOMPoint(2, 0)</div>
-						<div className='js-code'>var quad1 = new DOMQuad(point, {'{'}x: 12, y: 0{'}'}, {'{'}x: 2, y: 10{'}'}, {'{'}x: 12, y: 10{'}'})</div>
+						<div className='js-code'>var point = new DOMPoint(2,0)</div>
+						<div className='js-code'>var quad = new DOMQuad(point,{'{'}x:12, y:0{'}'},{'{'}x:2,y:10{'}'},{'{'}x:12,y:10{'}'})</div>
 						<div className='js-bracket'>{'}'}</div>
 					</div>
 					<img width="209" height="101" src="img/matrix4x4.png" />

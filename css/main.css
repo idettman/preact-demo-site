@@ -1,36 +1,55 @@
 :root {
 	font-size: 62.5%;
-
-	--fontSerif: "Lora", serif;
-	--fontSansSerif: "Source Sans Pro", sans-serif;
-
+	
+	--spaceNormal: 1rem;
+	--borderThin: 0.1rem solid;
+	
+	--colorDark: #110011;
+	--colorBlue: #6495ED;
+	--colorBlueMedium: #11191e;
+	--colorBlueDark: #0B598D;
+	--colorOrange: #FFA500;
+	--colorOrangeRed: #FF4500;
+	
+	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange) 5%, var(--colorDark) 40%);
+	--gradientHorizontalShort: linear-gradient(90deg, var(--colorDark), var(--colorBlueDark) 3%, var(--colorDark) 14%);
+	
+	--fontSerif: {
+		font-family: "Lora", serif;
+	};
+	
+	--fontSansSerif: {
+		font-family: "Source Sans Pro", sans-serif;
+	};
+	
+	--fontMonospace: {
+		font-family: "monospace";
+	};
+	
 	--borderNone: {
 		border: 0 none;
 	};
-
-	--borderThin: 0.1rem solid;
-
-	--spaceNormal: 1rem;
-
-	--colorDark: #101;
-	--colorBlue: cornflowerblue;
-	--colorBlueDark: #0B598D;
-	--colorOrange: orange;
-	--colorOrangeRed: orangered;
-
-	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange), var(--colorDark) 60%);
-	--gradientHorizontalShort: linear-gradient(90deg, var(--colorDark), var(--colorBlueDark) 10%, var(--colorDark) 20%);
-	--gradientBlueVertical: linear-gradient(180deg, var(--colorDark), var(--colorBlueDark), var(--colorDark));
+	
+	--fullHeight: {
+		height: 100%;	
+	};
+	
+	--fontNormal: {
+		font-weight: normal;
+		text-decoration: none;
+	};
 }
 
 html {
-	height: 100%;
+	@apply(--fullHeight);
 	font-size: 1.6rem;
 	background-color: var(--colorDark);
 }
 
 body {
-	height: 100%;
+	@apply(--fontSerif);
+	@apply(--fullHeight);
+	
 	max-width: calc(var(--spaceNormal) * 150);
 	margin: 0;
 	
@@ -41,27 +60,29 @@ body {
 	font-size: calc(var(--spaceNormal) * 2);
 	background-color: var(--colorDark);
 	
-	font-family: var(--fontSerif);
 	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
+	@apply(--fontNormal);
+	
 	margin: 1rem 0;
-	font-weight: normal;
 }
 
 h1 {
+	@apply(--borderNone);
+	
 	color: var(--colorBlueDark);
 	font-size: calc(var(--spaceNormal) * 2.6);
-	@apply(--borderNone);
 	border-top: var(--borderThin);
 	border-image: var(--gradientHorizontalShort) 1;
 }
 
 h2 {
+	@apply(--borderNone);
+	
 	color: var(--colorOrange);
 	font-size: calc(var(--spaceNormal) * 1.8);
-	@apply(--borderNone);
 	border-bottom: var(--borderThin);
 	border-image: var(--gradientOrange) 1;
 }
@@ -85,9 +106,9 @@ dd {
 }
 
 a {
+	@apply(--fontNormal);
+	
 	color: var(--colorBlue);
-	font-weight: normal;
-	text-decoration: none;
 }
 
 a:hover {

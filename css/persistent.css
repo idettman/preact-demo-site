@@ -1,29 +1,27 @@
-
 .header__title {
 	position: absolute;
-	font-family: var(--fontSerif);
 	top: var(--spaceNormal);
 	right: var(--spaceNormal);
 	width: 40%;
 }
 
 .main-navigation {
+	@apply(--borderNone);
+	
 	width: calc(var(--spaceNormal) * 16);
 	margin: 0 0 0 var(--spaceNormal);
-	border: var(--borderNone);
-	border-right: var(--borderThin);
-	border-image: var(--gradientBlueVertical) 1;
 }
 
 .main-navigation a {
+	@apply(--fontSansSerif);
+	
 	display: block;
-	font-family: var(--fontSansSerif);
 }
 
 .button {
 	color: white;
 	display: inline-block;
-	font-size: calc(var(--spaceNormal) * 0.9);
+	font-size: calc(var(--spaceNormal) * 1.3);
 	padding: calc(var(--spaceNormal) * 0.5);
 	border-radius: calc(var(--spaceNormal) * 0.5);
 	background-color: var(--colorBlueDark);
@@ -36,13 +34,15 @@
 }
 
 .gist {
+	@apply(--fontMonospace);
+	
 	padding: calc(var(--spaceNormal));
 	border-radius: calc(var(--spaceNormal) * 0.3);
 	color: var(--colorBlue);
-	background-color: #11191e;
-
+	background-color: var(--colorBlueMedium);
+	
 	font-size: calc(var(--spaceNormal) * 1.3);
-	text-shadow: 0.1rem 0.1rem 0.1rem black;
+	text-shadow: 0.1rem 0.1rem 0.1rem var(--colorDark);
 }
 
 .js-code {
