@@ -1,25 +1,3 @@
-
-:root {
-	font-size: 62.5%;
-
-	--fontSerif: "Lora", serif;
-	--fontSansSerif: "Source Sans Pro", sans-serif;
-
-	--borderNone: 0 none;
-	--borderThin: 0.1rem solid;
-
-	--spaceNormal: 1rem;
-
-	--colorDark: #101;
-	--colorBlue: cornflowerblue;
-	--colorBlueDark: #0B598D;
-	--colorOrange: orange;
-	--colorOrangeRed: orangered;
-
-	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange), var(--colorDark) 60%);
-	--gradientBlueVertical: linear-gradient(180deg, var(--colorDark), var(--colorBlueDark), var(--colorDark));
-}
-
 @import "overrides.css";
 @import "persistent.css";
 @import "pages.css";

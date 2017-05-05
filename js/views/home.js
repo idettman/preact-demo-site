@@ -9,7 +9,7 @@ class Home extends Component {
 					<h2>CSS Custom Properties</h2>
 					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
 					<div className="gist">
-						<div>::root {'{'}</div>
+						<div>:root {'{'}</div>
 						<div className="js-code">--screen-category: 'mobile'</div>
 						<div>{'}'}</div>
 					</div>
