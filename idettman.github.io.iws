@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="042fa8b2-e8e0-404b-97db-ffe57b6c5045" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-bundle.js" afterPath="$PROJECT_DIR$/app-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app-bundle.js.map" afterPath="$PROJECT_DIR$/app-bundle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/input.css" afterPath="$PROJECT_DIR$/css/input.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/overrides.css" afterPath="$PROJECT_DIR$/css/overrides.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/idettman.github.io.iws" afterPath="$PROJECT_DIR$/idettman.github.io.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/home.js" afterPath="$PROJECT_DIR$/js/views/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -471,7 +465,8 @@
     <MESSAGE value="add meta viewport element" />
     <MESSAGE value="add git ignore and updated editorconfig and lint configs" />
     <MESSAGE value="removed global.css by adding root selector to input.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed global.css by adding root selector to input.css" />
+    <MESSAGE value="update overrides.css by adding root selector from input" />
+    <option name="LAST_COMMIT_MESSAGE" value="update overrides.css by adding root selector from input" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
