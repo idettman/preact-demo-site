@@ -15,6 +15,6 @@
 	--colorOrange: orange;
 	--colorOrangeRed: orangered;
 	
-	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrangeRed), var(--colorDark) 60%);
+	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange), var(--colorDark) 60%);
 	--gradientBlueVertical: linear-gradient(180deg, var(--colorDark), var(--colorBlueDark), var(--colorDark));
 }

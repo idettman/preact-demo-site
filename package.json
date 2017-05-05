@@ -13,8 +13,8 @@
     "build-prod": "npm run build-js-prod | npm run build-postcss-prod",
     "build-js-dev": "NODE_ENV=development rollup --config build/rollup.config.js",
     "build-js-prod": "NODE_ENV=production rollup --config build/rollup.config.js",
-    "build-postcss-dev": "node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.dev.js",
-    "build-postcss-prod": "node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
+    "build-postcss-dev": "NODE_ENV=development node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
+    "build-postcss-prod": "NODE_ENV=production node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
     "rollup": "rollup",
     "serve": "node build/http-server.js"
   },

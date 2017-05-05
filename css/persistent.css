@@ -1,3 +1,4 @@
+
 .header__title {
 	position: absolute;
 	font-family: var(--fontSerif);
@@ -21,8 +22,9 @@
 
 .button {
 	color: white;
-	padding: 0 var(--spaceNormal);
+	display: inline-block;
+	padding: calc(var(--spaceNormal) / 2);
 	border-radius: calc(var(--spaceNormal) / 2);
 	background-color: var(--colorBlueDark);
-	border: var(--borderThin)
+	margin: var(--spaceNormal);
 }

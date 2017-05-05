@@ -6,13 +6,24 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
+					<h2>DOMMatrix</h2>
+					<p>This interface represents 4x4 matrices. Supersedes the interfaces for WebKitCSSMatrix + SVGMatrix</p>
+					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
+					<div className='gist'>
+						<div className='js-bracket'>{'{'}</div>
+						<div className='js-code'>var point = new DOMPoint(2, 0)</div>
+						<div className='js-code'>var quad1 = new DOMQuad(point, {'{'}x: 12, y: 0{'}'}, {'{'}x: 2, y: 10{'}'}, {'{'}x: 12, y: 10{'}'})</div>
+						<div className='js-bracket'>{'}'}</div>
+					</div>
+				</div>
+				<div>
 					<h2>Recommended postcss plugins</h2>
 					<ul>
 						<li>postcss-import</li>
 						<li>postcss-cssnext</li>
 						<li>postcss-url</li>
 					</ul>
-					<a href="http://postcss.parts/tag/sass" target="_blank" className="button marginTop">Postcss plugin catalog</a>
+					<a href='http://postcss.parts/tag/sass' target='_blank' className='button marginTop'>Postcss plugin catalog</a>
 				</div>
 				<div>
 					<h2>ES2015 const + let</h2>
@@ -30,10 +41,9 @@ class Home extends Component {
 				<div>
 					<h2>ES6 Block Scope is The new IIFE</h2>
 					<div className='gist gist-iife'>
-						<div className='js-strict'>'use strict'</div>
 						<div className='js-bracket'>{'{'}</div>
-							<div className='js-code'><span className="js-reserved">const</span> <span className='js-var'>component</span> = <span className="js-reserved">function</span>()<span className='js-bracket'>{'{}'}</span></div>
-						<div className='js-bracket'>{'}'}</div>
+							<div className='js-code'>const component = function(){'{}'}</div>
+							<div className='js-bracket'>{'}'}</div>
 					</div>
 					<p>The const is going to be scoped to that block and unavailable in the global scope</p>
 				</div>

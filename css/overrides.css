@@ -33,7 +33,7 @@ h1 {
 
 h2 {
 	font-size: 2.2rem;
-	color: var(--colorOrangeRed);
+	color: var(--colorOrange);
 	border: var(--borderNone);
 	border-bottom: var(--borderThin);
 	border-image: var(--gradientOrange) 1;

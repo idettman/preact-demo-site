@@ -3,7 +3,7 @@ import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify'
 import commonjs from 'rollup-plugin-commonjs'
 
-import {environmentIs, ENVIRONMENT_DECLARATION_STUB} from './rollup.utils'
+import {environmentIs, ENVIRONMENT_DECLARATION_STUB} from './build.utils'
 
 const NODE_OPTIONS = {
 	jsnext: true,
