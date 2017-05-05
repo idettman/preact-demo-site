@@ -23,8 +23,29 @@
 .button {
 	color: white;
 	display: inline-block;
-	padding: calc(var(--spaceNormal) / 2);
-	border-radius: calc(var(--spaceNormal) / 2);
+	font-size: calc(var(--spaceNormal) * 0.9);
+	padding: calc(var(--spaceNormal) * 0.5);
+	border-radius: calc(var(--spaceNormal) * 0.5);
 	background-color: var(--colorBlueDark);
 	margin: var(--spaceNormal);
+}
+
+.page-content {
+	padding: var(--spaceNormal);
+	box-sizing: border-box;
+}
+
+.gist {
+	padding: calc(var(--spaceNormal));
+	border-radius: calc(var(--spaceNormal) * 0.3);
+	color: var(--colorBlue);
+	background-color: #11191e;
+
+	font-size: calc(var(--spaceNormal) * 1.3);
+	text-shadow: 0.1rem 0.1rem 0.1rem black;
+}
+
+.js-code {
+	color: var(--colorBlue);
+	padding-left: calc(var(--spaceNormal) * 3);
 }
