@@ -6,8 +6,7 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
-					<h2>DOMMatrix</h2>
-					<p>This interface represents 4x4 matrices. Supersedes the interfaces for WebKitCSSMatrix + SVGMatrix</p>
+					<h2>DOMPoint, DOMQuad and DOMMatrix</h2>
 					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
 					<div className='gist'>
 						<div className='js-bracket'>{'{'}</div>
@@ -15,6 +14,7 @@ class Home extends Component {
 						<div className='js-code'>var quad1 = new DOMQuad(point, {'{'}x: 12, y: 0{'}'}, {'{'}x: 2, y: 10{'}'}, {'{'}x: 12, y: 10{'}'})</div>
 						<div className='js-bracket'>{'}'}</div>
 					</div>
+					<img width="209" height="101" src="img/matrix4x4.png" />
 				</div>
 				<div>
 					<h2>Recommended postcss plugins</h2>
