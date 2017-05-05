@@ -7,14 +7,13 @@
 
 .main-navigation {
 	@apply(--borderNone);
-	
 	width: calc(var(--spaceNormal) * 16);
-	margin: 0 0 0 var(--spaceNormal);
+	margin-top: var(--spaceNormal);
+	margin-left: var(--spaceNormal);
 }
 
 .main-navigation a {
 	@apply(--fontSansSerif);
-	
 	display: block;
 }
 
@@ -31,6 +30,23 @@
 .page-content {
 	padding: var(--spaceNormal);
 	box-sizing: border-box;
+}
+
+.list-plain {
+	list-style: none;
+}
+
+.list-plain li h3 {
+	margin: 0;
+}
+
+.list-plain li p, .list-plain li code {
+	@apply(--fontMonospace);
+	
+	font-size: calc(var(--spaceNormal) * 1.4);
+	margin-top: 0;
+	margin-left: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 .gist {

@@ -10,8 +10,8 @@ class Home extends Component {
 					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
 					<div className="gist">
 						<div>:root {'{'}</div>
-						<div className="js-code">--platform: 'mobile'</div>
-						<div>{'}'}</div>
+							<div className="js-code">--platform: 'mobile'</div>
+							<div>{'}'}</div>
 					</div>
 					<div className="gist">
 						const platform = el.style.var.get(‘platform’)
@@ -22,18 +22,113 @@ class Home extends Component {
 					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
 					<div className='gist'>
 						<div className='js-bracket'>{'{'}</div>
-						<div className='js-code'>var point = new DOMPoint(2,0)</div>
-						<div className='js-code'>var quad = new DOMQuad(point,{'{'}x:12, y:0{'}'},{'{'}x:2,y:10{'}'},{'{'}x:12,y:10{'}'})</div>
-						<div className='js-bracket'>{'}'}</div>
+							<div className='js-code'>var point = new DOMPoint(2,0)</div>
+							<div className='js-code'>var quad = new DOMQuad(point,{'{'}x:12, y:0{'}'},{'{'}x:2,y:10{'}'},{'{'}x:12,y:10{'}'})</div>
+							<div className='js-bracket'>{'}'}</div>
 					</div>
-					<img width="209" height="101" src="img/matrix4x4.png" />
+					<img width="209" height="101" src="img/matrix4x4.png"/>
 				</div>
 				<div>
-					<h2>Recommended postcss plugins</h2>
+					<h2>postcss-cssnext status</h2>
+					<div>A preliminary status on the feature set in cssnext (where ☑ means the feature is on track, ☒ means something is wrong, and ☐ means its not really relevant):
+						<ul className="list-plain">
+							<li>☐ automatic vendor prefixes (not really a future feature)</li>
+							<li>☑ custom properties &amp;
+								<code>var()</code>
+								(now in all browsers)
+							</li>
+							<li>☒ custom properties set &amp;
+								<code>@apply</code>
+								(in Chrome behind flag but killed)
+							</li>
+							<li>☐ reduced calc() (not really a future feature)</li>
+							<li>☒ custom media queries (cut from spec, moved to Houdini or level 5, see
+								<span data-link-type="commit" data-commit-sha="e4facfc24e59cddcae5919b0e3c083044ba555af" data-commit-repo="w3c/csswg-drafts" class="commit">w3c/csswg-drafts@e4facfc</span>
+								)
+							</li>
+							<li>☒ media queries ranges (no movement, still in csswg spec)</li>
+							<li>☒ custom selectors (no movement, still in csswg spec)</li>
+							<li>☒ nesting (no movement, no spec, no response from csswg, see
+								<a class="issue is-existent open" data-issue-repo="w3c/csswg-drafts" data-issue="998" data-link-type="issue" href="https://github.com/w3c/csswg-drafts/issues/998" target="_blank">w3c/csswg-drafts#998</a>
+								)
+							</li>
+							<li>☑
+								<code>color()</code>
+								function (in Safari 10.1, part of CSS Color 4, otherwise on track for implementation)
+							</li>
+							<li>☑
+								<code>hwb()</code>
+								function (part of CSS Color 4, generally on track for implementation)
+							</li>
+							<li>☑
+								<code>gray()</code>
+								function (part of CSS Color 4, generally on track for implementation)
+							</li>
+							<li>☑ #rrggbbaa colors (in Firefox, Safari)</li>
+							<li>☐ rgba function (rgb fallback) (not really a future feature)</li>
+							<li>☑
+								<code>rebeccapurple</code>
+								color (all modern browsers, IE11)
+							</li>
+							<li>☑
+								<code>font-variant</code>
+								property (atleast Chrome, Firefox)
+							</li>
+							<li>☑
+								<code>filter</code>
+							</li>
+							<li>☑
+								<code>initial</code>
+							</li>
+							<li>☐
+								<code>rem</code>
+								unit (not really a future feature)
+							</li>
+							<li>☑
+								<code>:any-link</code>
+								(in Firefox)
+							</li>
+							<li>☑
+								<code>:matches</code>
+								(in Safari)
+							</li>
+							<li>☑
+								<code>:not</code>
+								pseudo-class (level 4) (in Safari)
+							</li>
+							<li>☐
+								<code>::</code>
+								pseudo syntax (
+								<code>:</code>
+								fallback) (not really a future feature)
+							</li>
+							<li>☑
+								<code>overflow-wrap</code>
+								property (
+								<code>word-wrap</code>
+								fallback) (in Firefox)
+							</li>
+							<li>☑ attribute case insensitive (in Chrome, Firefox, Safari)</li>
+							<li>☑
+								<code>rgb()</code>
+								function (functional-notation) (supposedly Safari 10.1)
+							</li>
+							<li>☑
+								<code>hsl()</code>
+								function (functional-notation) (supposedly Safari 10.1)
+							</li>
+							<li>☑
+								<code>system-ui</code>
+								font-family (in Chrome, WebKit, in review by Firefox)
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<h3>Recommended postcss plugins</h3>
 					<ul>
 						<li>postcss-import</li>
 						<li>postcss-cssnext</li>
-						<li>postcss-url</li>
 					</ul>
 					<a href='http://postcss.parts/tag/sass' target='_blank' className='button marginTop'>Postcss plugin catalog</a>
 				</div>

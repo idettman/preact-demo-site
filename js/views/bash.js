@@ -6,11 +6,13 @@ class Bash extends Component {
 			<div>
 				<h1>Bash Reference</h1>
 				<h2>OSX Terminal</h2>
-				<ul>
+				<ul className="list-plain">
 					<li>
 						<h3>Stop a running terminal process</h3>
-						<p>Ctrl + C</p>
-						<p>Ctrl + Z (suspends)</p>
+						<p>
+							Ctrl + C<br/>
+							Ctrl + Z (suspends)
+						</p>
 					</li>
 					<li>
 						<h3>history</h3>
@@ -41,7 +43,6 @@ class Bash extends Component {
 					<li>
 						<h3>flush osx DNS cache</h3>
 						<code>sudo killall -HUP mDNSResponder</code>
-						<a href="http://www.howtoisolve.com/how-to-flush-dns-cache-in-mac-os-x-ei-capitan-10-11-10-10-4/">source page</a>
 					</li>
 					
 					<li>
@@ -83,8 +84,7 @@ class Bash extends Component {
 					<li>
 						<h3>run the last command again</h3>
 						<code>!!</code>
-						<h4>if you forgot sudo on last command</h4>
-						<code>sudo !!</code>
+						<code>sudo !! (if you forgot sudo on last command)</code>
 					</li>
 					
 					<li>

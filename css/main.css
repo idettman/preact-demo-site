@@ -82,14 +82,14 @@ h2 {
 	@apply(--borderNone);
 	
 	color: var(--colorOrange);
-	font-size: calc(var(--spaceNormal) * 1.8);
+	font-size: calc(var(--spaceNormal) * 2.2);
 	border-bottom: var(--borderThin);
 	border-image: var(--gradientOrange) 1;
 }
 
 h3 {
 	color: var(--colorOrange);
-	font-size: calc(var(--spaceNormal) * 1.6);
+	font-size: calc(var(--spaceNormal) * 1.8);
 }
 
 ul {
