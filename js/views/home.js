@@ -31,7 +31,7 @@ class Home extends Component {
 					<p>The only difference between const and let is that const makes the contract that no rebinding will happen.</p>
 				</div>
 				<div>
-					<h2>When Not to use Arrow Functions</h2>
+					<h2>When not to use arrow functions</h2>
 					<ul>
 						<li>In event handlers when you want the function scoped to the object dispatching the event</li>
 						<li>As object methods</li>
@@ -39,7 +39,7 @@ class Home extends Component {
 					</ul>
 				</div>
 				<div>
-					<h2>ES6 Block Scope is The new IIFE</h2>
+					<h2>Replace IIFE with ES6 block scope</h2>
 					<div className='gist gist-iife'>
 						<div className='js-bracket'>{'{'}</div>
 							<div className='js-code'>const component = function(){'{}'}</div>
@@ -48,9 +48,9 @@ class Home extends Component {
 					<p>The const is going to be scoped to that block and unavailable in the global scope</p>
 				</div>
 				<div>
-					<h2>HTML Box Model</h2>
-					<p>After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element.</p>
-					<p>I decided to make a simple overview of the dom box model and how the display and position values work</p>
+					<h2>HTML box model</h2>
+					<p>After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element</p>
+					<p>This will be a simple overview of the dom box model and how display (top, bottom, left, right, margin, padding, and border) and position values work</p>
 					<ul>
 						<li>The following position types will not affect containing elements</li>
 						<li>absolute</li>
