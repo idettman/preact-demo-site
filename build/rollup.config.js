@@ -34,7 +34,7 @@ const PLUGINS_DEV = [
 	buble(BUBLE_OPTIONS)
 ]
 
-const PLUGINS_PRODUCTION = PLUGINS_DEV.concat([
+const PLUGINS_PROD = PLUGINS_DEV.concat([
 	uglify()
 ])
 
@@ -45,6 +45,6 @@ export default {
 	format: 'iife',
 	dest: 'app-bundle.js',
 	sourceMap: true,
-	plugins: (environmentIs('development')) ? PLUGINS_DEV : PLUGINS_PRODUCTION,
+	plugins: (environmentIs('development')) ? PLUGINS_DEV : PLUGINS_PROD,
 	external: ['fs', 'path', 'readline']
 }
