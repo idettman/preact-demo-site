@@ -6,6 +6,11 @@ class Home extends Component {
 			<div>
 				<h1>Developer Log</h1>
 				<div>
+					<h2>Build Tool Investigation</h2>
+					<p>This npm module is an interesting idea, though I still have to benchmark optimized javascript vs unoptimized.</p>
+					<a className="button" href="https://prepack.io" target="_blank">https://prepack.io</a>
+				</div>
+				<div>
 					<h2>CSS Custom Properties</h2>
 					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
 					<div className="gist">
