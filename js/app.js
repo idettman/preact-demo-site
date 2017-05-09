@@ -8,6 +8,7 @@ import MainNavigation from './components/main-navigation'
 import Home from './views/home'
 import Bash from './views/bash'
 import Repos from './views/repos'
+import Stars from './views/stars'
 import GitFlow from './views/git-flow'
 import Definitions from './views/definitions'
 
@@ -25,6 +26,7 @@ render((
 				<Definitions path={getNavPath('definitions')} />
 				<Bash path={getNavPath('bash')} />
 				<Repos path={getNavPath('repos')} />
+				<Stars path={getNavPath('stars')} />
 				<GitFlow path={getNavPath('gitflow')} />
 			</Router>
 		</div>

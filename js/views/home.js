@@ -5,14 +5,81 @@ class Home extends Component {
 		return (
 			<div>
 				<h1>Developer Log</h1>
+				
 				<div>
-					<h2>Build Tool Investigation</h2>
+					<h2>bench-chain</h2>
+					benchmark recording averages and graphs
+					<a className="button" href="https://github.com/fluents/bench-chain" target="_blank">repo</a>
+				</div>
+				
+				<div>
+					<h2>css links</h2>
+					
+					<h3>spec</h3>
+					
+					<dl>
+						<dt>flexbox</dt>
+						<dd>
+							<a className="button" href="https://www.npmjs.com/package/postcss-flexbox" target="_blank">reference site</a>
+							<a className="button" href="http://learnlayout.com/flexbox.html" target="_blank">learn layout site</a>
+							<a className="button" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank">MDN</a>
+							<a className="button" href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">W3C Module Level 1</a>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>combinators + multiple selectors</dt>
+						<dd>
+							<a className="button" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors" target="_blank">MDN</a>
+							<a className="button" href="https://www.w3.org/wiki/CSS/Selectors/combinators/child" target="_blank">W3C</a>
+						</dd>
+						
+						<dt>web animations</dt>
+						<dd>
+							<a className="button" href="https://w3c.github.io/web-animations/" target="_blank">W3C</a>
+						</dd>
+						
+						<dt>compositing level 1</dt>
+						<dd>
+							<a className="button" href="https://drafts.fxtf.org/compositing-1/" target="_blank">W3C</a>
+						</dd>
+						
+						<dt>syntax level 3</dt>
+						<dd>
+							<a className="button" href="https://drafts.csswg.org/css-syntax/" target="_blank">W3C</a>
+						</dd>
+					</dl>
+					
+					<h3>draft</h3>
+					
+					<dl>
+						<dt>conditional rules module level 3</dt>
+						<dd>
+							<a className="button" href="https://drafts.csswg.org/css-conditional-3/" target="_blank">W3C</a>
+						</dd>
+						
+						<dt>css images module level 3</dt>
+						<dd>
+							<a className="button" href="https://drafts.csswg.org/css-images-3/" target="_blank">W3C</a>
+						</dd>
+					</dl>
+					
+					<h3>unofficial draft</h3>
+					<dl>
+						<dt>css shadow parts</dt>
+						<dd>
+							<a className="button" href="http://tabatkins.github.io/specs/css-shadow-parts/" target="_blank">W3C</a>
+						</dd>
+					</dl>
+				</div>
+				<div>
+					<h2>prepack.io</h2>
 					<p>This npm module is an interesting idea, though I still have to benchmark optimized javascript vs unoptimized.</p>
 					<a className="button" href="https://prepack.io" target="_blank">https://prepack.io</a>
 				</div>
 				<div>
 					<h2>CSS Custom Properties</h2>
-					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C Spec</a>
+					<a href="https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface" target="_blank" className="button">W3C</a>
 					<div className="gist">
 						<div>:root {'{'}</div>
 							<div className="js-code">--platform: 'mobile'</div>
@@ -24,7 +91,7 @@ class Home extends Component {
 				</div>
 				<div>
 					<h2>DOMPoint, DOMQuad and DOMMatrix</h2>
-					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C Spec</a>
+					<a className='button' target='_blank' href='https://drafts.fxtf.org/geometry/#dommatrix'>W3C</a>
 					<div className='gist'>
 						<div className='js-bracket'>{'{'}</div>
 							<div className='js-code'>var point = new DOMPoint(2,0)</div>

@@ -14,12 +14,7 @@ const reporter = require('postcss-reporter/lib/formatter')()
 
 const depGraph = require('./depGraph')
 
-const version = () => {
-	const cli = require('../package.json').version
-	return chalk.bold.red(`iad`)
-}
-
-const argv = require('yargs')
+const argv = require('yargs') 
 	.usage(`Usage: $0 [input.css] [OPTIONS] [--output|-o output.css] [--watch]`)
 	.option('o', {
 		alias: 'output',
@@ -92,7 +87,6 @@ const argv = require('yargs')
 	.alias('m', 'map')
 	.describe('m', 'Create an external sourcemap')
 	.describe('no-map', 'Disable the default inline sourcemaps')
-	.version(version).alias('v', 'version')
 	.help('h').alias('h', 'help')
 	.example('$0 input.css -o output.css', 'Basic usage')
 	.example('cat input.css | $0 -u autoprefixer > output.css', 'Piping input & output')
@@ -123,7 +117,8 @@ let config = {
 		? argv.use.map((plugin) => {
 			try {
 				return require(plugin)()
-			} catch (e) {
+			}
+			catch (e) {
 				error(`Plugin Error: Cannot find module '${plugin}'`)
 			}
 		})
@@ -161,10 +156,14 @@ Promise.resolve()
 		return files(input)
 	})
 	.then((results) => {
+		
 		if (argv.watch) {
+			
 			const watcher = chokidar.watch(
 				input.concat(dependencies(results)),
-				{usePolling: argv.poll}
+				{
+					usePolling: argv.poll
+				}
 			)
 			
 			if (config.file) watcher.add(config.file)
@@ -192,6 +191,7 @@ Promise.resolve()
 	.catch(error)
 
 function rc (ctx, path) {
+	
 	if (argv.use) return Promise.resolve()
 	
 	return postcssrc(ctx, path)
@@ -207,9 +207,11 @@ function rc (ctx, path) {
 }
 
 function files (files) {
+	
 	if (typeof files === 'string') files = [files]
 	
 	return Promise.all(files.map((file) => {
+		
 		if (file === 'stdin') {
 			return stdin()
 				.then((content) => {
@@ -224,6 +226,7 @@ function files (files) {
 }
 
 function css (css, file) {
+	
 	const ctx = {options: config.options}
 	
 	if (file !== 'stdin') {
@@ -273,6 +276,7 @@ function css (css, file) {
 			return postcss(config.plugins)
 				.process(css, options)
 				.then((result) => {
+					
 					const tasks = []
 					
 					if (options.to) {
@@ -290,7 +294,8 @@ function css (css, file) {
 								)
 							)
 						}
-					} else {
+					}
+					else {
 						spinner.text = chalk.bold.green(
 							`Finished ${relativePath} (${Math.round(process.hrtime(time)[1] / 1e6)}ms)`
 						)
@@ -306,7 +311,8 @@ function css (css, file) {
 							if (result.warnings().length) {
 								spinner.fail()
 								console.warn(reporter(result))
-							} else spinner.succeed()
+							}
+							else spinner.succeed()
 							
 							return result
 						})
@@ -318,11 +324,13 @@ function css (css, file) {
 }
 
 function dependencies (results) {
+	
 	if (!Array.isArray(results)) results = [results]
 	
 	const messages = []
 	
 	results.forEach((result) => {
+		
 		if (result.messages <= 0) return
 		
 		result.messages
@@ -335,9 +343,12 @@ function dependencies (results) {
 }
 
 function error (err) {
+	
 	if (typeof err === 'string') {
 		spinner.fail(chalk.bold.red(err))
-	} else if (err.name === 'CssSyntaxError') {
+	}
+	else if (err.name === 'CssSyntaxError') {
+		
 		console.error('\n')
 		
 		spinner.text = spinner.text.replace('Processing ', '')
@@ -345,7 +356,8 @@ function error (err) {
 		
 		if (err.file) {
 			err.message = err.message.substr(err.file.length + 1)
-		} else {
+		}
+		else {
 			err.message = err.message.replace('<css input>:', '')
 		}
 		
@@ -355,7 +367,8 @@ function error (err) {
 		console.error('\n', err.showSourceCode(), '\n\n')
 		
 		if (argv.watch) return
-	} else {
+	}
+	else {
 		console.error(err)
 	}
 	process.exit(1)

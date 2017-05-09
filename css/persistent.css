@@ -1,30 +1,31 @@
 .header__title {
 	position: absolute;
 	top: var(--spaceNormal);
-	right: var(--spaceNormal);
+	right: calc(var(--spaceNormal) * 2);
 	width: 40%;
 }
 
 .main-navigation {
-	@apply(--borderNone);
+	border: var(--borderNone);
 	width: calc(var(--spaceNormal) * 16);
 	margin-top: var(--spaceNormal);
 	margin-left: var(--spaceNormal);
 }
 
 .main-navigation a {
-	@apply(--fontSansSerif);
+	font-family: var(--fontSansSerif);
 	display: block;
+	width: auto;
 }
 
 .button {
 	color: white;
 	display: inline-block;
 	font-size: calc(var(--spaceNormal) * 1.5);
+	margin: calc(var(--spaceNormal) * 0.5);
 	padding: calc(var(--spaceNormal) * 0.5);
 	border-radius: calc(var(--spaceNormal) * 0.5);
-	background-color: var(--colorBlueDark);
-	margin: var(--spaceNormal);
+	background-color: var(--colorBlueMedium);
 }
 
 .page-content {
@@ -36,13 +37,8 @@
 	list-style: none;
 }
 
-.list-plain li h3 {
-	margin: 0;
-}
-
 .list-plain li p, .list-plain li code {
-	@apply(--fontMonospace);
-	
+	font-family: var(--fontMonospace);
 	font-size: calc(var(--spaceNormal) * 1.4);
 	margin-top: 0;
 	margin-left: 1rem;
@@ -50,12 +46,11 @@
 }
 
 .gist {
-	@apply(--fontMonospace);
-	
+	font-family: var(--fontMonospace);
 	padding: calc(var(--spaceNormal));
 	border-radius: calc(var(--spaceNormal) * 0.3);
 	color: var(--colorBlue);
-	background-color: var(--colorBlueMedium);
+	background-color: var(--colorBlueDark);
 	
 	font-size: calc(var(--spaceNormal) * 1.3);
 	text-shadow: 0.1rem 0.1rem 0.1rem var(--colorDark);

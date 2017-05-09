@@ -18,6 +18,18 @@ class Repos extends Component {
 					<dt>minimal react project template</dt>
 					<dd><a href="https://github.com/idettman/react-app-template">react-app-template</a></dd>
 					
+					<dt>functional programming tool-set based on Haskel</dt>
+					<dd><a href="https://github.com/idettman/sanctuary">sanctuary</a></dd>
+					
+					<dt>monadic streams</dt>
+					<dd><a href="https://github.com/idettman/most">most</a></dd>
+						
+					<dt>most</dt>
+					<dd><a href="https://github.com/idettman/hyperapp">hyperapp</a></dd>
+					
+					<dt>TFRP scalable state management</dt>
+					<dd><a href="https://github.com/idettman/mobx">mobx</a></dd>
+					
 					<dt>javascript story graph engine</dt>
 					<dd><a href="https://github.com/idettman/story-graph">story-graph</a></dd>
 					

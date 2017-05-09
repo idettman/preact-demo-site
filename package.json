@@ -8,13 +8,12 @@
     "node": ">=7.9.0"
   },
   "scripts": {
-    "build": "npm run postcss-dev",
+    "build": "npm run build-js | npm run build-postcss",
     "build-dev": "npm run build-js-dev | npm run build-postcss-dev",
-    "build-prod": "npm run build-js-prod | npm run build-postcss-prod",
     "build-js-dev": "NODE_ENV=development rollup --config build/rollup.config.js",
-    "build-js-prod": "NODE_ENV=production rollup --config build/rollup.config.js",
-    "build-postcss-dev": "NODE_ENV=development node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
-    "build-postcss-prod": "NODE_ENV=production node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
+    "build-js": "NODE_ENV=production rollup --config build/rollup.config.js",
+    "build-postcss-dev": "NODE_ENV=development node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js --map true",
+    "build-postcss": "NODE_ENV=production node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js --no-map",
     "rollup": "rollup",
     "serve": "node build/http-server.js"
   },

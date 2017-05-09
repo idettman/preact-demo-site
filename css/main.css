@@ -4,52 +4,47 @@
 	--spaceNormal: 1rem;
 	--borderThin: 0.1rem solid;
 	
+	--colorTextLight: white;
+	--colorTextMedium: #C4C8CA;
+	--colorTextDark: #7A7D80;
+	
+	--colorLight: #B9B1C1;
+	--colorMedium: #220022;
 	--colorDark: #110011;
+	
 	--colorBlue: #6495ED;
-	--colorBlueMedium: #11191e;
-	--colorBlueDark: #0B598D;
+	--colorBlueMedium: #0B598D;
+	--colorBlueDark: #11191E;
+	
 	--colorOrange: #FFA500;
+	--colorOrangeDark: #7E5300;
+	
 	--colorOrangeRed: #FF4500;
+	--colorOrangeRedDark: #7C2200;
 	
-	--gradientOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange) 5%, var(--colorDark) 40%);
-	--gradientHorizontalShort: linear-gradient(90deg, var(--colorDark), var(--colorBlueDark) 3%, var(--colorDark) 14%);
+	--gradientHorizontalOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrangeDark) 2%, var(--colorDark) 20%);
+	--gradientHorizontalShortOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange) 3%, var(--colorDark) 14%);
 	
-	--fontSerif: {
-		font-family: "Lora", serif;
-	};
+	--gradientHorizontalBlue: linear-gradient(90deg, var(--colorBlueMedium), var(--colorBlue) 5%, var(--colorDark) 20%);
+	--gradientHorizontalShortBlue: linear-gradient(90deg, var(--colorBlue), var(--colorBlueDark) 3%, var(--colorDark) 14%);
 	
-	--fontSansSerif: {
-		font-family: "Source Sans Pro", sans-serif;
-	};
+	--fontSerif: "Lora", serif;
+	--fontSansSerif: "Source Sans Pro", sans-serif;
+	--fontMonospace: "monospace";
 	
-	--fontMonospace: {
-		font-family: "monospace";
-	};
-	
-	--borderNone: {
-		border: 0 none;
-	};
-	
-	--fullHeight: {
-		height: 100%;	
-	};
-	
-	--fontNormal: {
-		font-weight: normal;
-		text-decoration: none;
-	};
+	--borderNone: 0 none;
+	--fullHeight: 100%;
+	--fontNormal: normal;
 }
 
 html {
-	@apply(--fullHeight);
+	height: var(--fullHeight);
 	font-size: 1.6rem;
 	background-color: var(--colorDark);
 }
 
 body {
-	@apply(--fontSerif);
-	@apply(--fullHeight);
-	
+	font-family: var(--fontSerif);
 	max-width: calc(var(--spaceNormal) * 150);
 	margin: 0;
 	
@@ -58,56 +53,64 @@ body {
 	
 	color: #DDD;
 	font-size: calc(var(--spaceNormal) * 2);
-	background-color: var(--colorDark);
 	
 	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-	@apply(--fontNormal);
-	
-	margin: 1rem 0;
+	border: var(--borderNone);
+	font-family: var(--fontNormal);
+	margin: calc(var(--spaceNormal) * 2) 0;
 }
 
 h1 {
-	@apply(--borderNone);
-	
-	color: var(--colorBlueDark);
+	color: var(--colorBlueMedium);
 	font-size: calc(var(--spaceNormal) * 2.6);
 	border-top: var(--borderThin);
-	border-image: var(--gradientHorizontalShort) 1;
+	border-image: var(--gradientHorizontalShortBlue) 1;
 }
 
 h2 {
-	@apply(--borderNone);
-	
 	color: var(--colorOrange);
 	font-size: calc(var(--spaceNormal) * 2.2);
 	border-bottom: var(--borderThin);
-	border-image: var(--gradientOrange) 1;
+	border-image: var(--gradientHorizontalOrange) 1;
 }
 
 h3 {
-	color: var(--colorOrange);
-	font-size: calc(var(--spaceNormal) * 1.8);
+	color: var(--colorBlue);
+	font-size: calc(var(--spaceNormal) * 2);
+	margin-left: calc(var(--spaceNormal) * 2);
 }
 
 ul {
 	
 }
 
+dl {
+	border: var(--borderThin) var(--colorOrangeDark);
+	border-radius: calc(var(--spaceNormal) * 0.5);
+	background-color: var(--colorBlueDark);
+}
+
 dt {
 	color: var(--colorOrange);
+	font-size: calc(var(--spaceNormal) * 1.5);
 	font-style: italic;
+	margin-top: calc(var(--spaceNormal) * 1);
+	margin-left: calc(var(--spaceNormal) * 1);
+	margin-bottom: calc(var(--spaceNormal) * 1);
 }
 
 dd {
-	margin-left: calc(var(--spaceNormal) * 2);
+	font-size: calc(var(--spaceNormal) * 1.5);
+	margin-left: calc(var(--spaceNormal) * 1);
+	margin-bottom: calc(var(--spaceNormal) * 1);
 }
 
 a {
-	@apply(--fontNormal);
-	
+	font-family: var(--fontNormal);
+	text-decoration: none;
 	color: var(--colorBlue);
 }
 
@@ -116,5 +119,5 @@ a:hover {
 }
 
 a.active {
-	color: var(--colorBlueDark);
+	color: var(--colorBlueMedium);
 }

@@ -7,6 +7,10 @@ export const NAV_DATA = {
 		path: '/repos',
 		title: 'git repos'
 	},
+	stars: {
+		path: '/stars',
+		title: 'starred'
+	},
 	definitions: {
 		path: '/definitions',
 		title: 'definitions'
