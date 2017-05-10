@@ -11,6 +11,8 @@ import Repos from './views/repos'
 import Stars from './views/stars'
 import GitFlow from './views/git-flow'
 import Definitions from './views/definitions'
+import FunctionalProgramming from './views/fp'
+import JetbrainsTips from './views/jetbrains-tips'
 
 import { NAV_DATA } from './constants'
 
@@ -28,6 +30,8 @@ render((
 				<Repos path={getNavPath('repos')} />
 				<Stars path={getNavPath('stars')} />
 				<GitFlow path={getNavPath('gitflow')} />
+				<JetbrainsTips path={getNavPath('jetbrains')} />
+				<FunctionalProgramming path={getNavPath('functionalProgramming')} />
 			</Router>
 		</div>
 	</main>

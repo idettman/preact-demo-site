@@ -7,7 +7,6 @@
 
 .main-navigation {
 	border: var(--borderNone);
-	width: calc(var(--spaceNormal) * 16);
 	margin-top: var(--spaceNormal);
 	margin-left: var(--spaceNormal);
 }
@@ -16,6 +15,10 @@
 	font-family: var(--fontSansSerif);
 	display: block;
 	width: auto;
+}
+
+.page-content {
+	margin: var(--spaceNormal) var(--spaceNormal) 0;
 }
 
 .button {
@@ -28,31 +31,16 @@
 	background-color: var(--colorBlueMedium);
 }
 
-.page-content {
-	padding: var(--spaceNormal);
-	box-sizing: border-box;
-}
-
 .list-plain {
 	list-style: none;
 }
 
-.list-plain li p, .list-plain li code {
-	font-family: var(--fontMonospace);
-	font-size: calc(var(--spaceNormal) * 1.4);
-	margin-top: 0;
-	margin-left: 1rem;
-	margin-bottom: 0.5rem;
-}
-
 .gist {
-	font-family: var(--fontMonospace);
-	padding: calc(var(--spaceNormal));
-	border-radius: calc(var(--spaceNormal) * 0.3);
-	color: var(--colorBlue);
+	border-radius: calc(var(--spaceNormal) * 0.25);
 	background-color: var(--colorBlueDark);
-	
-	font-size: calc(var(--spaceNormal) * 1.3);
+	color: var(--colorBlue);
+	font-family: var(--fontMonospace);
+	font-size: calc(var(--spaceNormal) * 1.8);
 	text-shadow: 0.1rem 0.1rem 0.1rem var(--colorDark);
 }
 

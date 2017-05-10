@@ -1,0 +1,21 @@
+{
+  "logs": [
+	{
+	  "title": "heading element usage",
+	  "content": [
+		{
+		  "p": "With the <section> element, you should consider avoiding using <h1> more than once on a page; by convention and for accessibility, it's used for the page's displayed title, with all headings below starting with <h2>."
+		},
+		{
+		  "p": "When using sections, you should use one <h1> per section."
+		},
+		{
+		  "p": "See \"Defining sections\" in Using HTML sections and outlines for more information."
+		},
+		{
+		  "a": "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines"
+		}
+	  ]
+	}
+  ]
+}

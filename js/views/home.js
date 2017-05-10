@@ -4,24 +4,104 @@ class Home extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Developer Log</h1>
+				<h1>Development Log</h1>
 				
 				<div>
-					<h2>bench-chain</h2>
-					benchmark recording averages and graphs
-					<a className="button" href="https://github.com/fluents/bench-chain" target="_blank">repo</a>
+					<h2>postcss research</h2>
+					
+					<article>
+						<h3>curated links related to postcss</h3>
+						An awesome list of plugins, articles, resources and other things related to PostCSS
+						<a className="button" href="https://github.com/jjaderg/awesome-postcss" target="_blank">repo</a>
+					</article>
+					
+					<article>
+						<h3>miscellaneous goodies</h3>
+						<ul>
+							<li>Generating grids with Lost</li>
+							<li>Seeing how your designs look to colorblind people with postcss-colorblind</li>
+							<li>Converting px units to rem with postcss-pxtorem</li>
+							<li>Auto-generating an RTL version of your stylesheet with rtlcss</li>
+							<li>Auto-generating a style guide with postcss-style-guide</li>
+						</ul>
+						<a className="button" href="https://webdesign.tutsplus.com/tutorials/postcss-deep-dive-miscellaneous-goodies--cms-24603" target="_blank">repo</a>
+					</article>
+					
+					<article>
+						<h3>postcss css-nesting</h3>
+						Add the ability to nest one style rule inside another <a href="https://github.com/jonathantneal/postcss-nesting" target="_blank">site</a>
+						<a className="button" href="https://github.com/jonathantneal/postcss-nesting" target="_blank">repo</a>
+						<a className="button" href="http://tabatkins.github.io/specs/css-nesting/" target="_blank">W3C</a>
+					</article>
+					
+					<article>
+						<h3>postcss-easings</h3>
+						
+						<a className="button" href="https://github.com/postcss/postcss-easings" target="_blank">repo</a>
+					</article>
+					
+					<article>
+						<h3>postcss bem + suit</h3>
+						
+						<h4>postcss-bem (updated 2 years ago)</h4>
+						<code>npm install postcss-bem postcss-nested --save-dev</code>
+						
+						<h4>postcss-atrule-bem (updated 2 months ago)</h4>
+						<a className="button" href="https://github.com/tbremer/postcss-atrule-bem" target="_blank">repo</a>
+						
+						<h4>related article</h4>
+						<a className="button" href="https://webdesign.tutsplus.com/tutorials/using-postcss-with-bem-and-suit-methodologies--cms-24592" target="_blank">postcss with bem and suit methodologies</a>
+					</article>
+					
+					<article>
+						<h3>postcss-partial-import</h3>
+						Partial Import lets you use sugary @import statements in CSS, including glob-like and Sass-like behavior. It even lets you generates imports as a scaffolding tool.
+						<a className="button" href="https://github.com/jonathantneal/postcss-partial-import" target="_blank">repo</a>
+					</article>
+					
+					<article>
+						<h3>lost grid</h3>
+						<a className="button" href="https://github.com/peterramsing/lost" target="_blank">repo</a>
+						<a className="button" href="https://github.com/peterramsing/lost/wiki/Installation" target="_blank">install guide</a>
+						<a className="button" href="http://lostgrid.org/lostgrid-example.html" target="_blank">view examples</a>
+						<a className="button" href="http://lostgrid.org/docs.html#browser-support" target="_blank">browser support matrix</a>
+					</article>
+					
+					<article>
+						<h3>stylelint</h3>
+						modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets
+						<a className="button" href="https://stylelint.io/" target="_blank">repo</a>
+					</article>
 				</div>
 				
 				<div>
-					<h2>css links</h2>
+					<h2>featured tools/libs</h2>
+					<article>
+						<h3>brunch</h3>
+						front-end build tool with simple declarative config, incremental compilation, an opinionated pipeline and workflow
+						<a className="button" href="https://github.com/brunch/brunch" target="_blank">repo</a>
+					</article>
+					<article>
+						<h3>fly</h3>
+						A generator & coroutine-based task runner for nodejs
+						<a className="button" href="https://github.com/flyjs/fly" target="_blank">repo</a>
+					</article>
 					
-					<h3>spec</h3>
-					
+					<article>
+						<h3>bench-chain</h3>
+						benchmark recording averages and graphs
+						<a className="button" href="https://github.com/fluents/bench-chain" target="_blank">repo</a>
+					</article>
+				</div>
+				
+				<div>
+					<h2>css modules and specs to check out</h2>
 					<dl>
 						<dt>flexbox</dt>
 						<dd>
 							<a className="button" href="https://www.npmjs.com/package/postcss-flexbox" target="_blank">reference site</a>
 							<a className="button" href="http://learnlayout.com/flexbox.html" target="_blank">learn layout site</a>
+							<a className="button" href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank">visual guide</a>
 							<a className="button" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank">MDN</a>
 							<a className="button" href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">W3C Module Level 1</a>
 						</dd>
@@ -50,8 +130,7 @@ class Home extends Component {
 						</dd>
 					</dl>
 					
-					<h3>draft</h3>
-					
+					<h4>draft</h4>
 					<dl>
 						<dt>conditional rules module level 3</dt>
 						<dd>
@@ -64,7 +143,7 @@ class Home extends Component {
 						</dd>
 					</dl>
 					
-					<h3>unofficial draft</h3>
+					<h4>unofficial draft</h4>
 					<dl>
 						<dt>css shadow parts</dt>
 						<dd>
@@ -101,110 +180,6 @@ class Home extends Component {
 					<img width="209" height="101" src="img/matrix4x4.png"/>
 				</div>
 				<div>
-					<h2>postcss-cssnext status</h2>
-					<div>A preliminary status on the feature set in cssnext (where ☑ means the feature is on track, ☒ means something is wrong, and ☐ means its not really relevant):
-						<ul className="list-plain">
-							<li>☐ automatic vendor prefixes (not really a future feature)</li>
-							<li>☑ custom properties &amp;
-								<code>var()</code>
-								(now in all browsers)
-							</li>
-							<li>☒ custom properties set &amp;
-								<code>@apply</code>
-								(in Chrome behind flag but killed)
-							</li>
-							<li>☐ reduced calc() (not really a future feature)</li>
-							<li>☒ custom media queries (cut from spec, moved to Houdini or level 5, see
-								<span data-link-type="commit" data-commit-sha="e4facfc24e59cddcae5919b0e3c083044ba555af" data-commit-repo="w3c/csswg-drafts" class="commit">w3c/csswg-drafts@e4facfc</span>
-								)
-							</li>
-							<li>☒ media queries ranges (no movement, still in csswg spec)</li>
-							<li>☒ custom selectors (no movement, still in csswg spec)</li>
-							<li>☒ nesting (no movement, no spec, no response from csswg, see
-								<a class="issue is-existent open" data-issue-repo="w3c/csswg-drafts" data-issue="998" data-link-type="issue" href="https://github.com/w3c/csswg-drafts/issues/998" target="_blank">w3c/csswg-drafts#998</a>
-								)
-							</li>
-							<li>☑
-								<code>color()</code>
-								function (in Safari 10.1, part of CSS Color 4, otherwise on track for implementation)
-							</li>
-							<li>☑
-								<code>hwb()</code>
-								function (part of CSS Color 4, generally on track for implementation)
-							</li>
-							<li>☑
-								<code>gray()</code>
-								function (part of CSS Color 4, generally on track for implementation)
-							</li>
-							<li>☑ #rrggbbaa colors (in Firefox, Safari)</li>
-							<li>☐ rgba function (rgb fallback) (not really a future feature)</li>
-							<li>☑
-								<code>rebeccapurple</code>
-								color (all modern browsers, IE11)
-							</li>
-							<li>☑
-								<code>font-variant</code>
-								property (atleast Chrome, Firefox)
-							</li>
-							<li>☑
-								<code>filter</code>
-							</li>
-							<li>☑
-								<code>initial</code>
-							</li>
-							<li>☐
-								<code>rem</code>
-								unit (not really a future feature)
-							</li>
-							<li>☑
-								<code>:any-link</code>
-								(in Firefox)
-							</li>
-							<li>☑
-								<code>:matches</code>
-								(in Safari)
-							</li>
-							<li>☑
-								<code>:not</code>
-								pseudo-class (level 4) (in Safari)
-							</li>
-							<li>☐
-								<code>::</code>
-								pseudo syntax (
-								<code>:</code>
-								fallback) (not really a future feature)
-							</li>
-							<li>☑
-								<code>overflow-wrap</code>
-								property (
-								<code>word-wrap</code>
-								fallback) (in Firefox)
-							</li>
-							<li>☑ attribute case insensitive (in Chrome, Firefox, Safari)</li>
-							<li>☑
-								<code>rgb()</code>
-								function (functional-notation) (supposedly Safari 10.1)
-							</li>
-							<li>☑
-								<code>hsl()</code>
-								function (functional-notation) (supposedly Safari 10.1)
-							</li>
-							<li>☑
-								<code>system-ui</code>
-								font-family (in Chrome, WebKit, in review by Firefox)
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div>
-					<h3>Recommended postcss plugins</h3>
-					<ul>
-						<li>postcss-import</li>
-						<li>postcss-cssnext</li>
-					</ul>
-					<a href='http://postcss.parts/tag/sass' target='_blank' className='button marginTop'>Postcss plugin catalog</a>
-				</div>
-				<div>
 					<h2>ES2015 const + let</h2>
 					<p>ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding.</p>
 					<p>The only difference between const and let is that const makes the contract that no rebinding will happen.</p>
@@ -225,17 +200,6 @@ class Home extends Component {
 							<div className='js-bracket'>{'}'}</div>
 					</div>
 					<p>The const is going to be scoped to that block and unavailable in the global scope</p>
-				</div>
-				<div>
-					<h2>HTML box model</h2>
-					<p>After helping a friend debug a nested dom element that was not affecting the sizing of it's containing element</p>
-					<p>This will be a simple overview of the dom box model and how display (top, bottom, left, right, margin, padding, and border) and position values work</p>
-					<ul>
-						<li>The following position types will not affect containing elements</li>
-						<li>absolute</li>
-						<li>fixed</li>
-						<li>relative (only the initial position is reflected by the box model, top and left values are not reflected)</li>
-					</ul>
 				</div>
 			</div>
 		)

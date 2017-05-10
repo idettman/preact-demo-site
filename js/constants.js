@@ -22,5 +22,13 @@ export const NAV_DATA = {
 	gitflow: {
 		path: '/gitflow',
 		title: 'git methodology'
+	},
+	jetbrains: {
+		path: '/jetbrains',
+		title: 'Jetbrains Tips'
+	},
+	functionalProgramming: {
+		path: '/fp',
+		title: 'Functional Programming'
 	}
 }

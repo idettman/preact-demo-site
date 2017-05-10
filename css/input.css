@@ -1,2 +1,3 @@
-@import "main.css";
-@import "persistent.css";
+@import "app/app.css";
+@import "app/base.css";
+@import "app/persistent.css";

@@ -69,11 +69,6 @@ const argv = require('yargs')
 			return ext
 		}
 	})
-	.option('e', {
-		alias: 'env',
-		desc: 'A shortcut for setting NODE_ENV',
-		type: 'string'
-	})
 	.option('b', {
 		alias: 'base',
 		desc: 'Mirror the directory structure relative to this path in the output directory, this only works together with --dir',
@@ -90,10 +85,8 @@ const argv = require('yargs')
 	.help('h').alias('h', 'help')
 	.example('$0 input.css -o output.css', 'Basic usage')
 	.example('cat input.css | $0 -u autoprefixer > output.css', 'Piping input & output')
-	.epilog(
-		`If no input files are passed, it reads from stdin. If neither -o, --dir, or --replace is passed, it writes to stdout.
-If there are multiple input files, the --dir or --replace option must be passed.
-For more details, please see https://github.com/postcss/postcss-cli`
+	.epilog(`If no input files are passed, it reads from stdin. If neither -o, --dir, or --replace is passed, it writes to stdout.
+If there are multiple input files, the --dir or --replace option must be passed.`
 	)
 	.argv
 
@@ -125,7 +118,6 @@ let config = {
 		: []
 }
 
-if (argv.env) process.env.NODE_ENV = argv.env
 if (argv.config) argv.config = path.resolve(argv.config)
 
 Promise.resolve()

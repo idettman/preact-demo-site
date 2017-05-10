@@ -1,0 +1,39 @@
+
+:root {
+	font-size: 62.5%;
+	
+	--spaceNormal: 1rem;
+	--borderThin: 0.1rem solid;
+	
+	--colorTextLight: white;
+	--colorTextMedium: #C4C8CA;
+	--colorTextDark: #7A7D80;
+	
+	--colorLight: #B9B1C1;
+	--colorMedium: #220022;
+	--colorDark: #110011;
+	
+	--colorBlue: #6495ED;
+	--colorBlueMedium: #0B598D;
+	--colorBlueDark: #11191E;
+	
+	--colorOrange: #FFA500;
+	--colorOrangeDark: #7E5300;
+	
+	--colorOrangeRed: #FF4500;
+	--colorOrangeRedDark: #7C2200;
+	
+	--gradientHorizontalOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrangeDark) 2%, var(--colorDark) 20%);
+	--gradientHorizontalShortOrange: linear-gradient(90deg, var(--colorDark), var(--colorOrange) 3%, var(--colorDark) 14%);
+	
+	--gradientHorizontalBlue: linear-gradient(90deg, var(--colorBlueMedium), var(--colorBlue) 5%, var(--colorDark) 20%);
+	--gradientHorizontalShortBlue: linear-gradient(90deg, var(--colorDark), var(--colorBlue) 5%, var(--colorDark) 28%);
+	
+	--fontSerif: "Lora", serif;
+	--fontSansSerif: "Source Sans Pro", sans-serif;
+	--fontMonospace: monospace;
+	
+	--borderNone: 0 none;
+	--fullHeight: 100%;
+	--fontNormal: normal;
+}
