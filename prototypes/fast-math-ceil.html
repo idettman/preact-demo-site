@@ -19,7 +19,9 @@
 		
 		{
 			/* Tests */
-			
+			const colorPass = 'color:green'
+			const colorFail = 'color:red'
+
 			let createTestDependencyDAO = (test, dependency) => {
 				return { test, dependency }
 			}
@@ -32,17 +34,17 @@
 				return { initialValue, divideResult, divideAndCeilResult }
 			}
 			
-			let outputTestResult = (testResultDAO) => {
+			let outputTestResult = testResultDAO => {
 				if (testResultDAO.passedResult) {
-					console.log('%c pass %c %s', 'color:#00B446', 'color:#666666', testResultDAO.test)
+					console.log(`%c${testResultDAO.test}`, colorPass)
 				}
 				else {
-					console.log('%c fail %c %s', 'color:#C2292D', 'color:#AAAAAA', testResultDAO.test)
+					console.log(`%c${testResultDAO.test}`, colorFail)
 				}
 			}
 			
-			let outputIntegrationTestResult = (integrationTestResultDAO) => {
-				console.log('%c %d %c dividedByTwo  %d  %c divideAndCeil  %s', 'color:#555555', integrationTestResultDAO.initialValue, 'color:#999999', integrationTestResultDAO.divideResult, 'color:#AAAAAA', integrationTestResultDAO.divideAndCeilResult)
+			let outputIntegrationTestResult = integrationTestResultDAO => {
+				console.log(`%cvalue: ${integrationTestResultDAO.initialValue}  divided/2: ${integrationTestResultDAO.divideResult}  composed: %c${integrationTestResultDAO.divideAndCeilResult}`, 'color:#555555', 'color:#AAAAAA')
 			}
 			
 			
@@ -52,7 +54,7 @@
 			}
 			
 			function testDivideByTwo (dependency) {
-				return (dependency.call(null, 3) === 1.54)
+				return (dependency.call(null, 3) === 1.51)
 			}
 			
 			function testFastCeil (dependency) {
@@ -67,7 +69,7 @@
 				return {
 					testResultData: testGroup.reduce((accumulator, currentValue) => {
 						accumulator.push(callTestWithDependency(currentValue.test, currentValue.dependency))
-						return accumulator 
+						return accumulator
 					}, []),
 					integrationTestResultData: largeDataSet.reduce((accumulator, currentValue) => {
 						accumulator.push(createIntegrationTestResultDAO(currentValue, divideByTwo(currentValue), divideAndCeil(currentValue)))
@@ -80,27 +82,45 @@
 					createTestDependencyDAO(testDivideByTwo, divideByTwo),
 					createTestDependencyDAO(testFastCeil, fastCeil),
 					createTestDependencyDAO(testDivideAndCeil, divideAndCeil)
-				], 
+				],
 				[4, 5, 10, 13, 21, 22, 33, 38, 51, 101])
 			
-			
-			console.group('[Tests]')
-			testResultData.testResultData.forEach(outputTestResult)
-			console.groupEnd()
-			
-			console.groupCollapsed('[Integration Tests]')
+			function testResults() {
+				console.group('%c[test results]', 'color:gold')
+				testResultData.testResultData.forEach(outputTestResult)
+				console.groupEnd()
+			}
+
+			function runTestGroups() {
+				console.group('[complete]')
+
+				let getPercentage = (a, b) => Math.round((a/b) * 100),
+					testsTotal = testResultData.testResultData.length,
+					pass = testResultData.testResultData.reduce((accumulator, currentValue) => {
+						return accumulator + ((currentValue.passedResult) ? 1 : 0)
+					}, 0),
+					fail = testsTotal - pass,
+					getLogMessage = (status, count, total) => {
+						if (count > 0) {
+
+							let percent = getPercentage(count, total) + '\%'
+
+							console.log(`${status}: ${percent} ( ${count} tests )`)
+						}
+					}
+
+				getLogMessage('passed', pass, testsTotal)
+				getLogMessage('failed', fail, testsTotal)
+
+				testResults()
+				console.groupEnd()
+			}
+			runTestGroups()
+
+
+			console.group('integration.test.results')
 			testResultData.integrationTestResultData.forEach(outputIntegrationTestResult)
 			console.groupEnd()
-			
-			
-			let total = testResultData.testResultData.length,
-				pass = testResultData.testResultData.reduce((accumulator, currentValue) => {
-					return accumulator + ((currentValue.passedResult) ? 1 : 0)
-				}, 0),
-				fail = total - pass,
-				coverage = (pass / total) * 100
-			
-			console.log('\nAll Tests Complete: %c Score: %d\% %c (failed #%d %c passed #%d)', 'color:orange', coverage, 'color:#C2292D', fail, 'color:#00B446', pass)
 		}
 	}
 </script>
