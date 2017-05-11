@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CssDialectMappings">
+    <file url="PROJECT" dialect="PostCSS" />
+  </component>
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
@@ -13,8 +16,10 @@
     <version value="1.0" />
   </component>
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$/build" libraries="{Node.js Core}" />
-    <file url="file://$PROJECT_DIR$/js" libraries="{Node.js Core}" />
+    <file url="file://$PROJECT_DIR$/build" libraries="{idettman.github.io/node_modules}" />
+    <file url="file://$PROJECT_DIR$/js" libraries="{HTML, idettman.github.io/node_modules}" />
+    <file url="PROJECT" libraries="{HTML}" />
+    <includedPredefinedLibrary name="Node.js Core" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="JSX" />
@@ -87,22 +92,74 @@
       <textMaps />
     </LinkMapSettings>
   </component>
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value />
+    </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default (1)" />
+  </component>
   <component name="ProjectDictionaryState">
     <dictionary name="isaacdettman">
       <words>
+        <w>atrule</w>
         <w>attrs</w>
+        <w>bcherny</w>
         <w>bemjson</w>
+        <w>benusher</w>
+        <w>brandwatchltd</w>
+        <w>chetcorcos</w>
+        <w>combinators</w>
+        <w>compositing</w>
+        <w>coroutine</w>
         <w>debounce</w>
         <w>deps</w>
         <w>dettman</w>
+        <w>developit</w>
+        <w>dnode</w>
+        <w>domvm</w>
+        <w>easings</w>
         <w>editorconfig</w>
+        <w>feross</w>
+        <w>flexbox</w>
+        <w>flyjs</w>
         <w>gitflow</w>
         <w>github</w>
+        <w>hrtime</w>
+        <w>hyperapp</w>
         <w>idettman</w>
+        <w>jjaderg</w>
+        <w>jonathantneal</w>
+        <w>lateration</w>
+        <w>learnlayout</w>
+        <w>lostgrid</w>
+        <w>lukasoppermann</w>
+        <w>mobx</w>
+        <w>mostjs</w>
+        <w>ngryman</w>
+        <w>npmjs</w>
+        <w>paraboul</w>
+        <w>peterramsing</w>
+        <w>philpl</w>
+        <w>pornel</w>
+        <w>prepack</w>
+        <w>pxtorem</w>
         <w>rerender</w>
+        <w>rtlcss</w>
+        <w>socketio</w>
+        <w>sourcemap</w>
+        <w>sourcemaps</w>
         <w>subheader</w>
+        <w>svgo</w>
+        <w>tbremer</w>
+        <w>tfrp</w>
+        <w>transpiled</w>
+        <w>tutsplus</w>
         <w>unmount</w>
+        <w>vanillajs</w>
+        <w>vdom</w>
         <w>vnode</w>
+        <w>webdesign</w>
+        <w>yargs</w>
       </words>
     </dictionary>
   </component>
@@ -111,6 +168,9 @@
       <module fileurl="file://$PROJECT_DIR$/idettman.github.io.iml" filepath="$PROJECT_DIR$/idettman.github.io.iml" />
     </modules>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/style.css" />
+  </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
@@ -118,12 +178,38 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
+  <component name="TemplateDataLanguageMappings">
+    <file url="PROJECT" dialect="ECMAScript 6" />
+  </component>
   <component name="TypeScriptCompiler">
     <option name="useConfig" value="true" />
-    <option name="useService" value="false" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+  </component>
+  <component name="deltaUtilsSettings">
+    <option name="settings">
+      <list>
+        <BrowsePattern>
+          <option name="enabled" value="false" />
+          <option name="icon" value="GOOGLE" />
+          <option name="label" value="Search with Google" />
+          <option name="pattern" value="http://www.google.com/search?q={selection}" />
+        </BrowsePattern>
+        <BrowsePattern>
+          <option name="enabled" value="false" />
+          <option name="icon" value="SEARCH CODE" />
+          <option name="label" value="Search code" />
+          <option name="pattern" value="http://code.google.com/intl/en/query/#q={selection}" />
+        </BrowsePattern>
+        <BrowsePattern>
+          <option name="enabled" value="false" />
+          <option name="icon" value="TRANSLATE" />
+          <option name="label" value="Translate with Google" />
+          <option name="pattern" value="http://translate.google.com/#auto/en/{selection}" />
+        </BrowsePattern>
+      </list>
+    </option>
   </component>
   <component name="masterDetails">
     <states>
