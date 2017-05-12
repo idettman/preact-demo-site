@@ -8,7 +8,7 @@
 <script>
 	'use strict'
 	{
-		const compose = (a, b) => (c) => a(b(c))
+		const compose = (a, b) => c => a(b(c))
 		
 		const divideByTwo = number => (number/2)
 		
@@ -17,110 +17,207 @@
 		const divideAndCeil = compose(fastCeil, divideByTwo)
 		
 		
+		
+		// Unit Tests
 		{
-			/* Tests */
-			const colorPass = 'color:green'
-			const colorFail = 'color:red'
-
-			let createTestDependencyDAO = (test, dependency) => {
+			/**
+			 * @type {Object} LOG
+			 */
+			const LOG = {
+				text: {
+					title: '[ tests output ]',
+					resultsTitle: '[ unit tests - function names colored by pass/fail) ]',
+					integrationHeader: '[ integration tests - values output for each test ]'
+				},
+				color: {
+					heading: 'color:#F0F6FA',
+					pass: 'color:green',
+					totalPassed: 'color:#6495ED',
+					fail: 'color:#FF4500',
+					integrationTest: 'color:#6495ED'
+				}
+			}
+			
+			/**
+			 * @function
+			 * @param {string} text
+			 * @param {...string} styles
+			 * @returns {Array.<string>}
+			 */
+			const getLogParams = (text, ...styles) => {
+				return (styles && styles.length) ? [`%c${text}`, styles.join(';')] : [`${text}`]
+			}
+			
+			/**
+			 * @typedef {Object} TestDAO
+			 * @property {function} test
+			 * @property {function} dependency
+			 */
+			
+			/**
+			 * @function
+			 * @param {function} test
+			 * @param {function} dependency
+			 * @returns {TestDAO}
+			 */
+			const testDAO = (test, dependency) => {
 				return { test, dependency }
 			}
 			
-			let createTestResultDAO = (test, passedResult) => {
-				return { test, passedResult }
+			/**
+			 * @typedef {Object} TestResultDAO
+			 * @property {function} test
+			 * @property {boolean} passed
+			 */
+			
+			/**
+			 * @function
+			 * @param {function} test
+			 * @param {boolean} passed
+			 * @returns {TestResultDAO}
+			 */
+			const testResultDAO = (test, passed) => {
+				return { test, passed }
 			}
 			
-			let createIntegrationTestResultDAO = (initialValue, divideResult, divideAndCeilResult) => {
+			/**
+			 * @typedef {Object} IntegrationTestDAO
+			 * @property {number} initialValue
+			 * @property {number} divideResult
+			 * @property {number} divideAndCeilResult
+			 */
+			
+			/**
+			 * @function
+			 * @param {number} initialValue
+			 * @param {number} divideResult
+			 * @param {number} divideAndCeilResult
+			 * @returns {IntegrationTestDAO}
+			 */
+			const integrationTestDAO = (initialValue, divideResult, divideAndCeilResult) => {
 				return { initialValue, divideResult, divideAndCeilResult }
 			}
 			
-			let outputTestResult = testResultDAO => {
-				if (testResultDAO.passedResult) {
-					console.log(`%c${testResultDAO.test}`, colorPass)
-				}
-				else {
-					console.log(`%c${testResultDAO.test}`, colorFail)
-				}
-			}
-			
-			let outputIntegrationTestResult = integrationTestResultDAO => {
-				console.log(`%cvalue: ${integrationTestResultDAO.initialValue}  divided/2: ${integrationTestResultDAO.divideResult}  composed: %c${integrationTestResultDAO.divideAndCeilResult}`, 'color:#555555', 'color:#AAAAAA')
-			}
-			
-			
-			function callTestWithDependency (test, dependency) {
-				let passedResult = test.call(null, dependency)
-				return createTestResultDAO(test.name, passedResult)
-			}
-			
-			function testDivideByTwo (dependency) {
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testDivideByTwo = dependency => {
 				return (dependency.call(null, 3) === 1.51)
 			}
 			
-			function testFastCeil (dependency) {
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testFastCeil = dependency => {
 				return (dependency.call(null, 3.5) === 4)
 			}
 			
-			function testDivideAndCeil (dependency) {
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testDivideAndCeil = dependency => {
 				return (dependency.call(null, 11) === 6)
 			}
 			
-			function runTests (testGroup, largeDataSet) {
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>} dao
+			 */
+			const logTestHeader = dao => {
+				let percent = (a, b) => Math.round((a/b) * 100)
+				let passCount = dao.reduce((accumulator, currentValue) => (accumulator + ((currentValue.passed) ? 1 : 0)), 0)
+				let failCount = dao.length - passCount
+				
+				console.log(...getLogParams(`passed: ${percent(passCount, dao.length)}% ( ${passCount} tests )`, LOG.color.totalPassed))
+				console.log(...getLogParams(`fail: ${percent(failCount, dao.length)}% ( ${failCount} tests )`, LOG.color.fail))
+			}
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>}
+			 */
+			const logTestResults = dao => {
+				console.group(...getLogParams(LOG.text.resultsTitle, LOG.color.heading))
+				
+				dao.forEach(item => {
+					console.log(...getLogParams(item.test, (item.passed) ? LOG.color.pass : LOG.color.fail))
+				})
+				
+				console.groupEnd()
+			}
+			
+			/**
+			 * @type {Array<TestDAO>}
+			 */
+			const UNIT_TESTS = [
+				testDAO(testDivideByTwo, divideByTwo),
+				testDAO(testFastCeil, fastCeil),
+				testDAO(testDivideAndCeil, divideAndCeil)
+			]
+			
+			/**
+			 * @type {Array<number>}
+			 */
+			const INTEGRATION_TESTS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15.6, 16, 17, 18, 21, 22, 33, 38, 51, 101]
+			
+			/**
+			 * @function
+			 * @param {Array<IntegrationTestDAO>} dao
+			 */
+			const logIntegrationTestResults = dao => {
+				console.group(`${LOG.text.integrationHeader} %c`, LOG.color.heading)
+				console.table([...dao])
+				console.groupEnd()
+			}
+			
+			/**
+			 * @typedef {Object} TestResultsDAO
+			 * @property {Array<TestResultDAO>} testResultsDAO
+			 * @property {Array<IntegrationTestDAO>} integrationTestResultDAO
+			 */
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>} testDAO
+			 * @param {Array<IntegrationDAO} integrationDAO
+			 * @return {TestResultsDAO}
+			 */
+			const runTests = (testDAO, integrationDAO) => {
 				return {
-					testResultData: testGroup.reduce((accumulator, currentValue) => {
-						accumulator.push(callTestWithDependency(currentValue.test, currentValue.dependency))
+					testResultsDAO: testDAO.reduce((accumulator, currentValue) => {
+						accumulator.push(testResultDAO(currentValue.test.name, currentValue.test.call(null, currentValue.dependency)))
 						return accumulator
 					}, []),
-					integrationTestResultData: largeDataSet.reduce((accumulator, currentValue) => {
-						accumulator.push(createIntegrationTestResultDAO(currentValue, divideByTwo(currentValue), divideAndCeil(currentValue)))
+					
+					integrationTestResultDAO: integrationDAO.reduce((accumulator, currentValue) => {
+						accumulator.push(integrationTestDAO(currentValue, divideByTwo(currentValue), divideAndCeil(currentValue)))
 						return accumulator
 					}, [])
 				}
 			}
 			
-			let testResultData = runTests([
-					createTestDependencyDAO(testDivideByTwo, divideByTwo),
-					createTestDependencyDAO(testFastCeil, fastCeil),
-					createTestDependencyDAO(testDivideAndCeil, divideAndCeil)
-				],
-				[4, 5, 10, 13, 21, 22, 33, 38, 51, 101])
+			/**
+			 * @function
+			 * @param {TestResultsDAO} dao
+			 */
+			const initTests = dao => {
+				console.group(...getLogParams(LOG.text.title, LOG.color.heading))
+				
+				logTestHeader(dao.testResultsDAO)
+				logTestResults(dao.testResultsDAO)
+				logIntegrationTestResults(dao.integrationTestResultDAO)
+				
+				console.groupEnd()
+			}
 			
-			function testResults() {
-				console.group('%c[test results]', 'color:gold')
-				testResultData.testResultData.forEach(outputTestResult)
-				console.groupEnd()
-			}
-
-			function runTestGroups() {
-				console.group('[complete]')
-
-				let getPercentage = (a, b) => Math.round((a/b) * 100),
-					testsTotal = testResultData.testResultData.length,
-					pass = testResultData.testResultData.reduce((accumulator, currentValue) => {
-						return accumulator + ((currentValue.passedResult) ? 1 : 0)
-					}, 0),
-					fail = testsTotal - pass,
-					getLogMessage = (status, count, total) => {
-						if (count > 0) {
-
-							let percent = getPercentage(count, total) + '\%'
-
-							console.log(`${status}: ${percent} ( ${count} tests )`)
-						}
-					}
-
-				getLogMessage('passed', pass, testsTotal)
-				getLogMessage('failed', fail, testsTotal)
-
-				testResults()
-				console.groupEnd()
-			}
-			runTestGroups()
-
-
-			console.group('integration.test.results')
-			testResultData.integrationTestResultData.forEach(outputIntegrationTestResult)
-			console.groupEnd()
+			initTests(runTests(UNIT_TESTS, INTEGRATION_TESTS))
 		}
 	}
 </script>

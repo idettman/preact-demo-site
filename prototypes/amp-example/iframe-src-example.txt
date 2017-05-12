@@ -1,0 +1,27 @@
+EXAMPLE IFRAME URL:
+
+https://mps.nbcuni.com/request/component/automagic?name=ifr.html&FOR=AMP&SLOT=AMPARTICLEBOXAD&SITE=test-product&PATH=AMP:1234567&cat=animals|reptiles|turtles&type=amparticle&content_id=1234567&cag[group]=keyword
+
+The first 4 items are items we will have to change from site to site.
+
+· FOR – use the corresponding value; AMP, FBIA, APPLE
+· SLOT – the mps slot you want to load
+· SITE – the mps site instance
+· PATH – add ‘FBIA:' or ‘AMP:' to the path value.  ie. FBIA:pathvalue  or AMP:pathvalue
+
+
+The rest of the parameters are items that the site team will have to define based on what they are currently doing.  They are basically converting their mpscall javascript object into parameters in the URL.  For example:
+
+mpscall = {
+  "type": “amparticle” or “fbiaarticle"
+  "cat": "basketball|nba|nyknicks",
+  "cag[tags]":"knicks|championship"
+}
+
+
+Will become the following in the iframe source URL:
+
+...&type=article&cat=basketball|nba|nyknicks&cag[tags]=knicks|championship
+
+NOTE1: All request from the iframe must be SSL compliant or the entire iframe will be blocked from rendering.
+NOTE2: At this time, AMP allows 300x250, 320x50 FBIA allows 300x250.
