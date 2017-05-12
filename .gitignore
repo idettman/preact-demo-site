@@ -1,6 +1,10 @@
-# node modules
-node_modules
+# npm
+/node_modules/
 
-# prototype files for local testing only
-index-flexbox-test.html
-node_modules/
+# for local prototyping only
+/prototypes/
+
+# IntelliJ project files
+/idettman.github.io.ipr
+/idettman.github.io.iml
+/idettman.github.io.iws
