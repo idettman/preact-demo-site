@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype fast math ceil</title>
+</head>
+<body>
+<script>
+	'use strict'
+	{
+		const compose = (a, b) => c => a(b(c))
+		
+		const divideByTwo = number => (number/2)
+		
+		const fastCeil = number => (number + (number % 1 === 0 ? 0 : 0.5))
+		
+		const divideAndCeil = compose(fastCeil, divideByTwo)
+		
+		
+		
+		// Unit Tests
+		{
+			/**
+			 * @type {Object} LOG
+			 */
+			const LOG = {
+				text: {
+					title: '[ tests output ]',
+					resultsTitle: '[ unit tests - function names colored by pass/fail) ]',
+					integrationHeader: '[ integration tests - values output for each test ]'
+				},
+				color: {
+					heading: 'color:#F0F6FA',
+					pass: 'color:green',
+					totalPassed: 'color:#6495ED',
+					fail: 'color:#FF4500',
+					integrationTest: 'color:#6495ED'
+				}
+			}
+			
+			/**
+			 * @function
+			 * @param {string} text
+			 * @param {...string} styles
+			 * @returns {Array.<string>}
+			 */
+			const getLogParams = (text, ...styles) => {
+				return (styles && styles.length) ? [`%c${text}`, styles.join(';')] : [`${text}`]
+			}
+			
+			/**
+			 * @typedef {Object} TestDAO
+			 * @property {function} test
+			 * @property {function} dependency
+			 */
+			
+			/**
+			 * @function
+			 * @param {function} test
+			 * @param {function} dependency
+			 * @returns {TestDAO}
+			 */
+			const testDAO = (test, dependency) => {
+				return { test, dependency }
+			}
+			
+			/**
+			 * @typedef {Object} TestResultDAO
+			 * @property {function} test
+			 * @property {boolean} passed
+			 */
+			
+			/**
+			 * @function
+			 * @param {function} test
+			 * @param {boolean} passed
+			 * @returns {TestResultDAO}
+			 */
+			const testResultDAO = (test, passed) => {
+				return { test, passed }
+			}
+			
+			/**
+			 * @typedef {Object} IntegrationTestDAO
+			 * @property {number} initialValue
+			 * @property {number} divideResult
+			 * @property {number} divideAndCeilResult
+			 */
+			
+			/**
+			 * @function
+			 * @param {number} initialValue
+			 * @param {number} divideResult
+			 * @param {number} divideAndCeilResult
+			 * @returns {IntegrationTestDAO}
+			 */
+			const integrationTestDAO = (initialValue, divideResult, divideAndCeilResult) => {
+				return { initialValue, divideResult, divideAndCeilResult }
+			}
+			
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testDivideByTwo = dependency => {
+				return (dependency.call(null, 3) === 1.51)
+			}
+			
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testFastCeil = dependency => {
+				return (dependency.call(null, 3.5) === 4)
+			}
+			
+			/**
+			 * @function
+			 * @param {function} dependency
+			 * @returns {boolean}
+			 */
+			const testDivideAndCeil = dependency => {
+				return (dependency.call(null, 11) === 6)
+			}
+			
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>} dao
+			 */
+			const logTestHeader = dao => {
+				let percent = (a, b) => Math.round((a/b) * 100)
+				let passCount = dao.reduce((accumulator, currentValue) => (accumulator + ((currentValue.passed) ? 1 : 0)), 0)
+				let failCount = dao.length - passCount
+				
+				console.log(...getLogParams(`passed: ${percent(passCount, dao.length)}% ( ${passCount} tests )`, LOG.color.totalPassed))
+				console.log(...getLogParams(`fail: ${percent(failCount, dao.length)}% ( ${failCount} tests )`, LOG.color.fail))
+			}
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>}
+			 */
+			const logTestResults = dao => {
+				console.group(...getLogParams(LOG.text.resultsTitle, LOG.color.heading))
+				
+				dao.forEach(item => {
+					console.log(...getLogParams(item.test, (item.passed) ? LOG.color.pass : LOG.color.fail))
+				})
+				
+				console.groupEnd()
+			}
+			
+			/**
+			 * @type {Array<TestDAO>}
+			 */
+			const UNIT_TESTS = [
+				testDAO(testDivideByTwo, divideByTwo),
+				testDAO(testFastCeil, fastCeil),
+				testDAO(testDivideAndCeil, divideAndCeil)
+			]
+			
+			/**
+			 * @type {Array<number>}
+			 */
+			const INTEGRATION_TESTS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15.6, 16, 17, 18, 21, 22, 33, 38, 51, 101]
+			
+			/**
+			 * @function
+			 * @param {Array<IntegrationTestDAO>} dao
+			 */
+			const logIntegrationTestResults = dao => {
+				console.group(`${LOG.text.integrationHeader} %c`, LOG.color.heading)
+				console.table([...dao])
+				console.groupEnd()
+			}
+			
+			/**
+			 * @typedef {Object} TestResultsDAO
+			 * @property {Array<TestResultDAO>} testResultsDAO
+			 * @property {Array<IntegrationTestDAO>} integrationTestResultDAO
+			 */
+			
+			/**
+			 * @function
+			 * @param {Array<TestDAO>} testDAO
+			 * @param {Array<IntegrationDAO} integrationDAO
+			 * @return {TestResultsDAO}
+			 */
+			const runTests = (testDAO, integrationDAO) => {
+				return {
+					testResultsDAO: testDAO.reduce((accumulator, currentValue) => {
+						accumulator.push(testResultDAO(currentValue.test.name, currentValue.test.call(null, currentValue.dependency)))
+						return accumulator
+					}, []),
+					
+					integrationTestResultDAO: integrationDAO.reduce((accumulator, currentValue) => {
+						accumulator.push(integrationTestDAO(currentValue, divideByTwo(currentValue), divideAndCeil(currentValue)))
+						return accumulator
+					}, [])
+				}
+			}
+			
+			/**
+			 * @function
+			 * @param {TestResultsDAO} dao
+			 */
+			const initTests = dao => {
+				console.group(...getLogParams(LOG.text.title, LOG.color.heading))
+				
+				logTestHeader(dao.testResultsDAO)
+				logTestResults(dao.testResultsDAO)
+				logIntegrationTestResults(dao.integrationTestResultDAO)
+				
+				console.groupEnd()
+			}
+			
+			initTests(runTests(UNIT_TESTS, INTEGRATION_TESTS))
+		}
+	}
+</script>
+</body>
+</html>
