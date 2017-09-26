@@ -1,10 +1,11 @@
 # npm
 /node_modules/
 
-# for local prototyping only
+# local prototyping
 /prototypes/
 
-# IntelliJ project files
+# jetbrains project files
 /idettman.github.io.ipr
 /idettman.github.io.iml
 /idettman.github.io.iws
+/.idea/

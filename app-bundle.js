@@ -1,3 +1,1612 @@
-!function(){"use strict";function t(){}function e(e,n){var l,o,r,a,i=arguments,s=K;for(a=arguments.length;a-- >2;)G.push(i[a]);for(n&&null!=n.children&&(G.length||G.push(n.children),delete n.children);G.length;)if((o=G.pop())&&void 0!==o.pop)for(a=o.length;a--;)G.push(o[a]);else!0!==o&&!1!==o||(o=null),(r="function"!=typeof e)&&(null==o?o="":"number"==typeof o?o=String(o):"string"!=typeof o&&(r=!1)),r&&l?s[s.length-1]+=o:s===K?s=[o]:s.push(o),l=r;var u=new t;return u.nodeName=e,u.children=s,u.attributes=null==n?void 0:n,u.key=null==n?void 0:n.key,void 0!==$.vnode&&$.vnode(u),u}function n(t,e){for(var n in e)t[n]=e[n];return t}function l(t,l){return e(t.nodeName,n(n({},t.attributes),l),arguments.length>2?[].slice.call(arguments,2):t.children)}function o(t){!t._dirty&&(t._dirty=!0)&&1==nt.push(t)&&($.debounceRendering||setTimeout)(r)}function r(){var t,e=nt;for(nt=[];t=e.pop();)t._dirty&&N(t)}function a(t,e,n){return"string"==typeof e||"number"==typeof e?void 0!==t.splitText:"string"==typeof e.nodeName?!t._componentConstructor&&i(t,e.nodeName):n||t._componentConstructor===e.nodeName}function i(t,e){return t.normalizedNodeName===e||t.nodeName.toLowerCase()===e.toLowerCase()}function s(t){var e=n({},t.attributes);e.children=t.children;var l=t.nodeName.defaultProps;if(void 0!==l)for(var o in l)void 0===e[o]&&(e[o]=l[o]);return e}function u(t,e){var n=e?document.createElementNS("http://www.w3.org/2000/svg",t):document.createElement(t);return n.normalizedNodeName=t,n}function c(t){t.parentNode&&t.parentNode.removeChild(t)}function p(t,e,n,l,o){if("className"===e&&(e="class"),"key"===e);else if("ref"===e)n&&n(null),l&&l(t);else if("class"!==e||o)if("style"===e){if(l&&"string"!=typeof l&&"string"!=typeof n||(t.style.cssText=l||""),l&&"object"==typeof l){if("string"!=typeof n)for(var r in n)r in l||(t.style[r]="");for(var a in l)t.style[a]="number"==typeof l[a]&&!1===et.test(a)?l[a]+"px":l[a]}}else if("dangerouslySetInnerHTML"===e)l&&(t.innerHTML=l.__html||"");else if("o"==e[0]&&"n"==e[1]){var i=e!==(e=e.replace(/Capture$/,""));e=e.toLowerCase().substring(2),l?n||t.addEventListener(e,h,i):t.removeEventListener(e,h,i),(t._listeners||(t._listeners={}))[e]=l}else if("list"!==e&&"type"!==e&&!o&&e in t)d(t,e,null==l?"":l),null!=l&&!1!==l||t.removeAttribute(e);else{var s=o&&e!==(e=e.replace(/^xlink\:?/,""));null==l||!1===l?s?t.removeAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase()):t.removeAttribute(e):"function"!=typeof l&&(s?t.setAttributeNS("http://www.w3.org/1999/xlink",e.toLowerCase(),l):t.setAttribute(e,l))}else t.className=l||""}function d(t,e,n){try{t[e]=n}catch(t){}}function h(t){return this._listeners[t.type]($.event&&$.event(t)||t)}function m(){for(var t;t=lt.pop();)$.afterMount&&$.afterMount(t),t.componentDidMount&&t.componentDidMount()}function f(t,e,n,l,o,r){ot++||(rt=null!=o&&void 0!==o.ownerSVGElement,at=null!=t&&!(tt in t));var a=g(t,e,n,l,r);return o&&a.parentNode!==o&&o.appendChild(a),--ot||(at=!1,r||m()),a}function g(t,e,n,l,o){var r=t,a=rt;if(null==e&&(e=""),"string"==typeof e)return t&&void 0!==t.splitText&&t.parentNode&&(!t._component||o)?t.nodeValue!=e&&(t.nodeValue=e):(r=document.createTextNode(e),t&&(t.parentNode&&t.parentNode.replaceChild(r,t),v(t,!0))),r[tt]=!0,r;if("function"==typeof e.nodeName)return j(t,e,n,l);if(rt="svg"===e.nodeName||"foreignObject"!==e.nodeName&&rt,(!t||!i(t,String(e.nodeName)))&&(r=u(String(e.nodeName),rt),t)){for(;t.firstChild;)r.appendChild(t.firstChild);t.parentNode&&t.parentNode.replaceChild(r,t),v(t,!0)}var s=r.firstChild,c=r[tt]||(r[tt]={}),p=e.children;return!at&&p&&1===p.length&&"string"==typeof p[0]&&null!=s&&void 0!==s.splitText&&null==s.nextSibling?s.nodeValue!=p[0]&&(s.nodeValue=p[0]):(p&&p.length||null!=s)&&b(r,p,n,l,at||null!=c.dangerouslySetInnerHTML),w(r,e.attributes,c),rt=a,r}function b(t,e,n,l,o){var r,i,s,u,p=t.childNodes,d=[],h={},m=0,f=0,b=p.length,y=0,w=e?e.length:0;if(0!==b)for(var _=0;_<b;_++){var k=p[_],x=k[tt],C=w&&x?k._component?k._component.__key:x.key:null;null!=C?(m++,h[C]=k):(x||(void 0!==k.splitText?!o||k.nodeValue.trim():o))&&(d[y++]=k)}if(0!==w)for(var N=0;N<w;N++){s=e[N],u=null;var j=s.key;if(null!=j)m&&void 0!==h[j]&&(u=h[j],h[j]=void 0,m--);else if(!u&&f<y)for(r=f;r<y;r++)if(void 0!==d[r]&&a(i=d[r],s,o)){u=i,d[r]=void 0,r===y-1&&y--,r===f&&f++;break}u=g(u,s,n,l),u&&u!==t&&(N>=b?t.appendChild(u):u!==p[N]&&(u===p[N+1]?c(p[N]):t.insertBefore(u,p[N]||null)))}if(m)for(var S in h)void 0!==h[S]&&v(h[S],!1);for(;f<=y;)void 0!==(u=d[y--])&&v(u,!1)}function v(t,e){var n=t._component;n?S(n):(null!=t[tt]&&t[tt].ref&&t[tt].ref(null),!1!==e&&null!=t[tt]||c(t),y(t))}function y(t){for(t=t.lastChild;t;){var e=t.previousSibling;v(t,!0),t=e}}function w(t,e,n){var l;for(l in n)e&&null!=e[l]||null==n[l]||p(t,l,n[l],n[l]=void 0,rt);for(l in e)"children"===l||"innerHTML"===l||l in n&&e[l]===("value"===l||"checked"===l?t[l]:n[l])||p(t,l,n[l],n[l]=e[l],rt)}function _(t){var e=t.constructor.name;(it[e]||(it[e]=[])).push(t)}function k(t,e,n){var l,o=it[t.name];if(t.prototype&&t.prototype.render?(l=new t(e,n),P.call(l,e,n)):(l=new P(e,n),l.constructor=t,l.render=x),o)for(var r=o.length;r--;)if(o[r].constructor===t){l.nextBase=o[r].nextBase,o.splice(r,1);break}return l}function x(t,e,n){return this.constructor(t,n)}function C(t,e,n,l,r){t._disable||(t._disable=!0,(t.__ref=e.ref)&&delete e.ref,(t.__key=e.key)&&delete e.key,!t.base||r?t.componentWillMount&&t.componentWillMount():t.componentWillReceiveProps&&t.componentWillReceiveProps(e,l),l&&l!==t.context&&(t.prevContext||(t.prevContext=t.context),t.context=l),t.prevProps||(t.prevProps=t.props),t.props=e,t._disable=!1,n!==X&&(n!==Q&&!1===$.syncComponentUpdates&&t.base?o(t):N(t,Q,r)),t.__ref&&t.__ref(t))}function N(t,e,l,o){if(!t._disable){var r,a,i,u=t.props,c=t.state,p=t.context,d=t.prevProps||u,h=t.prevState||c,g=t.prevContext||p,b=t.base,y=t.nextBase,w=b||y,_=t._component,x=!1;if(b&&(t.props=d,t.state=h,t.context=g,e!==Z&&t.shouldComponentUpdate&&!1===t.shouldComponentUpdate(u,c,p)?x=!0:t.componentWillUpdate&&t.componentWillUpdate(u,c,p),t.props=u,t.state=c,t.context=p),t.prevProps=t.prevState=t.prevContext=t.nextBase=null,t._dirty=!1,!x){r=t.render(u,c,p),t.getChildContext&&(p=n(n({},p),t.getChildContext()));var j,P,U=r&&r.nodeName;if("function"==typeof U){var M=s(r);a=_,a&&a.constructor===U&&M.key==a.__key?C(a,M,Q,p,!1):(j=a,t._component=a=k(U,M,p),a.nextBase=a.nextBase||y,a._parentComponent=t,C(a,M,X,p,!1),N(a,Q,l,!0)),P=a.base}else i=w,j=_,j&&(i=t._component=null),(w||e===Q)&&(i&&(i._component=null),P=f(i,r,p,l||!b,w&&w.parentNode,!0));if(w&&P!==w&&a!==_){var O=w.parentNode;O&&P!==O&&(O.replaceChild(P,w),j||(w._component=null,v(w,!1)))}if(j&&S(j),t.base=P,P&&!o){for(var A=t,T=t;T=T._parentComponent;)(A=T).base=P;P._component=A,P._componentConstructor=A.constructor}}if(!b||l?lt.unshift(t):x||(m(),t.componentDidUpdate&&t.componentDidUpdate(d,h,g),$.afterUpdate&&$.afterUpdate(t)),null!=t._renderCallbacks)for(;t._renderCallbacks.length;)t._renderCallbacks.pop().call(t);ot||o||m()}}function j(t,e,n,l){for(var o=t&&t._component,r=o,a=t,i=o&&t._componentConstructor===e.nodeName,u=i,c=s(e);o&&!u&&(o=o._parentComponent);)u=o.constructor===e.nodeName;return o&&u&&(!l||o._component)?(C(o,c,Y,n,l),t=o.base):(r&&!i&&(S(r),t=a=null),o=k(e.nodeName,c,n),t&&!o.nextBase&&(o.nextBase=t,a=null),C(o,c,Q,n,l),t=o.base,a&&t!==a&&(a._component=null,v(a,!1))),t}function S(t){$.beforeUnmount&&$.beforeUnmount(t);var e=t.base;t._disable=!0,t.componentWillUnmount&&t.componentWillUnmount(),t.base=null;var n=t._component;n?S(n):e&&(e[tt]&&e[tt].ref&&e[tt].ref(null),t.nextBase=e,c(e),_(t),y(e)),t.__ref&&t.__ref(null)}function P(t,e){this._dirty=!0,this.context=e,this.props=t,this.state=this.state||{}}function U(t,e,n){return f(n,t,{},!1,e,!1)}function M(t,e){for(var n in e)t[n]=e[n];return t}function O(t,e,n){void 0===n&&(n=ct);var l,o=/(?:\?([^#]*))?(#.*)?$/,r=t.match(o),a={};if(r&&r[1])for(var i=r[1].split("&"),s=0;s<i.length;s++){var u=i[s].split("=");a[decodeURIComponent(u[0])]=decodeURIComponent(u.slice(1).join("="))}t=T(t.replace(o,"")),e=T(e||"");for(var c=Math.max(t.length,e.length),p=0;p<c;p++)if(e[p]&&":"===e[p].charAt(0)){var d=e[p].replace(/(^\:|[+*?]+$)/g,""),h=(e[p].match(/[+*?]+$/)||ct)[0]||"",m=~h.indexOf("+"),f=~h.indexOf("*"),g=t[p]||"";if(!g&&!f&&(h.indexOf("?")<0||m)){l=!1;break}if(a[d]=decodeURIComponent(g),m||f){a[d]=t.slice(p).map(decodeURIComponent).join("/");break}}else if(e[p]!==t[p]){l=!1;break}return(!0===n.default||!1!==l)&&a}function A(t,e){var n=t.attributes||ct,l=e.attributes||ct;return n.default?1:l.default?-1:L(n.path)-L(l.path)||n.path.length-l.path.length}function T(t){return R(t).split("/")}function L(t){return(R(t).match(/\/+/g)||"").length}function R(t){return t.replace(/(^\/+|\/+$)/g,"")}function D(t){return null!=t.__preactattr_||"undefined"!=typeof Symbol&&null!=t[Symbol.for("preactattr")]}function I(t,e){void 0===e&&(e="push"),pt&&pt[e]?pt[e](t):"undefined"!=typeof history&&history[e+"State"]&&history[e+"State"](null,null,t)}function E(){var t;return t=pt&&pt.location?pt.location:pt&&pt.getCurrentLocation?pt.getCurrentLocation():"undefined"!=typeof location?location:mt,""+(t.pathname||"")+(t.search||"")}function W(t,e){return void 0===e&&(e=!1),"string"!=typeof t&&t.url&&(e=t.replace,t=t.url),B(t)&&I(t,e?"replace":"push"),H(t)}function B(t){for(var e=dt.length;e--;)if(dt[e].canRoute(t))return!0;return!1}function H(t){for(var e=!1,n=0;n<dt.length;n++)!0===dt[n].routeTo(t)&&(e=!0);for(var l=ht.length;l--;)ht[l](t);return e}function z(t){if(t&&t.getAttribute){var e=t.getAttribute("href"),n=t.getAttribute("target");if(e&&e.match(/^\//g)&&(!n||n.match(/^_?self$/i)))return W(e)}}function q(t){if(0==t.button)return z(t.currentTarget||t.target||this),V(t)}function V(t){return t&&(t.stopImmediatePropagation&&t.stopImmediatePropagation(),t.stopPropagation&&t.stopPropagation(),t.preventDefault()),!1}function F(t){if(!(t.ctrlKey||t.metaKey||t.altKey||t.shiftKey||0!==t.button)){var e=t.target;do{if("A"===String(e.nodeName).toUpperCase()&&e.getAttribute("href")&&D(e)){if(e.hasAttribute("native"))return;if(z(e))return V(t)}}while(e=e.parentNode)}}function J(){ft||("function"==typeof addEventListener&&(pt||addEventListener("popstate",function(){return H(E())}),addEventListener("click",F)),ft=!0)}var $={},G=[],K=[],X=0,Q=1,Z=2,Y=3,tt="__preactattr_",et=/acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i,nt=[],lt=[],ot=0,rt=!1,at=!1,it={};n(P.prototype,{setState:function(t,e){var l=this.state;this.prevState||(this.prevState=n({},l)),n(l,"function"==typeof t?t(l,this.props):t),e&&(this._renderCallbacks=this._renderCallbacks||[]).push(e),o(this)},forceUpdate:function(t){t&&(this._renderCallbacks=this._renderCallbacks||[]).push(t),N(this,Z)},render:function(){}});var st={h:e,createElement:e,cloneElement:l,Component:P,render:U,rerender:r,options:$},ut=Object.freeze({default:st,h:e,createElement:e,cloneElement:l,Component:P,render:U,rerender:r,options:$}),ct={},pt=null,dt=[],ht=[],mt={},ft=!1,gt=function(t){function e(e){t.call(this,e),e.history&&(pt=e.history),this.state={url:e.url||E()},J()}return t&&(e.__proto__=t),e.prototype=Object.create(t&&t.prototype),e.prototype.constructor=e,e.prototype.shouldComponentUpdate=function(t){return!0!==t.static||(t.url!==this.props.url||t.onChange!==this.props.onChange)},e.prototype.canRoute=function(t){return this.getMatchingChildren(this.props.children,t,!1).length>0},e.prototype.routeTo=function(t){return this._didRoute=!1,this.setState({url:t}),this.updating?this.canRoute(t):(this.forceUpdate(),this._didRoute)},e.prototype.componentWillMount=function(){dt.push(this),this.updating=!0},e.prototype.componentDidMount=function(){var t=this;pt&&(this.unlisten=pt.listen(function(e){t.routeTo(""+(e.pathname||"")+(e.search||""))})),this.updating=!1},e.prototype.componentWillUnmount=function(){"function"==typeof this.unlisten&&this.unlisten(),dt.splice(dt.indexOf(this),1)},e.prototype.componentWillUpdate=function(){this.updating=!0},e.prototype.componentDidUpdate=function(){this.updating=!1},e.prototype.getMatchingChildren=function(t,e,n){return t.slice().sort(A).map(function(t){var o=t.attributes||{},r=o.path,a=O(e,r,o);if(a){if(!1!==n){var i={url:e,matches:a};return M(i,a),l(t,i)}return t}return!1}).filter(Boolean)},e.prototype.render=function(t,e){var n=t.children,l=t.onChange,o=e.url,r=this.getMatchingChildren(n,o,!0),a=r[0]||null;this._didRoute=!!a;var i=this.previousUrl;return o!==i&&(this.previousUrl=o,"function"==typeof l&&l({router:this,url:o,previous:i,active:r,current:a})),a},e}(P),bt=function(t){return e("a",M({onClick:q},t))},vt=function(t){return e(t.component,t)};gt.subscribers=ht,gt.getCurrentUrl=E,gt.route=W,gt.Router=gt,gt.Route=vt,gt.Link=bt;var yt=Object.freeze({subscribers:ht,getCurrentUrl:E,route:W,Router:gt,Route:vt,Link:bt,default:gt}),wt=function(t){return e("a",{class:"header__title",href:"https://github.com/idettman/idettman.github.io",target:"_blank"},e("svg",{viewBox:"0 0 35 12"},e("defs",null,e("linearGradient",{id:"MyGradient",x1:"0%",x2:"0%",y1:"0%",y2:"100%"},e("stop",{offset:"0%","stop-color":"cornflowerblue"}),e("stop",{offset:"100%","stop-color":"#0B598D"}))),e("text",{x:"0",y:"7",style:"fill: url(#MyGradient); font-size: 1rem"},t.title),e("text",{x:"0",y:"10",style:"fill: orange; font-size: 0.34rem"},t.subtitle)))},_t=ut&&st||ut,kt=yt&&gt||yt,xt=function(t,e){return e={exports:{}},t(e,e.exports),e.exports}(function(t,e){function n(t,e){var n={};for(var l in t)e.indexOf(l)>=0||Object.prototype.hasOwnProperty.call(t,l)&&(n[l]=t[l]);return n}function l(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function r(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.Link=e.Match=void 0;var a=Object.assign||function(t){for(var e=arguments,n=1;n<arguments.length;n++){var l=e[n];for(var o in l)Object.prototype.hasOwnProperty.call(l,o)&&(t[o]=l[o])}return t},i=e.Match=function(t){function e(){var n,r,a,i=arguments;l(this,e);for(var s=arguments.length,u=Array(s),c=0;c<s;c++)u[c]=i[c];return n=r=o(this,t.call.apply(t,[this].concat(u))),r.update=function(t){r.nextUrl=t,r.setState({})},a=n,o(r,a)}return r(e,t),e.prototype.componentDidMount=function(){kt.subscribers.push(this.update)},e.prototype.componentWillUnmount=function(){kt.subscribers.splice(kt.subscribers.indexOf(this.update)>>>0,1)},e.prototype.render=function(t){var e=this.nextUrl||(0,kt.getCurrentUrl)(),n=e.replace(/\?.+$/,"");return this.nextUrl=null,t.children[0]&&t.children[0]({url:e,path:n,matches:n===t.path})},e}(_t.Component),s=function(t){var e=t.activeClassName,l=t.path,o=n(t,["activeClassName","path"]);return(0,_t.h)(i,{path:l||o.href},function(t){var n=t.matches;return(0,_t.h)(kt.Link,a({},o,{class:[o.class||o.className,n&&e].filter(Boolean).join(" ")}))})};e.Link=s,e.default=i,i.Link=s}),Ct=xt.Link,Nt=function(t){return e("div",{className:"main-navigation"},Object.keys(t.navData).map(function(n){return e(Ct,{activeClassName:"active",href:t.navData[n].path},t.navData[n].title)}))},jt=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"Development Log"),e("div",null,e("h2",null,"postcss research"),e("article",null,e("h3",null,"curated links related to postcss"),"An awesome list of plugins, articles, resources and other things related to PostCSS ",e("a",{className:"button",href:"https://github.com/jjaderg/awesome-postcss",target:"_blank"},"repo")),e("article",null,e("h3",null,"miscellaneous goodies"),e("ul",null,e("li",null,"Generating grids with Lost"),e("li",null,"Seeing how your designs look to colorblind people with postcss-colorblind"),e("li",null,"Converting px units to rem with postcss-pxtorem"),e("li",null,"Auto-generating an RTL version of your stylesheet with rtlcss"),e("li",null,"Auto-generating a style guide with postcss-style-guide")),e("a",{className:"button",href:"https://webdesign.tutsplus.com/tutorials/postcss-deep-dive-miscellaneous-goodies--cms-24603",target:"_blank"},"repo")),e("article",null,e("h3",null,"postcss css-nesting"),"Add the ability to nest one style rule inside another ",e("a",{href:"https://github.com/jonathantneal/postcss-nesting",target:"_blank"},"site"),e("a",{className:"button",href:"https://github.com/jonathantneal/postcss-nesting",target:"_blank"},"repo"),e("a",{className:"button",href:"http://tabatkins.github.io/specs/css-nesting/",target:"_blank"},"W3C")),e("article",null,e("h3",null,"postcss-easings"),e("a",{className:"button",href:"https://github.com/postcss/postcss-easings",target:"_blank"},"repo")),e("article",null,e("h3",null,"postcss bem + suit"),e("h4",null,"postcss-bem (updated 2 years ago)"),e("code",null,"npm install postcss-bem postcss-nested --save-dev"),e("h4",null,"postcss-atrule-bem (updated 2 months ago)"),e("a",{className:"button",href:"https://github.com/tbremer/postcss-atrule-bem",target:"_blank"},"repo"),e("h4",null,"related article"),e("a",{className:"button",href:"https://webdesign.tutsplus.com/tutorials/using-postcss-with-bem-and-suit-methodologies--cms-24592",target:"_blank"},"postcss with bem and suit methodologies")),e("article",null,e("h3",null,"postcss-partial-import"),"Partial Import lets you use sugary @import statements in CSS, including glob-like and Sass-like behavior. It even lets you generates imports as a scaffolding tool. ",e("a",{className:"button",href:"https://github.com/jonathantneal/postcss-partial-import",target:"_blank"},"repo")),e("article",null,e("h3",null,"lost grid"),e("a",{className:"button",href:"https://github.com/peterramsing/lost",target:"_blank"},"repo"),e("a",{className:"button",href:"https://github.com/peterramsing/lost/wiki/Installation",target:"_blank"},"install guide"),e("a",{className:"button",href:"http://lostgrid.org/lostgrid-example.html",target:"_blank"},"view examples"),e("a",{className:"button",href:"http://lostgrid.org/docs.html#browser-support",target:"_blank"},"browser support matrix")),e("article",null,e("h3",null,"stylelint"),"modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets ",e("a",{className:"button",href:"https://stylelint.io/",target:"_blank"},"repo"))),e("div",null,e("h2",null,"featured tools/libs"),e("article",null,e("h3",null,"brunch"),"front-end build tool with simple declarative config, incremental compilation, an opinionated pipeline and workflow ",e("a",{className:"button",href:"https://github.com/brunch/brunch",target:"_blank"},"repo")),e("article",null,e("h3",null,"fly"),"A generator & coroutine-based task runner for nodejs ",e("a",{className:"button",href:"https://github.com/flyjs/fly",target:"_blank"},"repo")),e("article",null,e("h3",null,"bench-chain"),"benchmark recording averages and graphs ",e("a",{className:"button",href:"https://github.com/fluents/bench-chain",target:"_blank"},"repo"))),e("div",null,e("h2",null,"css modules and specs to check out"),e("dl",null,e("dt",null,"flexbox"),e("dd",null,e("a",{className:"button",href:"https://www.npmjs.com/package/postcss-flexbox",target:"_blank"},"reference site"),e("a",{className:"button",href:"http://learnlayout.com/flexbox.html",target:"_blank"},"learn layout site"),e("a",{className:"button",href:"https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties",target:"_blank"},"visual guide"),e("a",{className:"button",href:"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes",target:"_blank"},"MDN"),e("a",{className:"button",href:"https://www.w3.org/TR/css-flexbox-1/",target:"_blank"},"W3C Module Level 1"))),e("dl",null,e("dt",null,"combinators + multiple selectors"),e("dd",null,e("a",{className:"button",href:"https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors",target:"_blank"},"MDN"),e("a",{className:"button",href:"https://www.w3.org/wiki/CSS/Selectors/combinators/child",target:"_blank"},"W3C")),e("dt",null,"web animations"),e("dd",null,e("a",{className:"button",href:"https://w3c.github.io/web-animations/",target:"_blank"},"W3C")),e("dt",null,"compositing level 1"),e("dd",null,e("a",{className:"button",href:"https://drafts.fxtf.org/compositing-1/",target:"_blank"},"W3C")),e("dt",null,"syntax level 3"),e("dd",null,e("a",{className:"button",href:"https://drafts.csswg.org/css-syntax/",target:"_blank"},"W3C"))),e("h4",null,"draft"),e("dl",null,e("dt",null,"conditional rules module level 3"),e("dd",null,e("a",{className:"button",href:"https://drafts.csswg.org/css-conditional-3/",target:"_blank"},"W3C")),e("dt",null,"css images module level 3"),e("dd",null,e("a",{className:"button",href:"https://drafts.csswg.org/css-images-3/",target:"_blank"},"W3C"))),e("h4",null,"unofficial draft"),e("dl",null,e("dt",null,"css shadow parts"),e("dd",null,e("a",{className:"button",href:"http://tabatkins.github.io/specs/css-shadow-parts/",target:"_blank"},"W3C")))),e("div",null,e("h2",null,"prepack.io"),e("p",null,"This npm module is an interesting idea, though I still have to benchmark optimized javascript vs unoptimized."),e("a",{className:"button",href:"https://prepack.io",target:"_blank"},"https://prepack.io")),e("div",null,e("h2",null,"CSS Custom Properties"),e("a",{href:"https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface",target:"_blank",className:"button"},"W3C"),e("div",{className:"gist"},e("div",null,":root ","{"),e("div",{className:"js-code"},"--platform: 'mobile'"),e("div",null,"}")),e("div",{className:"gist"},"const platform = el.style.var.get(‘platform’)")),e("div",null,e("h2",null,"DOMPoint, DOMQuad and DOMMatrix"),e("a",{className:"button",target:"_blank",href:"https://drafts.fxtf.org/geometry/#dommatrix"},"W3C"),e("div",{className:"gist"},e("div",{className:"js-bracket"},"{"),e("div",{className:"js-code"},"var point = new DOMPoint(2,0)"),e("div",{className:"js-code"},"var quad = new DOMQuad(point,","{","x:12, y:0","}",",","{","x:2,y:10","}",",","{","x:12,y:10","}",")"),e("div",{className:"js-bracket"},"}")),e("img",{width:"209",height:"101",src:"img/matrix4x4.png"})),e("div",null,e("h2",null,"ES2015 const + let"),e("p",null,"ES6 const has nothing to do with immutability of object values. const creates a immutable binding only, the bound object's value can definitely change. The only thing immutable is the binding."),e("p",null,"The only difference between const and let is that const makes the contract that no rebinding will happen.")),e("div",null,e("h2",null,"When not to use arrow functions"),e("ul",null,e("li",null,"In event handlers when you want the function scoped to the object dispatching the event"),e("li",null,"As object methods"),e("li",null,"As prototype methods"))),e("div",null,e("h2",null,"Replace IIFE with ES6 block scope"),e("div",{className:"gist gist-iife"},e("div",{className:"js-bracket"},"{"),e("div",{className:"js-code"},"const component = function()","{}"),e("div",{className:"js-bracket"},"}")),e("p",null,"The const is going to be scoped to that block and unavailable in the global scope")))},n}(P),St=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"Bash Reference"),e("h2",null,"OSX Terminal"),e("ul",{className:"list-plain"},e("li",null,e("h3",null,"Stop a running terminal process"),e("p",null,"Ctrl + C",e("br",null),"Ctrl + Z (suspends)")),e("li",null,e("h3",null,"history"),e("p",null,"show command history")),e("li",null,e("h3",null,"top"),e("p",null,"show current processes")),e("li",null,e("h3",null,"touch"),e("p",null,"touch filename.txt")),e("li",null,e("h3",null,"man"),e("code",null,"man kill")),e("li",null,e("h3",null,"show ip address"),e("code",null,"ipconfig getifaddr en0")),e("li",null,e("h3",null,"wget"),e("code",null,"brew install wget"),e("code",null,"wget http://google.com")),e("li",null,e("h3",null,"flush osx DNS cache"),e("code",null,"sudo killall -HUP mDNSResponder")),e("li",null,e("h3",null,"curl"),e("code",null,"curl --proxy http://proxy.com:80 http://site.com:80"),e("code",null,"curl -O http://site.com/file.ext")),e("li",null,e("h3",null,"nslookup"),e("code",null,"nslookup target.site.net")),e("li",null,e("h3",null,"touch"),e("code",null,"touch filename.ext")),e("li",null,e("h3",null,"show command history"),e("code",null,"history")),e("li",null,e("h3",null,"show current processes"),e("code",null,"top")),e("li",null,e("h3",null,"show external IP address"),e("code",null,"curl ipecho.net/plain; echo")),e("li",null,e("h3",null,"show network IP address"),e("code",null,"ipconfig getifaddr en0")),e("li",null,e("h3",null,"run the last command again"),e("code",null,"!!"),e("code",null,"sudo !! (if you forgot sudo on last command)")),e("li",null,e("h3",null,"start a simple server in any folder"),e("code",null,"python -m SimpleHTTPServer 8000")),e("li",null,e("h3",null,"view file system usage"),e("code",null,"sudo fs_usage")),e("li",null,e("h3",null,"copy large folder/file data"),e("code",null,"ditto -V /old/work/ /new/work/"))))},n}(P),Pt=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"Repos"),e("dl",null,e("dt",null,"this site's source"),e("dd",null,e("a",{href:"https://github.com/idettman/idettman.github.io"},"idettman.github.io")),e("dt",null,"preact project template"),e("dd",null,e("a",{href:"https://github.com/idettman/preact-project-template"},"preact-project-template")),e("dt",null,"preact + matter.js project template"),e("dd",null,e("a",{href:"https://github.com/idettman/preact-matter-template"},"preact-matter-template")),e("dt",null,"minimal react project template"),e("dd",null,e("a",{href:"https://github.com/idettman/react-app-template"},"react-app-template")),e("dt",null,"functional programming tool-set based on Haskel"),e("dd",null,e("a",{href:"https://github.com/idettman/sanctuary"},"sanctuary")),e("dt",null,"monadic streams"),e("dd",null,e("a",{href:"https://github.com/idettman/most"},"most")),e("dt",null,"most"),e("dd",null,e("a",{href:"https://github.com/idettman/hyperapp"},"hyperapp")),e("dt",null,"TFRP scalable state management"),e("dd",null,e("a",{href:"https://github.com/idettman/mobx"},"mobx")),e("dt",null,"javascript story graph engine"),e("dd",null,e("a",{href:"https://github.com/idettman/story-graph"},"story-graph")),e("dt",null,"webidl-externs"),e("dd",null,e("a",{href:"https://github.com/idettman/webidl-externs"},"webidl-externs"))))},n}(P),Ut=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h2",null,"npm modules"),e("h3",null,"terminal helpers"),e("dl",null,e("dt",null,"ora"),e("dd",null,"terminal spinner ",e("a",{href:"https://github.com/sindresorhus/ora"},"repo")),e("dt",null,"yargs"),e("dd",null,"terminal arguments helper ",e("a",{href:"https://github.com/yargs/yargs"},"repo"))),e("h3",null,"build tools / runners / deployment"),e("dl",null,e("dt",null,"bili"),e("dd",null,"build tool using rollup and buble ",e("a",{href:"https://github.com/egoist/bili"},"repo")),e("dt",null,"node-config"),e("dd",null,"application configuration, define a set of default parameters, and extend them for different deployment environments (development, qa, staging, production, etc.) ",e("a",{href:"https://github.com/lorenwest/node-config"},"repo")),e("dt",null,"wright"),e("dd",null,"Hot Module Reloading: at the Virtual Machine level. Compatible with any framework (or no framework at all) ",e("a",{href:"https://github.com/porsager/wright"},"repo"))),e("h3",null,"servers"),e("dl",null,e("dt",null,"socket.io"),e("dd",null,"socket server ",e("a",{href:"https://github.com/socketio/socket.io/ https://socket.io/"},"repo")),e("dt",null,"dnode"),e("dd",null,"socket server ",e("a",{href:"https://www.npmjs.com/package/dnode"},"repo")),e("dt",null,"Porter"),e("dd",null,"REST abstraction layer ",e("a",{href:"https://github.com/0x00A/Porter"},"repo"))),e("h2",null,"javascript libraries"),e("h3",null,"functional programming"),e("dl",null,e("dt",null,"Sanctuary"),e("dd",null,"Sanctuary is a JavaScript functional programming library inspired by Haskell and PureScript. It's stricter than Ramda, and provides a similar suite of functions. Sanctuary promotes programs composed of simple, pure functions. Such programs are easier to comprehend, test, and maintain – they are also a pleasure to write. Sanctuary provides two data types, Maybe and Either, both of which are compatible with Fantasy Land. Thanks to these data types even Sanctuary functions which may fail, such as head, are composable. Sanctuary makes it possible to write safe code without null checks. In JavaScript it's trivial to introduce a possible run-time type error ",e("a",{href:"https://sanctuary.js.org/"},"site")," | ",e("a",{href:"https://github.com/sanctuary-js/sanctuary"},"repo")),e("dt",null,"1-liners"),e("dd",null,"126 one-liner FP functions (and counting). ",e("a",{href:"https://github.com/idettman/1-liners"},"repo"))),e("h3",null,"immutable"),e("dl",null,e("dt",null,"philpl / goethe"),e("dd",null,"immutable color conversion and manipulation ",e("a",{href:"https://github.com/philpl/goethe"},"repo"))),e("h3",null,"FP examples"),e("ul",null,e("li",null,"https://github.com/Gaya/functional-snake"),e("li",null,"https://github.com/cyclejs/todomvc-cycle")),e("h3",null,"most.js"),e("dl",null,e("dt",null,"core-1"),e("dd",null,"reactive event stream used in most.js. high-performance architecture with a lean, functions-only, curried API in a tree-shakeable package ",e("a",{href:"https://github.com/idettman/core-1"},"repo")),e("dt",null,"most-dispatch"),e("dd",null,"selective multicast operator for most.js ",e("a",{href:"https://github.com/mostjs-community/most-dispatch"},"repo")),e("dt",null,"most-test"),e("dd",null,"unit testing tools tools for most,js",e("a",{href:"https://github.com/mostjs-community/most-test"},"repo")),e("dt",null,"hold"),e("dd",null,"Deliver the most recently seen event to new observers ",e("a",{href:"https://github.com/mostjs/hold"},"repo")),e("dt",null,"multicast"),e("dd",null,"Efficient source sharing of an underlying stream ",e("a",{href:"https://github.com/mostjs/multicast"},"repo")),e("dt",null,"prelude"),e("dd",null,"Base functional programming utils for mostjs packages ",e("a",{href:"https://github.com/mostjs/prelude"},"repo")),e("dt",null,"examples"),e("dd",null,e("a",{href:"https://github.com/mostjs/examples"},"repo"))),e("h3",null,"view layer"),e("dl",null,e("dt",null,"domvm"),e("dd",null,"DOM view model. A thin, fast, dependency-free vdom view layer ",e("a",{href:"https://github.com/idettman/domvm"},"repo"))),e("h3",null,"UI"),e("dl",null,e("dt",null,"axiom"),e("dd",null,"UI and UX pattern library ",e("a",{href:"https://brandwatchltd.github.io/axiom/docs/components/dialog"},"site")," | ",e("a",{href:"https://github.com/idettman/axiom"},"repo")),e("dt",null,"draggable"),e("dd",null,"High performance, fully cross browser, full featured drag and drop in a tiny (2k gzipped), dependency-free package ",e("a",{href:"https://github.com/bcherny/draggable"},"repo")),e("dt",null,"drag-drop"),e("dd",null,"html 5 drag and drop component ",e("a",{href:"https://github.com/feross/drag-drop"
-},"repo")),e("dt",null,"html5sortable"),e("dd",null,"Lightweight vanillajs for sortable lists and grids using HTML5 drag + drop API ",e("a",{href:"https://github.com/lukasoppermann/html5sortable"},"repo")),e("dt",null,"interact.js"),e("dd",null,"JavaScript drag and drop, resizing and multi-touch gestures with inertia and snapping ",e("a",{href:"https://github.com/feross/drag-drop"},"repo")),e("dt",null,"slip.js"),e("dd",null,"A tiny library for interactive swiping and reordering of elements in lists on touch screens ",e("a",{href:"https://github.com/pornel/slip"},"repo"))),e("h3",null,"graphics and animation"),e("dl",null,e("dt",null,"between"),e("dd",null,"ES6 Proxy-based JavaScript animation library with API similar to Cocoa Animation block ",e("a",{href:"https://github.com/paraboul/between"},"repo"))),e("h3",null,"event messaging"),e("dl",null,e("dt",null,"event-aggregator"),e("dd",null,"A lightweight pub/sub messaging system for app-wide or per-object loosely coupled events. ",e("a",{href:"https://github.com/aurelia/event-aggregator"},"repo")),e("dt",null,"mitt"),e("dd",null,"200 byte functional event emitter ",e("a",{href:"https://github.com/developit/mitt"},"repo"))),e("h3",null,"dependency injection"),e("dl",null,e("dt",null,"aurelia DI container"),e("dd",null,"A lightweight, extensible dependency injection container for JavaScript ",e("a",{href:"https://github.com/aurelia/dependency-injection"},"repo"))),e("h3",null,"preact examples"),e("dl",null,e("dt",null,"preact website source"),e("dd",null,e("a",{href:"https://github.com/developit/preact-www"},"repo"))),e("h3",null,"math"),e("dl",null,e("dt",null,"monte-carlo-circle"),e("dd",null,"script to estimate Pi and approach it over time ",e("a",{href:"https://github.com/philpl/Monte-Carlo-Circle"},"repo")),e("dt",null,"lateration"),e("dd",null,"Node module for calculating a position using distances from points. ",e("a",{href:"https://github.com/philpl/lateration"},"repo"))))},n}(P),Mt=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"Git Methodology"),e("h2",null,"Before submitting a bug or feature request"),e("p",null,"Capable programmers should always attempt to investigate and fix problems themselves before asking for others to help. Submit a pull request instead of an issue!"),e("ul",null,e("li",null,"Have you actually read the error message?"),e("li",null,"Have you checked for a Troubleshooting wiki/page?"),e("li",null,"Have you searched for similar issues?"),e("li",null,"Have you updated to the latest stable version of node, npm and the packages you're using?"),e("li",null,"Have you checked that it's not a problem with one of the packages you're using, rather than npm itself?"),e("li",null,"Have you looked at what's involved in fixing/implementing this yourself?")),e("h2",null,"A great bug report contains"),e("ul",null,e("li",null,"Context – what were you trying to achieve?"),e("li",null,"Detailed steps to reproduce the error from scratch. Try isolating the minimal amount of code needed to reproduce the error."),e("li",null,"A link to the full corresponding log output."),e("li",null,"Evidence you've looked into solving the problem and ideally, a theory on the cause and a possible solution.")),e("h2",null,"A great feature request contains"),e("ul",null,e("li",null,"The current situation."),e("li",null,"How and why the current situation is problematic."),e("li",null,"A detailed proposal or pull request that demonstrates how the problem could be solved."),e("li",null,"A use case – who needs this feature and why?"),e("li",null,"Any caveats.")),e("h2",null,"A great pull request contains"),e("ul",null,e("li",null,"Minimal changes. Only submit code relevant to the current issue. Other changes should go in new pull requests."),e("li",null,"Minimal commits. Please squash to a single commit before sending your pull request."),e("li",null,"No conflicts. Please rebase off the latest master before submitting."),e("li",null,"Code conforming to the existing conventions and formats. i.e. Please don't reformat whitespace."),e("li",null,"Passing tests. Use existing tests as a reference.")))},n}(P),Ot=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"Definitions"),e("ul",null,e("li",null,e("h2",null,"JavaScript"),e("dl",null,e("dt",null,"closure"),e("dd",null,"a block of code that can be referenced (and passed around) with access to the variables of the enclosing scope. Wrapping statements or an expression in a closure expression does not change their meaning, but merely defers their execution. A block of code which is either a statement list, an expression, or a combination of both. A closure is a function that refers to free variables in it's lexical context"),e("dt",null,"function"),e("dd",null,"a block of code with parameters. It may produce a result value"),e("dt",null,"free variable"),e("dd",null,"is an identifier used but not defined by the closure"),e("dt",null,"imperative programming"),e("dd",null,"a paradigm that describes computation in terms of statements that change a program state"))),e("li",null,e("h2",null,"UX Elements"),e("dl",null,e("dt",null,"accordian menu"),e("dd",null,"menu that repositions surrounding content as it expands and contracts"))),e("li",null,e("h2",null,"Types"),e("ul",null,e("li",null,"menu"),e("li",null,"sub-menu"),e("li",null,"filtered-menu"),e("li",null,"menu bar"),e("li",null,"menu button"),e("li",null,"menu item"),e("li",null,"menu separator"),e("li",null,"tree"),e("li",null,"tab"),e("li",null,"tab bar"),e("li",null,"table"),e("li",null,"table sorter"),e("li",null,"tool-tip"),e("li",null,"tool-bar"),e("li",null,"drag-drop detector"),e("li",null,"date picker"),e("li",null,"combo-box"),e("li",null,"checkbox"),e("li",null,"input"),e("li",null,"grid"),e("li",null,"auto-complete"),e("li",null,"bubble"),e("li",null,"button"),e("li",null,"dialog"),e("li",null,"card"),e("li",null,"hover-card")))))},n}(P),At=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h2",null,"Functional Programming"),e("dl",null,e("dt",null,"functional programming for javascript people"),e("dd",null,e("a",{href:"https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504",target:"_blank",className:"button"},"open article"))))},n}(P),Tt=function(t){function n(){t.apply(this,arguments)}return t&&(n.__proto__=t),n.prototype=Object.create(t&&t.prototype),n.prototype.constructor=n,n.prototype.render=function(){return e("div",null,e("h1",null,"IntelliJ Tips"),e("h2",null,"Live Templates"),e("ul",null,e("li",null,e("a",{href:"https://www.jetbrains.com/help/idea/2017.1/live-templates-2.html",target:"_blank"},"https://www.jetbrains.com/help/idea/2017.1/live-templates-2.html")),e("li",null,e("a",{href:"https://www.jetbrains.com/help/idea/2017.1/creating-and-editing-template-variables.html",target:"_blank"},"https://www.jetbrains.com/help/idea/2017.1/creating-and-editing-template-variables.html"))),e("h3",null,"Examples"),e("ul",null,e("li",null,e("a",{href:"https://gist.github.com/ngryman/4760153",target:"_blank"},"https://gist.github.com/ngryman/4760153")),e("li",null,e("a",{href:"https://gist.github.com/benusher/607898c4f9dd8c83c28600d5fa29f496",target:"_blank"},"https://gist.github.com/benusher/607898c4f9dd8c83c28600d5fa29f496"))),e("h2",null,"Regular Expressions"),e("a",{href:"https://www.jetbrains.com/help/idea/2017.1/regular-expression-syntax-reference.html",target:"_blank"},"https://www.jetbrains.com/help/idea/2017.1/regular-expression-syntax-reference.html"))},n}(P),Lt={home:{path:"/",title:"home"},repos:{path:"/repos",title:"git repos"},stars:{path:"/stars",title:"starred"},definitions:{path:"/definitions",title:"definitions"},bash:{path:"/bash",title:"bash reference"},gitflow:{path:"/gitflow",title:"git methodology"},jetbrains:{path:"/jetbrains",title:"Jetbrains Tips"},functionalProgramming:{path:"/fp",title:"Functional Programming"}},Rt=function(t){return Lt[t].path};U(e("main",null,e(wt,{title:"idettman",subtitle:"prototypical development"}),e(Nt,{navData:Lt}),e("div",{className:"page-content"},e(gt,null,e(jt,{path:Rt("home")}),e(Ot,{path:Rt("definitions")}),e(St,{path:Rt("bash")}),e(Pt,{path:Rt("repos")}),e(Ut,{path:Rt("stars")}),e(Mt,{path:Rt("gitflow")}),e(Tt,{path:Rt("jetbrains")}),e(At,{path:Rt("functionalProgramming")})))),document.body)}();
+(function () {
+'use strict';
+
+const process = {
+	env:{
+		NODE_ENV: "development"
+	}
+}
+
+/** Virtual DOM Node */
+function VNode() {}
+
+/** Global options
+ *	@public
+ *	@namespace options {Object}
+ */
+var options = {
+
+	/** If `true`, `prop` changes trigger synchronous component updates.
+  *	@name syncComponentUpdates
+  *	@type Boolean
+  *	@default true
+  */
+	//syncComponentUpdates: true,
+
+	/** Processes all created VNodes.
+  *	@param {VNode} vnode	A newly-created VNode to normalize/process
+  */
+	//vnode(vnode) { }
+
+	/** Hook invoked after a component is mounted. */
+	// afterMount(component) { }
+
+	/** Hook invoked after the DOM is updated with a component's latest render. */
+	// afterUpdate(component) { }
+
+	/** Hook invoked immediately before a component is unmounted. */
+	// beforeUnmount(component) { }
+};
+
+var stack = [];
+
+var EMPTY_CHILDREN = [];
+
+/** JSX/hyperscript reviver
+*	Benchmarks: https://esbench.com/bench/57ee8f8e330ab09900a1a1a0
+ *	@see http://jasonformat.com/wtf-is-jsx
+ *	@public
+ */
+function h(nodeName, attributes) {
+	var arguments$1 = arguments;
+
+	var children = EMPTY_CHILDREN,
+	    lastSimple,
+	    child,
+	    simple,
+	    i;
+	for (i = arguments.length; i-- > 2;) {
+		stack.push(arguments$1[i]);
+	}
+	if (attributes && attributes.children != null) {
+		if (!stack.length) { stack.push(attributes.children); }
+		delete attributes.children;
+	}
+	while (stack.length) {
+		if ((child = stack.pop()) && child.pop !== undefined) {
+			for (i = child.length; i--;) {
+				stack.push(child[i]);
+			}
+		} else {
+			if (typeof child === 'boolean') { child = null; }
+
+			if (simple = typeof nodeName !== 'function') {
+				if (child == null) { child = ''; }else if (typeof child === 'number') { child = String(child); }else if (typeof child !== 'string') { simple = false; }
+			}
+
+			if (simple && lastSimple) {
+				children[children.length - 1] += child;
+			} else if (children === EMPTY_CHILDREN) {
+				children = [child];
+			} else {
+				children.push(child);
+			}
+
+			lastSimple = simple;
+		}
+	}
+
+	var p = new VNode();
+	p.nodeName = nodeName;
+	p.children = children;
+	p.attributes = attributes == null ? undefined : attributes;
+	p.key = attributes == null ? undefined : attributes.key;
+
+	// if a "vnode hook" is defined, pass every created VNode to it
+	if (options.vnode !== undefined) { options.vnode(p); }
+
+	return p;
+}
+
+/** Copy own-properties from `props` onto `obj`.
+ *	@returns obj
+ *	@private
+ */
+function extend(obj, props) {
+  for (var i in props) {
+    obj[i] = props[i];
+  }return obj;
+}
+
+/** Call a function asynchronously, as soon as possible.
+ *	@param {Function} callback
+ */
+var defer = typeof Promise == 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
+
+function cloneElement(vnode, props) {
+	return h(vnode.nodeName, extend(extend({}, vnode.attributes), props), arguments.length > 2 ? [].slice.call(arguments, 2) : vnode.children);
+}
+
+// DOM properties that should NOT have "px" added when numeric
+var IS_NON_DIMENSIONAL = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i;
+
+/** Managed queue of dirty components to be re-rendered */
+
+var items = [];
+
+function enqueueRender(component) {
+	if (!component._dirty && (component._dirty = true) && items.push(component) == 1) {
+		(options.debounceRendering || defer)(rerender);
+	}
+}
+
+function rerender() {
+	var p,
+	    list = items;
+	items = [];
+	while (p = list.pop()) {
+		if (p._dirty) { renderComponent(p); }
+	}
+}
+
+/** Check if two nodes are equivalent.
+ *	@param {Element} node
+ *	@param {VNode} vnode
+ *	@private
+ */
+function isSameNodeType(node, vnode, hydrating) {
+	if (typeof vnode === 'string' || typeof vnode === 'number') {
+		return node.splitText !== undefined;
+	}
+	if (typeof vnode.nodeName === 'string') {
+		return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
+	}
+	return hydrating || node._componentConstructor === vnode.nodeName;
+}
+
+/** Check if an Element has a given normalized name.
+*	@param {Element} node
+*	@param {String} nodeName
+ */
+function isNamedNode(node, nodeName) {
+	return node.normalizedNodeName === nodeName || node.nodeName.toLowerCase() === nodeName.toLowerCase();
+}
+
+/**
+ * Reconstruct Component-style `props` from a VNode.
+ * Ensures default/fallback values from `defaultProps`:
+ * Own-properties of `defaultProps` not present in `vnode.attributes` are added.
+ * @param {VNode} vnode
+ * @returns {Object} props
+ */
+function getNodeProps(vnode) {
+	var props = extend({}, vnode.attributes);
+	props.children = vnode.children;
+
+	var defaultProps = vnode.nodeName.defaultProps;
+	if (defaultProps !== undefined) {
+		for (var i in defaultProps) {
+			if (props[i] === undefined) {
+				props[i] = defaultProps[i];
+			}
+		}
+	}
+
+	return props;
+}
+
+/** Create an element with the given nodeName.
+ *	@param {String} nodeName
+ *	@param {Boolean} [isSvg=false]	If `true`, creates an element within the SVG namespace.
+ *	@returns {Element} node
+ */
+function createNode(nodeName, isSvg) {
+	var node = isSvg ? document.createElementNS('http://www.w3.org/2000/svg', nodeName) : document.createElement(nodeName);
+	node.normalizedNodeName = nodeName;
+	return node;
+}
+
+/** Remove a child node from its parent if attached.
+ *	@param {Element} node		The node to remove
+ */
+function removeNode(node) {
+	var parentNode = node.parentNode;
+	if (parentNode) { parentNode.removeChild(node); }
+}
+
+/** Set a named attribute on the given Node, with special behavior for some names and event handlers.
+ *	If `value` is `null`, the attribute/handler will be removed.
+ *	@param {Element} node	An element to mutate
+ *	@param {string} name	The name/key to set, such as an event or attribute name
+ *	@param {any} old	The last value that was set for this name/node pair
+ *	@param {any} value	An attribute value, such as a function to be used as an event handler
+ *	@param {Boolean} isSvg	Are we currently diffing inside an svg?
+ *	@private
+ */
+function setAccessor(node, name, old, value, isSvg) {
+	if (name === 'className') { name = 'class'; }
+
+	if (name === 'key') {
+		// ignore
+	} else if (name === 'ref') {
+		if (old) { old(null); }
+		if (value) { value(node); }
+	} else if (name === 'class' && !isSvg) {
+		node.className = value || '';
+	} else if (name === 'style') {
+		if (!value || typeof value === 'string' || typeof old === 'string') {
+			node.style.cssText = value || '';
+		}
+		if (value && typeof value === 'object') {
+			if (typeof old !== 'string') {
+				for (var i in old) {
+					if (!(i in value)) { node.style[i] = ''; }
+				}
+			}
+			for (var i in value) {
+				node.style[i] = typeof value[i] === 'number' && IS_NON_DIMENSIONAL.test(i) === false ? value[i] + 'px' : value[i];
+			}
+		}
+	} else if (name === 'dangerouslySetInnerHTML') {
+		if (value) { node.innerHTML = value.__html || ''; }
+	} else if (name[0] == 'o' && name[1] == 'n') {
+		var useCapture = name !== (name = name.replace(/Capture$/, ''));
+		name = name.toLowerCase().substring(2);
+		if (value) {
+			if (!old) { node.addEventListener(name, eventProxy, useCapture); }
+		} else {
+			node.removeEventListener(name, eventProxy, useCapture);
+		}
+		(node._listeners || (node._listeners = {}))[name] = value;
+	} else if (name !== 'list' && name !== 'type' && !isSvg && name in node) {
+		setProperty(node, name, value == null ? '' : value);
+		if (value == null || value === false) { node.removeAttribute(name); }
+	} else {
+		var ns = isSvg && name !== (name = name.replace(/^xlink\:?/, ''));
+		if (value == null || value === false) {
+			if (ns) { node.removeAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase()); }else { node.removeAttribute(name); }
+		} else if (typeof value !== 'function') {
+			if (ns) { node.setAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase(), value); }else { node.setAttribute(name, value); }
+		}
+	}
+}
+
+/** Attempt to set a DOM property to the given value.
+ *	IE & FF throw for certain property-value combinations.
+ */
+function setProperty(node, name, value) {
+	try {
+		node[name] = value;
+	} catch (e) {}
+}
+
+/** Proxy an event to hooked event handlers
+ *	@private
+ */
+function eventProxy(e) {
+	return this._listeners[e.type](options.event && options.event(e) || e);
+}
+
+/** Queue of components that have been mounted and are awaiting componentDidMount */
+var mounts = [];
+
+/** Diff recursion count, used to track the end of the diff cycle. */
+var diffLevel = 0;
+
+/** Global flag indicating if the diff is currently within an SVG */
+var isSvgMode = false;
+
+/** Global flag indicating if the diff is performing hydration */
+var hydrating = false;
+
+/** Invoke queued componentDidMount lifecycle methods */
+function flushMounts() {
+	var c;
+	while (c = mounts.pop()) {
+		if (options.afterMount) { options.afterMount(c); }
+		if (c.componentDidMount) { c.componentDidMount(); }
+	}
+}
+
+/** Apply differences in a given vnode (and it's deep children) to a real DOM Node.
+ *	@param {Element} [dom=null]		A DOM node to mutate into the shape of the `vnode`
+ *	@param {VNode} vnode			A VNode (with descendants forming a tree) representing the desired DOM structure
+ *	@returns {Element} dom			The created/mutated element
+ *	@private
+ */
+function diff(dom, vnode, context, mountAll, parent, componentRoot) {
+	// diffLevel having been 0 here indicates initial entry into the diff (not a subdiff)
+	if (!diffLevel++) {
+		// when first starting the diff, check if we're diffing an SVG or within an SVG
+		isSvgMode = parent != null && parent.ownerSVGElement !== undefined;
+
+		// hydration is indicated by the existing element to be diffed not having a prop cache
+		hydrating = dom != null && !('__preactattr_' in dom);
+	}
+
+	var ret = idiff(dom, vnode, context, mountAll, componentRoot);
+
+	// append the element if its a new parent
+	if (parent && ret.parentNode !== parent) { parent.appendChild(ret); }
+
+	// diffLevel being reduced to 0 means we're exiting the diff
+	if (! --diffLevel) {
+		hydrating = false;
+		// invoke queued componentDidMount lifecycle methods
+		if (!componentRoot) { flushMounts(); }
+	}
+
+	return ret;
+}
+
+/** Internals of `diff()`, separated to allow bypassing diffLevel / mount flushing. */
+function idiff(dom, vnode, context, mountAll, componentRoot) {
+	var out = dom,
+	    prevSvgMode = isSvgMode;
+
+	// empty values (null, undefined, booleans) render as empty Text nodes
+	if (vnode == null || typeof vnode === 'boolean') { vnode = ''; }
+
+	// Fast case: Strings & Numbers create/update Text nodes.
+	if (typeof vnode === 'string' || typeof vnode === 'number') {
+
+		// update if it's already a Text node:
+		if (dom && dom.splitText !== undefined && dom.parentNode && (!dom._component || componentRoot)) {
+			/* istanbul ignore if */ /* Browser quirk that can't be covered: https://github.com/developit/preact/commit/fd4f21f5c45dfd75151bd27b4c217d8003aa5eb9 */
+			if (dom.nodeValue != vnode) {
+				dom.nodeValue = vnode;
+			}
+		} else {
+			// it wasn't a Text node: replace it with one and recycle the old Element
+			out = document.createTextNode(vnode);
+			if (dom) {
+				if (dom.parentNode) { dom.parentNode.replaceChild(out, dom); }
+				recollectNodeTree(dom, true);
+			}
+		}
+
+		out['__preactattr_'] = true;
+
+		return out;
+	}
+
+	// If the VNode represents a Component, perform a component diff:
+	var vnodeName = vnode.nodeName;
+	if (typeof vnodeName === 'function') {
+		return buildComponentFromVNode(dom, vnode, context, mountAll);
+	}
+
+	// Tracks entering and exiting SVG namespace when descending through the tree.
+	isSvgMode = vnodeName === 'svg' ? true : vnodeName === 'foreignObject' ? false : isSvgMode;
+
+	// If there's no existing element or it's the wrong type, create a new one:
+	vnodeName = String(vnodeName);
+	if (!dom || !isNamedNode(dom, vnodeName)) {
+		out = createNode(vnodeName, isSvgMode);
+
+		if (dom) {
+			// move children into the replacement node
+			while (dom.firstChild) {
+				out.appendChild(dom.firstChild);
+			} // if the previous Element was mounted into the DOM, replace it inline
+			if (dom.parentNode) { dom.parentNode.replaceChild(out, dom); }
+
+			// recycle the old element (skips non-Element node types)
+			recollectNodeTree(dom, true);
+		}
+	}
+
+	var fc = out.firstChild,
+	    props = out['__preactattr_'],
+	    vchildren = vnode.children;
+
+	if (props == null) {
+		props = out['__preactattr_'] = {};
+		for (var a = out.attributes, i = a.length; i--;) {
+			props[a[i].name] = a[i].value;
+		}
+	}
+
+	// Optimization: fast-path for elements containing a single TextNode:
+	if (!hydrating && vchildren && vchildren.length === 1 && typeof vchildren[0] === 'string' && fc != null && fc.splitText !== undefined && fc.nextSibling == null) {
+		if (fc.nodeValue != vchildren[0]) {
+			fc.nodeValue = vchildren[0];
+		}
+	}
+	// otherwise, if there are existing or new children, diff them:
+	else if (vchildren && vchildren.length || fc != null) {
+			innerDiffNode(out, vchildren, context, mountAll, hydrating || props.dangerouslySetInnerHTML != null);
+		}
+
+	// Apply attributes/props from VNode to the DOM Element:
+	diffAttributes(out, vnode.attributes, props);
+
+	// restore previous SVG mode: (in case we're exiting an SVG namespace)
+	isSvgMode = prevSvgMode;
+
+	return out;
+}
+
+/** Apply child and attribute changes between a VNode and a DOM Node to the DOM.
+ *	@param {Element} dom			Element whose children should be compared & mutated
+ *	@param {Array} vchildren		Array of VNodes to compare to `dom.childNodes`
+ *	@param {Object} context			Implicitly descendant context object (from most recent `getChildContext()`)
+ *	@param {Boolean} mountAll
+ *	@param {Boolean} isHydrating	If `true`, consumes externally created elements similar to hydration
+ */
+function innerDiffNode(dom, vchildren, context, mountAll, isHydrating) {
+	var originalChildren = dom.childNodes,
+	    children = [],
+	    keyed = {},
+	    keyedLen = 0,
+	    min = 0,
+	    len = originalChildren.length,
+	    childrenLen = 0,
+	    vlen = vchildren ? vchildren.length : 0,
+	    j,
+	    c,
+	    f,
+	    vchild,
+	    child;
+
+	// Build up a map of keyed children and an Array of unkeyed children:
+	if (len !== 0) {
+		for (var i = 0; i < len; i++) {
+			var _child = originalChildren[i],
+			    props = _child['__preactattr_'],
+			    key = vlen && props ? _child._component ? _child._component.__key : props.key : null;
+			if (key != null) {
+				keyedLen++;
+				keyed[key] = _child;
+			} else if (props || (_child.splitText !== undefined ? isHydrating ? _child.nodeValue.trim() : true : isHydrating)) {
+				children[childrenLen++] = _child;
+			}
+		}
+	}
+
+	if (vlen !== 0) {
+		for (var i = 0; i < vlen; i++) {
+			vchild = vchildren[i];
+			child = null;
+
+			// attempt to find a node based on key matching
+			var key = vchild.key;
+			if (key != null) {
+				if (keyedLen && keyed[key] !== undefined) {
+					child = keyed[key];
+					keyed[key] = undefined;
+					keyedLen--;
+				}
+			}
+			// attempt to pluck a node of the same type from the existing children
+			else if (!child && min < childrenLen) {
+					for (j = min; j < childrenLen; j++) {
+						if (children[j] !== undefined && isSameNodeType(c = children[j], vchild, isHydrating)) {
+							child = c;
+							children[j] = undefined;
+							if (j === childrenLen - 1) { childrenLen--; }
+							if (j === min) { min++; }
+							break;
+						}
+					}
+				}
+
+			// morph the matched/found/created DOM child to match vchild (deep)
+			child = idiff(child, vchild, context, mountAll);
+
+			f = originalChildren[i];
+			if (child && child !== dom && child !== f) {
+				if (f == null) {
+					dom.appendChild(child);
+				} else if (child === f.nextSibling) {
+					removeNode(f);
+				} else {
+					dom.insertBefore(child, f);
+				}
+			}
+		}
+	}
+
+	// remove unused keyed children:
+	if (keyedLen) {
+		for (var i in keyed) {
+			if (keyed[i] !== undefined) { recollectNodeTree(keyed[i], false); }
+		}
+	}
+
+	// remove orphaned unkeyed children:
+	while (min <= childrenLen) {
+		if ((child = children[childrenLen--]) !== undefined) { recollectNodeTree(child, false); }
+	}
+}
+
+/** Recursively recycle (or just unmount) a node and its descendants.
+ *	@param {Node} node						DOM node to start unmount/removal from
+ *	@param {Boolean} [unmountOnly=false]	If `true`, only triggers unmount lifecycle, skips removal
+ */
+function recollectNodeTree(node, unmountOnly) {
+	var component = node._component;
+	if (component) {
+		// if node is owned by a Component, unmount that component (ends up recursing back here)
+		unmountComponent(component);
+	} else {
+		// If the node's VNode had a ref function, invoke it with null here.
+		// (this is part of the React spec, and smart for unsetting references)
+		if (node['__preactattr_'] != null && node['__preactattr_'].ref) { node['__preactattr_'].ref(null); }
+
+		if (unmountOnly === false || node['__preactattr_'] == null) {
+			removeNode(node);
+		}
+
+		removeChildren(node);
+	}
+}
+
+/** Recollect/unmount all children.
+ *	- we use .lastChild here because it causes less reflow than .firstChild
+ *	- it's also cheaper than accessing the .childNodes Live NodeList
+ */
+function removeChildren(node) {
+	node = node.lastChild;
+	while (node) {
+		var next = node.previousSibling;
+		recollectNodeTree(node, true);
+		node = next;
+	}
+}
+
+/** Apply differences in attributes from a VNode to the given DOM Element.
+ *	@param {Element} dom		Element with attributes to diff `attrs` against
+ *	@param {Object} attrs		The desired end-state key-value attribute pairs
+ *	@param {Object} old			Current/previous attributes (from previous VNode or element's prop cache)
+ */
+function diffAttributes(dom, attrs, old) {
+	var name;
+
+	// remove attributes no longer present on the vnode by setting them to undefined
+	for (name in old) {
+		if (!(attrs && attrs[name] != null) && old[name] != null) {
+			setAccessor(dom, name, old[name], old[name] = undefined, isSvgMode);
+		}
+	}
+
+	// add new & update changed attributes
+	for (name in attrs) {
+		if (name !== 'children' && name !== 'innerHTML' && (!(name in old) || attrs[name] !== (name === 'value' || name === 'checked' ? dom[name] : old[name]))) {
+			setAccessor(dom, name, old[name], old[name] = attrs[name], isSvgMode);
+		}
+	}
+}
+
+/** Retains a pool of Components for re-use, keyed on component name.
+ *	Note: since component names are not unique or even necessarily available, these are primarily a form of sharding.
+ *	@private
+ */
+var components = {};
+
+/** Reclaim a component for later re-use by the recycler. */
+function collectComponent(component) {
+	var name = component.constructor.name;
+	(components[name] || (components[name] = [])).push(component);
+}
+
+/** Create a component. Normalizes differences between PFC's and classful Components. */
+function createComponent(Ctor, props, context) {
+	var list = components[Ctor.name],
+	    inst;
+
+	if (Ctor.prototype && Ctor.prototype.render) {
+		inst = new Ctor(props, context);
+		Component.call(inst, props, context);
+	} else {
+		inst = new Component(props, context);
+		inst.constructor = Ctor;
+		inst.render = doRender;
+	}
+
+	if (list) {
+		for (var i = list.length; i--;) {
+			if (list[i].constructor === Ctor) {
+				inst.nextBase = list[i].nextBase;
+				list.splice(i, 1);
+				break;
+			}
+		}
+	}
+	return inst;
+}
+
+/** The `.render()` method for a PFC backing instance. */
+function doRender(props, state, context) {
+	return this.constructor(props, context);
+}
+
+/** Set a component's `props` (generally derived from JSX attributes).
+ *	@param {Object} props
+ *	@param {Object} [opts]
+ *	@param {boolean} [opts.renderSync=false]	If `true` and {@link options.syncComponentUpdates} is `true`, triggers synchronous rendering.
+ *	@param {boolean} [opts.render=true]			If `false`, no render will be triggered.
+ */
+function setComponentProps(component, props, opts, context, mountAll) {
+	if (component._disable) { return; }
+	component._disable = true;
+
+	if (component.__ref = props.ref) { delete props.ref; }
+	if (component.__key = props.key) { delete props.key; }
+
+	if (!component.base || mountAll) {
+		if (component.componentWillMount) { component.componentWillMount(); }
+	} else if (component.componentWillReceiveProps) {
+		component.componentWillReceiveProps(props, context);
+	}
+
+	if (context && context !== component.context) {
+		if (!component.prevContext) { component.prevContext = component.context; }
+		component.context = context;
+	}
+
+	if (!component.prevProps) { component.prevProps = component.props; }
+	component.props = props;
+
+	component._disable = false;
+
+	if (opts !== 0) {
+		if (opts === 1 || options.syncComponentUpdates !== false || !component.base) {
+			renderComponent(component, 1, mountAll);
+		} else {
+			enqueueRender(component);
+		}
+	}
+
+	if (component.__ref) { component.__ref(component); }
+}
+
+/** Render a Component, triggering necessary lifecycle events and taking High-Order Components into account.
+ *	@param {Component} component
+ *	@param {Object} [opts]
+ *	@param {boolean} [opts.build=false]		If `true`, component will build and store a DOM node if not already associated with one.
+ *	@private
+ */
+function renderComponent(component, opts, mountAll, isChild) {
+	if (component._disable) { return; }
+
+	var props = component.props,
+	    state = component.state,
+	    context = component.context,
+	    previousProps = component.prevProps || props,
+	    previousState = component.prevState || state,
+	    previousContext = component.prevContext || context,
+	    isUpdate = component.base,
+	    nextBase = component.nextBase,
+	    initialBase = isUpdate || nextBase,
+	    initialChildComponent = component._component,
+	    skip = false,
+	    rendered,
+	    inst,
+	    cbase;
+
+	// if updating
+	if (isUpdate) {
+		component.props = previousProps;
+		component.state = previousState;
+		component.context = previousContext;
+		if (opts !== 2 && component.shouldComponentUpdate && component.shouldComponentUpdate(props, state, context) === false) {
+			skip = true;
+		} else if (component.componentWillUpdate) {
+			component.componentWillUpdate(props, state, context);
+		}
+		component.props = props;
+		component.state = state;
+		component.context = context;
+	}
+
+	component.prevProps = component.prevState = component.prevContext = component.nextBase = null;
+	component._dirty = false;
+
+	if (!skip) {
+		rendered = component.render(props, state, context);
+
+		// context to pass to the child, can be updated via (grand-)parent component
+		if (component.getChildContext) {
+			context = extend(extend({}, context), component.getChildContext());
+		}
+
+		var childComponent = rendered && rendered.nodeName,
+		    toUnmount,
+		    base;
+
+		if (typeof childComponent === 'function') {
+			// set up high order component link
+
+			var childProps = getNodeProps(rendered);
+			inst = initialChildComponent;
+
+			if (inst && inst.constructor === childComponent && childProps.key == inst.__key) {
+				setComponentProps(inst, childProps, 1, context, false);
+			} else {
+				toUnmount = inst;
+
+				component._component = inst = createComponent(childComponent, childProps, context);
+				inst.nextBase = inst.nextBase || nextBase;
+				inst._parentComponent = component;
+				setComponentProps(inst, childProps, 0, context, false);
+				renderComponent(inst, 1, mountAll, true);
+			}
+
+			base = inst.base;
+		} else {
+			cbase = initialBase;
+
+			// destroy high order component link
+			toUnmount = initialChildComponent;
+			if (toUnmount) {
+				cbase = component._component = null;
+			}
+
+			if (initialBase || opts === 1) {
+				if (cbase) { cbase._component = null; }
+				base = diff(cbase, rendered, context, mountAll || !isUpdate, initialBase && initialBase.parentNode, true);
+			}
+		}
+
+		if (initialBase && base !== initialBase && inst !== initialChildComponent) {
+			var baseParent = initialBase.parentNode;
+			if (baseParent && base !== baseParent) {
+				baseParent.replaceChild(base, initialBase);
+
+				if (!toUnmount) {
+					initialBase._component = null;
+					recollectNodeTree(initialBase, false);
+				}
+			}
+		}
+
+		if (toUnmount) {
+			unmountComponent(toUnmount);
+		}
+
+		component.base = base;
+		if (base && !isChild) {
+			var componentRef = component,
+			    t = component;
+			while (t = t._parentComponent) {
+				(componentRef = t).base = base;
+			}
+			base._component = componentRef;
+			base._componentConstructor = componentRef.constructor;
+		}
+	}
+
+	if (!isUpdate || mountAll) {
+		mounts.unshift(component);
+	} else if (!skip) {
+		// Ensure that pending componentDidMount() hooks of child components
+		// are called before the componentDidUpdate() hook in the parent.
+		// Note: disabled as it causes duplicate hooks, see https://github.com/developit/preact/issues/750
+		// flushMounts();
+
+		if (component.componentDidUpdate) {
+			component.componentDidUpdate(previousProps, previousState, previousContext);
+		}
+		if (options.afterUpdate) { options.afterUpdate(component); }
+	}
+
+	if (component._renderCallbacks != null) {
+		while (component._renderCallbacks.length) {
+			component._renderCallbacks.pop().call(component);
+		}
+	}
+
+	if (!diffLevel && !isChild) { flushMounts(); }
+}
+
+/** Apply the Component referenced by a VNode to the DOM.
+ *	@param {Element} dom	The DOM node to mutate
+ *	@param {VNode} vnode	A Component-referencing VNode
+ *	@returns {Element} dom	The created/mutated element
+ *	@private
+ */
+function buildComponentFromVNode(dom, vnode, context, mountAll) {
+	var c = dom && dom._component,
+	    originalComponent = c,
+	    oldDom = dom,
+	    isDirectOwner = c && dom._componentConstructor === vnode.nodeName,
+	    isOwner = isDirectOwner,
+	    props = getNodeProps(vnode);
+	while (c && !isOwner && (c = c._parentComponent)) {
+		isOwner = c.constructor === vnode.nodeName;
+	}
+
+	if (c && isOwner && (!mountAll || c._component)) {
+		setComponentProps(c, props, 3, context, mountAll);
+		dom = c.base;
+	} else {
+		if (originalComponent && !isDirectOwner) {
+			unmountComponent(originalComponent);
+			dom = oldDom = null;
+		}
+
+		c = createComponent(vnode.nodeName, props, context);
+		if (dom && !c.nextBase) {
+			c.nextBase = dom;
+			// passing dom/oldDom as nextBase will recycle it if unused, so bypass recycling on L229:
+			oldDom = null;
+		}
+		setComponentProps(c, props, 1, context, mountAll);
+		dom = c.base;
+
+		if (oldDom && dom !== oldDom) {
+			oldDom._component = null;
+			recollectNodeTree(oldDom, false);
+		}
+	}
+
+	return dom;
+}
+
+/** Remove a component from the DOM and recycle it.
+ *	@param {Component} component	The Component instance to unmount
+ *	@private
+ */
+function unmountComponent(component) {
+	if (options.beforeUnmount) { options.beforeUnmount(component); }
+
+	var base = component.base;
+
+	component._disable = true;
+
+	if (component.componentWillUnmount) { component.componentWillUnmount(); }
+
+	component.base = null;
+
+	// recursively tear down & recollect high-order component children:
+	var inner = component._component;
+	if (inner) {
+		unmountComponent(inner);
+	} else if (base) {
+		if (base['__preactattr_'] && base['__preactattr_'].ref) { base['__preactattr_'].ref(null); }
+
+		component.nextBase = base;
+
+		removeNode(base);
+		collectComponent(component);
+
+		removeChildren(base);
+	}
+
+	if (component.__ref) { component.__ref(null); }
+}
+
+/** Base Component class.
+ *	Provides `setState()` and `forceUpdate()`, which trigger rendering.
+ *	@public
+ *
+ *	@example
+ *	class MyFoo extends Component {
+ *		render(props, state) {
+ *			return <div />;
+ *		}
+ *	}
+ */
+function Component(props, context) {
+	this._dirty = true;
+
+	/** @public
+  *	@type {object}
+  */
+	this.context = context;
+
+	/** @public
+  *	@type {object}
+  */
+	this.props = props;
+
+	/** @public
+  *	@type {object}
+  */
+	this.state = this.state || {};
+}
+
+extend(Component.prototype, {
+
+	/** Returns a `boolean` indicating if the component should re-render when receiving the given `props` and `state`.
+  *	@param {object} nextProps
+  *	@param {object} nextState
+  *	@param {object} nextContext
+  *	@returns {Boolean} should the component re-render
+  *	@name shouldComponentUpdate
+  *	@function
+  */
+
+	/** Update component state by copying properties from `state` to `this.state`.
+  *	@param {object} state		A hash of state properties to update with new values
+  *	@param {function} callback	A function to be called once component state is updated
+  */
+	setState: function setState(state, callback) {
+		var s = this.state;
+		if (!this.prevState) { this.prevState = extend({}, s); }
+		extend(s, typeof state === 'function' ? state(s, this.props) : state);
+		if (callback) { (this._renderCallbacks = this._renderCallbacks || []).push(callback); }
+		enqueueRender(this);
+	},
+
+
+	/** Immediately perform a synchronous re-render of the component.
+  *	@param {function} callback		A function to be called after component is re-rendered.
+  *	@private
+  */
+	forceUpdate: function forceUpdate(callback) {
+		if (callback) { (this._renderCallbacks = this._renderCallbacks || []).push(callback); }
+		renderComponent(this, 2);
+	},
+
+
+	/** Accepts `props` and `state`, and returns a new Virtual DOM tree to build.
+  *	Virtual DOM is generally constructed via [JSX](http://jasonformat.com/wtf-is-jsx).
+  *	@param {object} props		Props (eg: JSX attributes) received from parent element/component
+  *	@param {object} state		The component's current state
+  *	@param {object} context		Context object (if a parent component has provided context)
+  *	@returns VNode
+  */
+	render: function render() {}
+});
+
+/** Render JSX into a `parent` Element.
+ *	@param {VNode} vnode		A (JSX) VNode to render
+ *	@param {Element} parent		DOM element to render into
+ *	@param {Element} [merge]	Attempt to re-use an existing DOM tree rooted at `merge`
+ *	@public
+ *
+ *	@example
+ *	// render a div into <body>:
+ *	render(<div id="hello">hello!</div>, document.body);
+ *
+ *	@example
+ *	// render a "Thing" component into #foo:
+ *	const Thing = ({ name }) => <span>{ name }</span>;
+ *	render(<Thing name="one" />, document.querySelector('#foo'));
+ */
+function render(vnode, parent, merge) {
+  return diff(merge, vnode, {}, false, parent, false);
+}
+
+var preact = {
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options
+};
+
+
+
+
+
+var preact_esm = Object.freeze({
+	h: h,
+	createElement: h,
+	cloneElement: cloneElement,
+	Component: Component,
+	render: render,
+	rerender: rerender,
+	options: options,
+	default: preact
+});
+
+var EMPTY$1 = {};
+
+function assign(obj, props) {
+	// eslint-disable-next-line guard-for-in
+	for (var i in props) {
+		obj[i] = props[i];
+	}
+	return obj;
+}
+
+function exec(url, route, opts) {
+	if ( opts === void 0 ) { opts=EMPTY$1; }
+
+	var reg = /(?:\?([^#]*))?(#.*)?$/,
+		c = url.match(reg),
+		matches = {},
+		ret;
+	if (c && c[1]) {
+		var p = c[1].split('&');
+		for (var i=0; i<p.length; i++) {
+			var r = p[i].split('=');
+			matches[decodeURIComponent(r[0])] = decodeURIComponent(r.slice(1).join('='));
+		}
+	}
+	url = segmentize(url.replace(reg, ''));
+	route = segmentize(route || '');
+	var max = Math.max(url.length, route.length);
+	for (var i$1=0; i$1<max; i$1++) {
+		if (route[i$1] && route[i$1].charAt(0)===':') {
+			var param = route[i$1].replace(/(^\:|[+*?]+$)/g, ''),
+				flags = (route[i$1].match(/[+*?]+$/) || EMPTY$1)[0] || '',
+				plus = ~flags.indexOf('+'),
+				star = ~flags.indexOf('*'),
+				val = url[i$1] || '';
+			if (!val && !star && (flags.indexOf('?')<0 || plus)) {
+				ret = false;
+				break;
+			}
+			matches[param] = decodeURIComponent(val);
+			if (plus || star) {
+				matches[param] = url.slice(i$1).map(decodeURIComponent).join('/');
+				break;
+			}
+		}
+		else if (route[i$1]!==url[i$1]) {
+			ret = false;
+			break;
+		}
+	}
+	if (opts.default!==true && ret===false) { return false; }
+	return matches;
+}
+
+function pathRankSort(a, b) {
+	var aAttr = a.attributes || EMPTY$1,
+		bAttr = b.attributes || EMPTY$1;
+	if (aAttr.default) { return 1; }
+	if (bAttr.default) { return -1; }
+	var diff = rank(aAttr.path) - rank(bAttr.path);
+	return diff || (aAttr.path.length - bAttr.path.length);
+}
+
+function segmentize(url) {
+	return strip(url).split('/');
+}
+
+function rank(url) {
+	return (strip(url).match(/\/+/g) || '').length;
+}
+
+function strip(url) {
+	return url.replace(/(^\/+|\/+$)/g, '');
+}
+
+var customHistory = null;
+
+var ROUTERS = [];
+
+var subscribers = [];
+
+var EMPTY = {};
+
+function isPreactElement(node) {
+	return node.__preactattr_!=null || typeof Symbol!=='undefined' && node[Symbol.for('preactattr')]!=null;
+}
+
+function setUrl(url, type) {
+	if ( type === void 0 ) { type='push'; }
+
+	if (customHistory && customHistory[type]) {
+		customHistory[type](url);
+	}
+	else if (typeof history!=='undefined' && history[type+'State']) {
+		history[type+'State'](null, null, url);
+	}
+}
+
+
+function getCurrentUrl() {
+	var url;
+	if (customHistory && customHistory.location) {
+		url = customHistory.location;
+	}
+	else if (customHistory && customHistory.getCurrentLocation) {
+		url = customHistory.getCurrentLocation();
+	}
+	else {
+		url = typeof location!=='undefined' ? location : EMPTY;
+	}
+	return ("" + (url.pathname || '') + (url.search || ''));
+}
+
+
+
+function route(url, replace) {
+	if ( replace === void 0 ) { replace=false; }
+
+	if (typeof url!=='string' && url.url) {
+		replace = url.replace;
+		url = url.url;
+	}
+
+	// only push URL into history if we can handle it
+	if (canRoute(url)) {
+		setUrl(url, replace ? 'replace' : 'push');
+	}
+
+	return routeTo(url);
+}
+
+
+/** Check if the given URL can be handled by any router instances. */
+function canRoute(url) {
+	for (var i=ROUTERS.length; i--; ) {
+		if (ROUTERS[i].canRoute(url)) { return true; }
+	}
+	return false;
+}
+
+
+/** Tell all router instances to handle the given URL.  */
+function routeTo(url) {
+	var didRoute = false;
+	for (var i=0; i<ROUTERS.length; i++) {
+		if (ROUTERS[i].routeTo(url)===true) {
+			didRoute = true;
+		}
+	}
+	for (var i$1=subscribers.length; i$1--; ) {
+		subscribers[i$1](url);
+	}
+	return didRoute;
+}
+
+
+function routeFromLink(node) {
+	// only valid elements
+	if (!node || !node.getAttribute) { return; }
+
+	var href = node.getAttribute('href'),
+		target = node.getAttribute('target');
+
+	// ignore links with targets and non-path URLs
+	if (!href || !href.match(/^\//g) || (target && !target.match(/^_?self$/i))) { return; }
+
+	// attempt to route, if no match simply cede control to browser
+	return route(href);
+}
+
+
+function handleLinkClick(e) {
+	if (e.button==0) {
+		routeFromLink(e.currentTarget || e.target || this);
+		return prevent(e);
+	}
+}
+
+
+function prevent(e) {
+	if (e) {
+		if (e.stopImmediatePropagation) { e.stopImmediatePropagation(); }
+		if (e.stopPropagation) { e.stopPropagation(); }
+		e.preventDefault();
+	}
+	return false;
+}
+
+
+function delegateLinkHandler(e) {
+	// ignore events the browser takes care of already:
+	if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.button!==0) { return; }
+
+	var t = e.target;
+	do {
+		if (String(t.nodeName).toUpperCase()==='A' && t.getAttribute('href') && isPreactElement(t)) {
+			if (t.hasAttribute('native')) { return; }
+			// if link is handled by the router, prevent browser defaults
+			if (routeFromLink(t)) {
+				return prevent(e);
+			}
+		}
+	} while ((t=t.parentNode));
+}
+
+
+var eventListenersInitialized = false;
+
+function initEventListeners() {
+	if (eventListenersInitialized){
+		return;
+	}
+
+	if (typeof addEventListener==='function') {
+		if (!customHistory) {
+			addEventListener('popstate', function () { return routeTo(getCurrentUrl()); });
+		}
+		addEventListener('click', delegateLinkHandler);
+	}
+	eventListenersInitialized = true;
+}
+
+
+var Router = (function (Component$$1) {
+	function Router(props) {
+		Component$$1.call(this, props);
+		if (props.history) {
+			customHistory = props.history;
+		}
+
+		this.state = {
+			url: props.url || getCurrentUrl()
+		};
+
+		initEventListeners();
+	}
+
+	if ( Component$$1 ) { Router.__proto__ = Component$$1; }
+	Router.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Router.prototype.constructor = Router;
+
+	Router.prototype.shouldComponentUpdate = function shouldComponentUpdate (props) {
+		if (props.static!==true) { return true; }
+		return props.url!==this.props.url || props.onChange!==this.props.onChange;
+	};
+
+	/** Check if the given URL can be matched against any children */
+	Router.prototype.canRoute = function canRoute (url) {
+		return this.getMatchingChildren(this.props.children, url, false).length > 0;
+	};
+
+	/** Re-render children with a new URL to match against. */
+	Router.prototype.routeTo = function routeTo (url) {
+		this._didRoute = false;
+		this.setState({ url: url });
+
+		// if we're in the middle of an update, don't synchronously re-route.
+		if (this.updating) { return this.canRoute(url); }
+
+		this.forceUpdate();
+		return this._didRoute;
+	};
+
+	Router.prototype.componentWillMount = function componentWillMount () {
+		ROUTERS.push(this);
+		this.updating = true;
+	};
+
+	Router.prototype.componentDidMount = function componentDidMount () {
+		var this$1 = this;
+
+		if (customHistory) {
+			this.unlisten = customHistory.listen(function (location) {
+				this$1.routeTo(("" + (location.pathname || '') + (location.search || '')));
+			});
+		}
+		this.updating = false;
+	};
+
+	Router.prototype.componentWillUnmount = function componentWillUnmount () {
+		if (typeof this.unlisten==='function') { this.unlisten(); }
+		ROUTERS.splice(ROUTERS.indexOf(this), 1);
+	};
+
+	Router.prototype.componentWillUpdate = function componentWillUpdate () {
+		this.updating = true;
+	};
+
+	Router.prototype.componentDidUpdate = function componentDidUpdate () {
+		this.updating = false;
+	};
+
+	Router.prototype.getMatchingChildren = function getMatchingChildren (children, url, invoke) {
+		return children.slice().sort(pathRankSort).map( function (vnode) {
+			var attrs = vnode.attributes || {},
+				path = attrs.path,
+				matches = exec(url, path, attrs);
+			if (matches) {
+				if (invoke!==false) {
+					var newProps = { url: url, matches: matches };
+					assign(newProps, matches);
+					return cloneElement(vnode, newProps);
+				}
+				return vnode;
+			}
+			return false;
+		}).filter(Boolean);
+	};
+
+	Router.prototype.render = function render$$1 (ref, ref$1) {
+		var children = ref.children;
+		var onChange = ref.onChange;
+		var url = ref$1.url;
+
+		var active = this.getMatchingChildren(children, url, true);
+
+		var current = active[0] || null;
+		this._didRoute = !!current;
+
+		var previous = this.previousUrl;
+		if (url!==previous) {
+			this.previousUrl = url;
+			if (typeof onChange==='function') {
+				onChange({
+					router: this,
+					url: url,
+					previous: previous,
+					active: active,
+					current: current
+				});
+			}
+		}
+
+		return current;
+	};
+
+	return Router;
+}(Component));
+
+var Link = function (props) { return (
+	h('a', assign({ onClick: handleLinkClick }, props))
+); };
+
+var Route = function (props) { return h(props.component, props); };
+
+Router.subscribers = subscribers;
+Router.getCurrentUrl = getCurrentUrl;
+Router.route = route;
+Router.Router = Router;
+Router.Route = Route;
+Router.Link = Link;
+
+
+
+
+
+var preactRouter_es = Object.freeze({
+	subscribers: subscribers,
+	getCurrentUrl: getCurrentUrl,
+	route: route,
+	Router: Router,
+	Route: Route,
+	Link: Link,
+	default: Router
+});
+
+var Header = function (props) { return (
+	h( 'a', { class: "header__title", href: "https://github.com/idettman/idettman.github.io", target: "_blank" }, 
+		h( 'svg', { viewBox: "0 0 35 12" }, 
+		h( 'defs', null, 
+			h( 'linearGradient', { id: "MyGradient", x1: "0%", x2: "0%", y1: "0%", y2: "100%" }, 
+				h( 'stop', { offset: "0%", 'stop-color': "cornflowerblue" }), 
+				h( 'stop', { offset: "100%", 'stop-color': "#0B598D" })
+			)
+		), 
+		h( 'text', { x: "0", y: "7", style: "fill: url(#MyGradient); font-size: 1rem" }, props.title), 
+		h( 'text', { x: "0", y: "10", style: "fill: orange; font-size: 0.34rem" }, props.subtitle)
+	)
+	)
+); };
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var _preact = ( preact_esm && preact ) || preact_esm;
+
+var _preactRouter = ( preactRouter_es && Router ) || preactRouter_es;
+
+var match = createCommonjsModule(function (module, exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Link = exports.Match = undefined;
+
+var _extends = Object.assign || function (target) {
+var arguments$1 = arguments;
+ for (var i = 1; i < arguments.length; i++) { var source = arguments$1[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) { continue; } if (!Object.prototype.hasOwnProperty.call(obj, i)) { continue; } target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) { Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } }
+
+var Match = exports.Match = function (_Component) {
+	_inherits(Match, _Component);
+
+	function Match() {
+		var arguments$1 = arguments;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Match);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments$1[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.update = function (url) {
+			_this.nextUrl = url;
+			_this.setState({});
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	Match.prototype.componentDidMount = function componentDidMount() {
+		_preactRouter.subscribers.push(this.update);
+	};
+
+	Match.prototype.componentWillUnmount = function componentWillUnmount() {
+		_preactRouter.subscribers.splice(_preactRouter.subscribers.indexOf(this.update) >>> 0, 1);
+	};
+
+	Match.prototype.render = function render(props) {
+		var url = this.nextUrl || (0, _preactRouter.getCurrentUrl)(),
+		    path = url.replace(/\?.+$/, '');
+		this.nextUrl = null;
+		return props.children[0] && props.children[0]({
+			url: url,
+			path: path,
+			matches: path === props.path
+		});
+	};
+
+	return Match;
+}(_preact.Component);
+
+var Link = function Link(_ref) {
+	var activeClassName = _ref.activeClassName,
+	    path = _ref.path,
+	    props = _objectWithoutProperties(_ref, ['activeClassName', 'path']);
+
+	return (0, _preact.h)(
+		Match,
+		{ path: path || props.href },
+		function (_ref2) {
+			var matches = _ref2.matches;
+			return (0, _preact.h)(_preactRouter.Link, _extends({}, props, { 'class': [props.class || props.className, matches && activeClassName].filter(Boolean).join(' ') }));
+		}
+	);
+};
+
+exports.Link = Link;
+exports.default = Match;
+
+Match.Link = Link;
+});
+
+var match_1 = match.Link;
+
+var MainNavigation = function (props) {
+	return h( 'div', { className: "main-navigation" }, Object.keys(props.navData).map(function (item) {
+		return h( match_1, { activeClassName: "active", href: props.navData[item].path }, props.navData[item].title)
+	}))
+};
+
+var Home = (function (Component$$1) {
+	function Home () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Home.__proto__ = Component$$1;
+	Home.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Home.prototype.constructor = Home;
+
+	Home.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null,
+				h( 'h1', null, "Journal" ),
+				
+				h( 'div', null,
+					h( 'h2', null, "featured tools/libs" ),
+					
+					h( 'article', null,
+						h( 'h3', null, "brunch" ), "front-end build tool with simple declarative config, incremental compilation, an opinionated pipeline and workflow ", h( 'a', { className: "button", href: "https://github.com/brunch/brunch", target: "_blank" }, "repo")
+					),
+					
+					h( 'article', null,
+						h( 'h3', null, "fly" ), "A generator & coroutine-based task runner for nodejs ", h( 'a', { className: "button", href: "https://github.com/flyjs/fly", target: "_blank" }, "repo")
+					),
+					
+					h( 'article', null,
+						h( 'h3', null, "bench-chain" ), "benchmark recording averages and graphs ", h( 'a', { className: "button", href: "https://github.com/fluents/bench-chain", target: "_blank" }, "repo")
+					),
+					
+					h( 'article', null,
+						h( 'h3', null, "prepack.io" ), "This npm module is an interesting idea, though I still have to benchmark optimized javascript vs unoptimized. ", h( 'a', { className: "button", href: "https://prepack.io", target: "_blank" }, "https://prepack.io")
+					)
+					
+				),
+				
+				h( 'div', null,
+					h( 'h2', null, "CSS Custom Properties" ),
+					h( 'a', { href: "https://drafts.csswg.org/css-variables/#the-CSSVariablesMap-interface", target: "_blank", className: "button" }, "W3C"),
+					h( 'div', { className: "gist" },
+						h( 'div', null, ":root ", '{' ),
+							h( 'div', { className: "js-code" }, "--platform: 'mobile'"),
+							h( 'div', null, '}' )
+					),
+					h( 'div', { className: "gist" }, "const platform = el.style.var.get(‘platform’)")
+				),
+				h( 'div', null,
+					h( 'h2', null, "DOMPoint, DOMQuad and DOMMatrix" ),
+					h( 'a', { className: 'button', target: '_blank', href: 'https://drafts.fxtf.org/geometry/#dommatrix' }, "W3C"),
+					h( 'div', { className: 'gist' },
+						h( 'div', { className: 'js-bracket' }, '{'),
+							h( 'div', { className: 'js-code' }, "var point = new DOMPoint(2,0)"),
+							h( 'div', { className: 'js-code' }, "var quad = new DOMQuad(point,", '{', "x:12, y:0", '}', ",", '{', "x:2,y:10", '}', ",", '{', "x:12,y:10", '}', ")"),
+							h( 'div', { className: 'js-bracket' }, '}')
+					),
+					h( 'img', { width: "209", height: "101", src: "img/matrix4x4.png" })
+				)
+			)
+		)
+	};
+
+	return Home;
+}(Component));
+
+var Repos = (function (Component$$1) {
+	function Repos () {
+		Component$$1.apply(this, arguments);
+	}
+
+	if ( Component$$1 ) Repos.__proto__ = Component$$1;
+	Repos.prototype = Object.create( Component$$1 && Component$$1.prototype );
+	Repos.prototype.constructor = Repos;
+
+	Repos.prototype.render = function render$$1 () {
+		return (
+			h( 'div', null, 
+				h( 'h1', null, "Repos" ), 
+				h( 'dl', null, 
+					h( 'dt', null, "this site's source" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/idettman.github.io" }, "idettman.github.io") ), 
+					
+					h( 'dt', null, "preact project template" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/preact-project-template" }, "preact-project-template") ), 
+					
+					h( 'dt', null, "preact + matter.js project template" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/preact-matter-template" }, "preact-matter-template") ), 
+					
+					h( 'dt', null, "minimal react project template" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/react-app-template" }, "react-app-template") ), 
+					
+					h( 'dt', null, "functional programming tool-set based on Haskel" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/sanctuary" }, "sanctuary") ), 
+					
+					h( 'dt', null, "monadic streams" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/most" }, "most") ), 
+						
+					h( 'dt', null, "most" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/hyperapp" }, "hyperapp") ), 
+					
+					h( 'dt', null, "TFRP scalable state management" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/mobx" }, "mobx") ), 
+					
+					h( 'dt', null, "javascript story graph engine" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/story-graph" }, "story-graph") ), 
+					
+					h( 'dt', null, "webidl-externs" ), 
+					h( 'dd', null, h( 'a', { href: "https://github.com/idettman/webidl-externs" }, "webidl-externs") )
+				)
+			)
+		)
+	};
+
+	return Repos;
+}(Component));
+
+var NAV_DATA = {
+	home: {
+		path: '/',
+		title: 'home'
+	},
+	repos: {
+		path: '/repos',
+		title: 'git repos'
+	}
+};
+
+var getNavPath = function (path) { return NAV_DATA[path].path; };
+
+render((
+	h( 'main', null,
+		h( Header, { title: "idettman", subtitle: "prototypical development" }),
+		h( MainNavigation, { navData: NAV_DATA }),
+		h( 'div', { className: "page-content" },
+			h( Router, null,
+				h( Home, { path: getNavPath('home') }),
+				h( Repos, { path: getNavPath('repos') })
+			)
+		)
+	)
+), document.body);
+
+}());
 //# sourceMappingURL=app-bundle.js.map

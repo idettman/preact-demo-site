@@ -1,27 +1,5 @@
 const NODE_ENV = process.env.NODE_ENV
 
-
-/*
-const PLUGIN_PARTIAL_IMPORT = {
-	path: [
-		'css',
-		'css/app',
-		'css/app/component'
-	],
-	extension: '.css',
-	resolve: function (id, basedir, importOptions) {
-		console.log('arguments:', arguments)
-	},
-	onImport: function () {
-		console.log('onImport:', arguments)
-	},
-	load: function (filename, importOptions) {
-		console.log('arguments:', arguments)
-	}
-	
-}
-*/
-
 const PLUGIN_CSSNEXT = {
 	browsers: '> 5%',
 	autoprefixer: false

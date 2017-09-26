@@ -14,7 +14,7 @@ const reporter = require('postcss-reporter/lib/formatter')()
 
 const depGraph = require('./depGraph')
 
-const argv = require('yargs') 
+const argv = require('yargs')
 	.usage(`Usage: $0 [input.css] [OPTIONS] [--output|-o output.css] [--watch]`)
 	.option('o', {
 		alias: 'output',

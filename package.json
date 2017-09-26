@@ -1,19 +1,19 @@
 {
   "name": "idettman.github.io",
   "version": "1.0.0",
-  "description": "idettman's github home",
+  "description": "idettman.github.io source repo",
   "main": "index.js",
   "engines": {
-    "npm": ">=4.2.0",
-    "node": ">=7.9.0"
+    "npm": ">=5.3.0",
+    "node": ">=8.5"
   },
   "scripts": {
     "build": "npm run build-js | npm run build-postcss",
     "build-dev": "npm run build-js-dev | npm run build-postcss-dev",
-    "build-js-dev": "NODE_ENV=development rollup --config build/rollup.config.js",
-    "build-js": "NODE_ENV=production rollup --config build/rollup.config.js",
-    "build-postcss-dev": "NODE_ENV=development node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
-    "build-postcss": "NODE_ENV=production node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
+    "build-js-dev": "set NODE_ENV=development rollup --config build/rollup.config.js",
+    "build-js": "rollup --config build/rollup.config.js",
+    "build-postcss-dev": "set NODE_ENV=development node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
+    "build-postcss": "set NODE_ENV=production node build/postcss.runner.js css/input.css -o style.css -c build/postcss.config.js",
     "rollup": "rollup",
     "serve": "node build/http-server.js"
   },
@@ -42,9 +42,10 @@
     ]
   },
   "dependencies": {
-    "preact": "^8.1.0",
-    "preact-router": "^2.4.5",
-    "preact-async-route": "^1.0.3"
+    "preact": "latest",
+    "preact-async-route": "latest",
+    "preact-redux": "^2.0.3",
+    "preact-router": "latest"
   },
   "devDependencies": {
     "chalk": "latest",
@@ -58,19 +59,17 @@
     "ora": "^1.2.0",
     "postcss": "latest",
     "postcss-bem": "^0.4.1",
-    "postcss-cssnext": "^2.10.0",
-    "postcss-import": "^9.1.0",
+    "postcss-cssnext": "latest",
+    "postcss-import": "latest",
     "postcss-load-config": "^1.2.0",
-    "postcss-modules": "^0.7.0",
-    "postcss-nested": "^2.0.2",
-    "postcss-partial-import": "^3.1.1",
-    "postcss-reporter": "^3.0.0",
+    "postcss-modules": "latest",
+    "postcss-reporter": "latest",
     "read-cache": "^1.0.0",
-    "rollup": "^0.41.6",
-    "rollup-plugin-buble": "^0.15.0",
-    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-buble": "^0.16.0",
+    "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^1.0.2",
+    "rollup-plugin-uglify": "^2.0.1",
     "yargs": "latest"
   }
 }
